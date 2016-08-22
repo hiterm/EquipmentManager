@@ -7,7 +7,7 @@
     <title>トップページ</title>
   </head>
   <body>
-  
+
     <h1>トップページ</h1>
     <p><%= request.getParameter("userName") %> /> さんの備品管理</p>
 
