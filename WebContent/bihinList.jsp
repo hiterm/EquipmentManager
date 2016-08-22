@@ -22,7 +22,14 @@ for (Bihin bihin : list) {
 %>
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
-<td> <%= bihin.getBihinName() %> </td>
+<!-- <td> <%= bihin.getBihinName() %> </td> -->
+<td>
+<!-- 備品IDをPOSTで渡す -->
+<form method="POST" action="RequestServlet" accept-charset="UTF-8">
+<input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
+<a href="javascript:document.hogeForm.submit()"> <%= bihin.getBihinName() %> </a>
+</form>
+</td>
 <td> <%= bihin.getBihinKana() %> </td>
 <td> <%= bihin.getStatus() %> </td>
 <td> <%= bihin.getUserID() %> </td>
