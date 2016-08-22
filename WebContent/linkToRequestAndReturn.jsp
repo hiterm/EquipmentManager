@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<FORM method="POST" action="Sample1" accept-charset="UTF-8">
+<FORM method="POST" accept-charset="UTF-8">
 <h1>申請・返却</h1>
 <a href="request.jsp">・申請</a><br>
-<a href="returnSuccess.jsp">・返却</a><br>
+<a href="StatusChangeReturnServlet.java">・返却</a><br>
 </FORM>
 
 </body>
