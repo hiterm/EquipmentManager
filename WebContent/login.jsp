@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>ログイン</h1>
-      <FORM method="POST" action="" accept-charset="UTF-8">
+      <FORM method="POST" action="LoginServlet" accept-charset="UTF-8">
       ユーザーID : <INPUT type="text" name="userID"><br><br>
       パスワード : <INPUT type="password" name="password"><br><br>
       <INPUT type="submit" value="送信">
