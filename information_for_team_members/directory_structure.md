@@ -1,4 +1,4 @@
-# ディレクトリ構成
+## ディレクトリ構成
 
 - Tomcatは
 `/c/Program Files/Apache Software Foundation/Tomcat 7.0/`
