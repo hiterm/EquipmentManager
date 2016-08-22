@@ -7,11 +7,12 @@
     <title>貸出申請</title>
   </head>
   <body>
+  <h1>選択した備品の確認</h1>
   <br><br><br>
 <p></p>
-  備品名: <%= request.getParameter("bihinName") %>
+  選択した備品: <%= request.getParameter("bihinName") %>
 
-    <FORM method="POST" action="">
+    <FORM method="POST" action="" accept-charset="UTF-8">
       <BR><BR>
       <INPUT TYPE="submit" value="申請">
       <INPUT TYPE="submit" value="返却">
