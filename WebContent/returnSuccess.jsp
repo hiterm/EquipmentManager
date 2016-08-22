@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<FORM method="POST" action="Sample1" accept-charset="UTF-8">
+<FORM method="POST" accept-charset="UTF-8">
 <h1>返却しました</h1>
 <a href="topPage.jsp">・トップページ</a><br>
 <a href="bihinList.jsp">・備品一覧</a><br>
