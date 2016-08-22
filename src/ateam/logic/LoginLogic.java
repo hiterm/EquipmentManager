@@ -2,7 +2,7 @@ package ateam.logic;
 
 public class LoginLogic {
 
-	protected boolean login(String userID, String password){
+	public boolean login(String userID, String password){
 		if(userID.equals("root") && password.equals("root") ){
 			return true;
 		}
