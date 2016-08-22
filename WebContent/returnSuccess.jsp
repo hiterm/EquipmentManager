@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>返却完了</title>
 </head>
 <body>
 
 <FORM method="POST" accept-charset="UTF-8">
 <h1>返却しました</h1>
 <a href="topPage.jsp">・トップページ</a><br>
-<a href="bihinList.jsp">・備品一覧</a><br>
+<a href="StateDisplayServlet">・マイページ</a><br>
 </FORM>
 
 </body>
