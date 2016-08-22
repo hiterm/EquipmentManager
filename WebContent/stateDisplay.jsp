@@ -18,6 +18,7 @@
 <TH>status
 <TH>userID
 <TH>returnDay
+<TH>返却ボタン
 <%
 	for(int i=0; i<list.size(); i++) {
 		Bihin bihin = list.get(i);
@@ -29,6 +30,9 @@
 		<td><%= bihin.getStatus() %>
 		<td><%= bihin.getUserID() %>
 		<td><%= bihin.getReturnDay() %>
+		<td> <form method = "POST" action = "StatusChangeReturnServlet.java" accept-charser = "UTF-8">
+		<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinName() %>">
+		<input type = "submit" value = "返却" ></form>
 <%
 	}
 %>
