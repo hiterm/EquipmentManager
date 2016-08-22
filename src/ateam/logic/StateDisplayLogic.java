@@ -13,7 +13,7 @@ public class StateDisplayLogic {
 
 		// 適当な備品を追加
 		Bihin bihin = new Bihin();
-		bihin.setBihinID("bihinID");
+		bihin.setBihinID("T001");
 		bihin.setBihinKana("ツクエ");
 		bihin.setBihinName("机");
 		bihin.setReturnDay(Date.valueOf("2016-8-30"));
@@ -22,7 +22,7 @@ public class StateDisplayLogic {
 		list.add(bihin);
 
 		Bihin bihin2 = new Bihin();
-		bihin2.setBihinID("bihin2ID");
+		bihin2.setBihinID("W001");
 		bihin2.setBihinKana("ホワイトボード");
 		bihin2.setBihinName("ホワイトボード");
 		bihin2.setReturnDay(Date.valueOf("2016-9-10"));
