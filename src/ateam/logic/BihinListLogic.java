@@ -27,7 +27,7 @@ public class BihinListLogic {
 		bihin2.setReturnDay(Date.valueOf("2016-9-10"));
 		bihin2.setStatus(2);
 		bihin2.setUserID("00002");
-		list.add(bihin);
+		list.add(bihin2);
 
 		return list;
 	}
