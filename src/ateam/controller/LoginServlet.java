@@ -48,10 +48,11 @@ public class LoginServlet extends HttpServlet {
 
 		if(user != null) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("userID", userID);
+			// パスワードを削除
+			user.setPassword("");
+			session.setAttribute("user", user);
 			request.getRequestDispatcher("/MyPageServlet").forward(request, response);
-		}
-		else{
+		} else {
 			request.getRequestDispatcher("/loginFailed.jsp").forward(request, response);
 		}
 	}
