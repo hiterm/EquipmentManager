@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ateam.logic.LoginLogic;
+import ateam.model.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -39,13 +40,12 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int cnt =0;
 		request.setCharacterEncoding("UTF-8");
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
-		cnt = LoginLogic.myUser(userID , password);
+		User user = LoginLogic.myUser(userID , password);
 
-		if(cnt == 1) {
+		if(user != null) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("userID", userID);
 			request.getRequestDispatcher("/MyPageServlet").forward(request, response);
@@ -53,12 +53,6 @@ public class LoginServlet extends HttpServlet {
 		else{
 			request.getRequestDispatcher("/loginFailed.jsp").forward(request, response);
 		}
-		/*if(LoginLogic.login(request.getParameter("userID"), request.getParameter("password"))){
-			request.getRequestDispatcher("topPage.jsp").forward(request, response);
-		}else{
-			request.getRequestDispatcher("loginFailed.jsp").forward(request, response);
-		}*/
-
 	}
 
 }

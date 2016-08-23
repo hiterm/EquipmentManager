@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import ateam.model.User;
+
 public class DBManager {
 	public static Connection getConnection() {
 		Connection con =null;
@@ -49,7 +51,7 @@ public class DBManager {
 	}
 
 	//Login発行
-	public static int simpleLogin(String sql) throws SQLException {
+	public static User simpleLogin(String sql) throws SQLException {
 		Connection con = null;
 		Statement smt = null;
 
@@ -58,10 +60,12 @@ public class DBManager {
 			con = DBManager.getConnection();
 			smt = con.createStatement();
 			ResultSet rs = smt.executeQuery(sql);
-			while(rs.next()) {
-				cnt = rs.getInt("CNT");
+			if (rs.next()) {
+//				cnt = rs.getInt("CNT");
+				return new UserBeansMapping().createFromResultSet(rs);
+			} else {
+				return null;
 			}
-			return cnt;
 		}
 		finally {
 			if (smt != null) {

@@ -11,7 +11,7 @@ public class UserBeansMapping implements ResultSetBeanMapping<User> {
 		bean.setUserID(rs.getString("userID"));
 		bean.setPassword(rs.getString("password"));
 		bean.setUserName(rs.getString("userName"));
-		bean.setUserKana(rs.getString("bihinKana"));
+		bean.setUserKana(rs.getString("userKana"));
 		bean.setDeptID(rs.getString("deptID"));
 		bean.setAuthority(rs.getInt("authority"));
 		return bean;

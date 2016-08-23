@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import ateam.model.Bihin;
+import ateam.model.User;
 
 public class DAO {
 	//全件操作
@@ -30,9 +31,8 @@ public class DAO {
 		}
 	}
 	//ログイン判定
-	public int canLogin(String userID , String pass) {
-		String sql = "SELECT COUNT(*) AS CNT  FROM UserList WHERE userID = '" + userID +"' and password = '" + pass +"';";
-		int count;
+	public User canLogin(String userID , String pass) {
+		String sql = "SELECT *  FROM UserList WHERE userID = '" + userID +"' and password = '" + pass +"';";
 		try {
 			return DBManager.simpleLogin(sql);
 		}
