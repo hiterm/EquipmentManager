@@ -11,7 +11,7 @@
 <body>
 
 <FORM>
-style= "font-size: 150%;" ステータス
+     ステータス
 <SELECT name="status">
 <OPTION value="success">利用可能</OPTION>
 <OPTION value="fail">貸出中</OPTION>
