@@ -10,8 +10,10 @@
     <h1>トップページ</h1>
     <p><%= request.getAttribute("userName") %> /> さんの備品管理</p>
 
-    <a href="BihinListServlet">・備品一覧</a><br>
-    <a href="StateDisplayServlet">     ・マイページ</a><br>
+	<ul>
+    <li><a href="BihinListServlet">備品一覧</a><br></li>
+    <li><a href="StateDisplayServlet">マイページ</a><br></li>
+    </ul>
 
   </body>
 </html>
