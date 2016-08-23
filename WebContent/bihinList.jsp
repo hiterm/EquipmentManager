@@ -9,10 +9,13 @@
 <title>備品一覧</title>
 </head>
 <body>
+<h1>備品一覧</h1>
 
 <form>
      ステータス
 <select name="status">
+<option value="nothing">――――</option>
+<option value="all">全件表示</option>
 <option value="success">利用可能</option>
 <option value="fail">貸出中</option>
 </select>
