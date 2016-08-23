@@ -20,17 +20,24 @@
 <th>返却予定日
 <th>返却ボタン
 <%
-	for(int i=0; i<list.size(); i++) {
-		Bihin bihin = list.get(i);
+	if(list.size() != 0) {
+		for(int i=0; i<list.size(); i++) {
+			Bihin bihin = list.get(i);
 %>
-	<tr>
-		<td><%= bihin.getBihinID() %> </td>
-		<td><%= bihin.getBihinName() %> </td>
-		<td><%= bihin.getReturnDay() %> </td>
-		<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
-		<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinName() %>">
-		<input type = "submit" value = "返却" > </form>
+		<tr>
+			<td><%= bihin.getBihinID() %> </td>
+			<td><%= bihin.getBihinName() %> </td>
+			<td><%= bihin.getReturnDay() %> </td>
+			<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
+			<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinName() %>">
+			<input type = "submit" value = "返却" > </form>
 <%
+		}
+	}
+	else {
+		%>
+		借りてる備品はありません
+		<%
 	}
 %>
 

@@ -1,9 +1,7 @@
 package ateam.logic;
 
-import ateam.model.Bihin;
-
 public class ReturnBihinLogic {
-	public static void ReturnBihin(Bihin bihin) {
+	public static void ReturnBihin(String bihiinID) {
 		// TODO 中身を書く
 	}
 }
