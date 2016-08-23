@@ -9,7 +9,7 @@
 <title>マイページ</title>
 </head>
 <body>
-<h3>マイページ</h3>
+<h3><%= request.getAttribute("userName")%>さんのマイページ</h3>
 <table BORDER ="1">
 
 <tr>
@@ -33,5 +33,6 @@
 %>
 
 </table>
+ <a href="LoginServlet">ログアウト</a>
 </body>
 </html>
