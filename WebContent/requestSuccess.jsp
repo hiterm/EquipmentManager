@@ -13,7 +13,7 @@
 備品ID:<%= request.getParameter("bihinID")%>><br>
 備品名:<%= request.getParameter("bihinName")%>><br>
 返却日:<%= request.getParameter("returnDay")%>><br>
-<a href="topPage.jsp">トップページに戻る</a>
+<a href="myPage.jsp">マイページに戻る</a>
 </form>
 
 </body>

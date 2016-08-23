@@ -10,8 +10,7 @@
 
 <form method="POST" accept-charset="UTF-8">
 <h1>返却しました</h1>
-<a href="topPage.jsp">・トップページ</a><br>
-<a href="StateDisplayServlet">・マイページ</a><br>
+<a href="MyPageServlet">・マイページ</a><br>
 </form>
 
 </body>

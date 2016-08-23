@@ -8,7 +8,7 @@
 </head>
 <body>
  	<h1>申請が失敗しました。</h1><br><br>
-    <a href="topPage.jsp">トップページに戻る</a>
+    <a href="myPage.jsp">マイページに戻る</a>
     <a href="bihinList.jsp">備品一覧に戻る</a>
 </body>
 </html>
