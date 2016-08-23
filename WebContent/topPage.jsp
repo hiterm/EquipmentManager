@@ -15,5 +15,7 @@
     <li><a href="StateDisplayServlet">マイページ</a><br></li>
     </ul>
 
+    <a href="login.jsp">ログアウト</a>
+
   </body>
 </html>
