@@ -12,12 +12,12 @@
 <TABLE BORDER ="1">
 
 <TR>
-<TH>bihinID
-<TH>nihinName
-<TH>bihinKana
-<TH>status
-<TH>userID
-<TH>returnDay
+<TH>備品ID
+<TH>備品名
+<TH>備品名（フリガナ）
+<TH>ステータス
+<TH>貸出ユーザID
+<TH>返却予定日
 <TH>返却ボタン
 <%
 	for(int i=0; i<list.size(); i++) {
