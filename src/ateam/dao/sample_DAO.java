@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import ateam.model.Bihin;
-import ateam.model.User;
 
 public class sample_DAO {
 	//全件操作
@@ -31,11 +30,11 @@ public class sample_DAO {
 		}
 	}
 	//ログイン判定
-	public List<User> canLogin(String userID , String pass) {
-		String sql = "SELECT COUNT(*) AS CNT , password FROM UserKanri WHERE userID = '" + userID +"', password = '"+pass+"'";
-
+	public int canLogin(String userID , String pass) {
+		String sql = "SELECT COUNT(*) AS CNT  FROM UserList WHERE userID = '" + userID +"' and password = '" + pass +"';";
+		int count;
 		try {
-			return DBManager3.simpleFind(sql,new UserBeansMapping());
+			return DBManager3.simpleLogin(sql);
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);

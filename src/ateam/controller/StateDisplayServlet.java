@@ -32,8 +32,8 @@ public class StateDisplayServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//String id = request.getParameter("userID");
-		String id = "U001";
+		String id = request.getParameter("userID");
+		//String id = "U001";
 		//備品モデルのリストにロジックで作成したリストを代入していく。
 		List<Bihin> list=StateDisplayLogic.myBihin(id);
 		//リストをjspに渡す

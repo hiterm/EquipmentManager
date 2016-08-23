@@ -48,6 +48,36 @@ public class DBManager3 {
 		}
 	}
 
+	//Login発行
+	public static int simpleLogin(String sql) throws SQLException {
+		Connection con = null;
+		Statement smt = null;
+
+		try {
+			int cnt = 0;
+			con = DBManager3.getConnection();
+			smt = con.createStatement();
+			ResultSet rs = smt.executeQuery(sql);
+			while(rs.next()) {
+				cnt = rs.getInt("CNT");
+			}
+			return cnt;
+		}
+		finally {
+			if (smt != null) {
+				try {
+					smt.close();
+				}
+				catch(SQLException ignore) {}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				}
+				catch (SQLException ignore) {}
+			}
+		}
+	}
 	//検索SQLを発行
 	public static <T> List<T> simpleFind(String sql , ResultSetBeanMapping<T> mapping) throws SQLException {
 		Connection con = null;
