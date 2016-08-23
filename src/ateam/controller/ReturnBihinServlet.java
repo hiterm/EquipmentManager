@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ateam.logic.ReturnBihinLogic;
-import ateam.model.Bihin;
 
 /**
  * Servlet implementation class ReturnBihinServlet
@@ -37,7 +36,8 @@ public class ReturnBihinServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Bihin bihin = new Bihin();
+		//Bihin bihin = new Bihin();
+		String bihin = (String) request.getAttribute("bihinID");
 		ReturnBihinLogic.ReturnBihin(bihin);
 		request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
 
