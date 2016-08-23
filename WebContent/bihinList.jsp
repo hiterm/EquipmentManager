@@ -21,7 +21,7 @@
 <!-- border=1はとりあえず。cssで指定した方がよい -->
 <table border=1>
 <tr>
-<th>備品ID</th><th>備品名</th><th>備品名（フリガナ）</th><th>ステータス</th>
+<th>備品ID</th><th>備品名</th><th>ステータス</th>
 <th>貸出ユーザID</th><th>返却予定日</th>
 </tr>
 <%
@@ -37,7 +37,6 @@ for (Bihin bihin : list) {
 <a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
 </form>
 </td>
-<td> <%= bihin.getBihinKana() %> </td>
 <td> <%= bihin.getStatus() %> </td>
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>

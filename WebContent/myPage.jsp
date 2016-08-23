@@ -9,6 +9,7 @@
 <title>マイページ</title>
 </head>
 <body>
+<h3>マイページ</h3>
 <table BORDER ="1">
 
 <tr>
