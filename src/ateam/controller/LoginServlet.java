@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		if(LoginLogic.login(request.getParameter("userID"), request.getParameter("password"))){
-			request.getRequestDispatcher("/myPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/MyPageServlet").forward(request, response);
 		}else{
 			request.getRequestDispatcher("/loginFailed.jsp").forward(request, response);
 		}

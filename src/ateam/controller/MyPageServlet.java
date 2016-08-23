@@ -16,7 +16,7 @@ import ateam.model.User;
 /**
  * Servlet implementation class StateDisplayServlet
  */
-@WebServlet("/SmyPageServlet")
+@WebServlet("/MyPageServlet")
 public class MyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
