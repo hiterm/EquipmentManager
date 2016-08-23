@@ -39,10 +39,15 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		if(LoginLogic.login(request.getParameter("userID"), request.getParameter("password"))){
+		String userID = request.getParameter("userID");
+		String password = request.getParameter("password");
+		if(LoginLogic.login(userID, password)){
 			request.getRequestDispatcher("/MyPageServlet").forward(request, response);
 		}else{
-			request.getRequestDispatcher("/loginFailed.jsp").forward(request, response);
+
+			String errorMessage = "ログインに失敗しました";
+			request.setAttribute("errorMessage", errorMessage);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 
 	}
