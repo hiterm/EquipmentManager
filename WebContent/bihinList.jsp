@@ -16,7 +16,6 @@
 <form>
      ステータス
 <select name="status">
-<option value="nothing">――――</option>
 <option value="all">全件表示</option>
 <option value="success">利用可能</option>
 <option value="fail">貸出中</option>
@@ -42,7 +41,12 @@ for (Bihin bihin : list) {
 <a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
 </form>
 </td>
-<td> <%= bihin.getStatus() %> </td>
+<td> <% if(bihin.getStatus() == 1) { %>
+<% out.println("利用可能");%>
+<% } else {%>
+<% out.println("貸出中");%>
+<% }%>
+</td>
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>
 </tr>
