@@ -43,7 +43,8 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
-		User user = LoginLogic.myUser(userID , password);
+
+		User user = LoginLogic.login(userID , password);
 
 		if(user != null) {
 			HttpSession session = request.getSession(true);
