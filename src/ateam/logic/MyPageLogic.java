@@ -7,7 +7,7 @@ import java.util.List;
 import ateam.model.Bihin;
 import ateam.model.User;
 
-public class StateDisplayLogic {
+public class MyPageLogic {
 	public static List<Bihin> getBorrowingBihin(User user) {
 		List<Bihin> list = new ArrayList<Bihin>();
 
