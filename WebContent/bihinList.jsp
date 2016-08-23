@@ -11,7 +11,7 @@
 <body>
 
 <FORM>
-<H5>ステータス</H5>
+     ステータス
 <SELECT name="status">
 <OPTION value="success">利用可能</OPTION>
 <OPTION value="fail">貸出中</OPTION>

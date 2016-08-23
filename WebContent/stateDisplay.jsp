@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>現在の借りている備品表示</title>
+<title>マイページ</title>
 </head>
 <body>
 <TABLE BORDER ="1">
