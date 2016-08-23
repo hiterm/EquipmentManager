@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import ateam.logic.StateDisplayLogic;
 import ateam.model.Bihin;
-import ateam.model.User;
 
 /**
  * Servlet implementation class StateDisplayServlet
@@ -33,8 +32,10 @@ public class StateDisplayServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//String id = request.getParameter("userID");
+		String id = "U001";
 		//備品モデルのリストにロジックで作成したリストを代入していく。
-		List<Bihin> list=StateDisplayLogic.getBorrowingBihin(new User());
+		List<Bihin> list=StateDisplayLogic.myBihin(id);
 		//リストをjspに渡す
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("stateDisplay.jsp").forward(request, response);

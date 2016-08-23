@@ -1,6 +1,7 @@
 package ateam.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ateam.logic.LoginLogic;
+import ateam.model.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -39,11 +41,16 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		if(LoginLogic.login(request.getParameter("userID"), request.getParameter("password"))){
+		String userID = request.getParameter("userID");
+		String password = request.getParameter("password");
+		List<User> list= LoginLogic.myUser(userID , password);
+
+
+		/*if(LoginLogic.login(request.getParameter("userID"), request.getParameter("password"))){
 			request.getRequestDispatcher("topPage.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("loginFailed.jsp").forward(request, response);
-		}
+		}*/
 
 	}
 
