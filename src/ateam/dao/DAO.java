@@ -32,7 +32,7 @@ public class DAO {
 	}
 	//ログイン判定
 	public User canLogin(String userID , String pass) {
-		String sql = "SELECT *  FROM UserList WHERE userID = '" + userID +"' and password = '" + pass +"';";
+		String sql = "SELECT *  FROM UserKanri WHERE userID = '" + userID +"' and password = '" + pass +"';";
 		try {
 			return DBManager.simpleLogin(sql);
 		}
