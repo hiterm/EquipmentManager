@@ -14,7 +14,7 @@
 <form>
      ステータス
 <select name="status">
-<option value="nothing">----</option>
+<option value="nothing">――――</option>
 <option value="all">全件表示</option>
 <option value="success">利用可能</option>
 <option value="fail">貸出中</option>
