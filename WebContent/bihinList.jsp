@@ -10,13 +10,13 @@
 </head>
 <body>
 
-<FORM>
+<form>
      ステータス
-<SELECT name="status">
-<OPTION value="success">利用可能</OPTION>
-<OPTION value="fail">貸出中</OPTION>
-</SELECT>
-</FORM>
+<select name="status">
+<option value="success">利用可能</option>
+<option value="fail">貸出中</option>
+</select>
+</form>
 
 <!-- border=1はとりあえず。cssで指定した方がよい -->
 <table border=1>

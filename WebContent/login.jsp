@@ -8,11 +8,11 @@
   </head>
   <body>
     <h1>ログイン</h1>
-      <FORM method="POST" action="LoginServlet" accept-charset="UTF-8">
-      ユーザーID : <INPUT type="text" name="userID"><br><br>
-      パスワード : <INPUT type="password" name="password"><br><br>
-      <INPUT type="submit" value="送信">
-      <INPUT type="reset" value="リセット">
-    </FORM>
+      <form method="post" action="LoginServlet" accept-charset="UTF-8">
+      ユーザーID : <input type="text" name="userID"><br><br>
+      パスワード : <input type="password" name="password"><br><br>
+      <input type="submit" value="送信">
+      <input type="reset" value="リセット">
+    </form>
   </body>
 </html>
