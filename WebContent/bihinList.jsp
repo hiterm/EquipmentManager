@@ -32,7 +32,7 @@ for (Bihin bihin : list) {
 <td> <%= bihin.getBihinID() %> </td>
 <td>
 <!-- 備品IDをPOSTで渡す -->
-<form name="form<%= bihin.getBihinID() %>" method="POST" action="RequestServlet" accept-charset="UTF-8">
+<form name="form<%= bihin.getBihinID() %>" method="GET" action="RequestServlet" accept-charset="UTF-8">
 <input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
 <a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
 </form>
