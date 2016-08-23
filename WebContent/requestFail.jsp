@@ -7,8 +7,11 @@
 <title>申請失敗</title>
 </head>
 <body>
+
+ <form method="POST" action="LoginServlet" accept-charset="UTF-8">
  	<h1>申請が失敗しました。</h1><br><br>
-    <a href="myPage.jsp">マイページに戻る</a>
-    <a href="bihinList.jsp">備品一覧に戻る</a>
+    <a href="MyPageServlet">マイページに戻る</a>
+    <a href="BihinListServlet">備品一覧に戻る</a>
+    </form>>
 </body>
 </html>
