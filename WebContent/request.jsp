@@ -21,31 +21,31 @@
 <% for(int i=2016; i<2021; i++){%>
 <option value="<%= i %>>"><%= i %></option>
 <% } %>
-</SELECT>
+</select>
 年
 
-<SELECT name="month">
+<select name="month">
 <option value="">--</option>
 <% for(int j=1; j<13; j++){%>
 <option value="<%= j %>>"><%= j %></option>
 <% } %>
-</SELECT>
+</select>
 月
 
-<SELECT name="day">
+<select name="day">
 <option value="">--</option>
 <% for(int k=1; k<32; k++){%>
 <option value="<%= k %>>"><%= k %></option>
 <% } %>
-</SELECT>
+</select>
 日 <br>
 <br>
 
 
 
-    <FORM method="POST" action="" accept-charset="UTF-8">
-      <BR><BR>
+    <form method="POST" action="" accept-charset="UTF-8">
+      <br><br>
       <input type="submit" value="申請">    <a href="BihinListServlet">備品一覧に戻る</a>
-    </FORM>
+    </form>
   </body>
 </html>

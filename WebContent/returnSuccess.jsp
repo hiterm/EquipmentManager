@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<FORM method="POST" accept-charset="UTF-8">
+<form method="POST" accept-charset="UTF-8">
 <h1>返却しました</h1>
 <a href="topPage.jsp">・トップページ</a><br>
 <a href="StateDisplayServlet">・マイページ</a><br>
-</FORM>
+</form>
 
 </body>
 </html>

@@ -9,35 +9,35 @@
 <title>マイページ</title>
 </head>
 <body>
-<TABLE BORDER ="1">
+<table BORDER ="1">
 
-<TR>
-<TH>備品ID
-<TH>備品名
-<TH>備品名（フリガナ）
-<TH>ステータス
-<TH>貸出ユーザID
-<TH>返却予定日
-<TH>返却ボタン
+<tr>
+<th>備品ID
+<th>備品名
+<th>備品名（フリガナ）
+<th>ステータス
+<th>貸出ユーザID
+<th>返却予定日
+<th>返却ボタン
 <%
 	for(int i=0; i<list.size(); i++) {
 		Bihin bihin = list.get(i);
 %>
 	<tr>
-		<td><%= bihin.getBihinID() %>
-		<td><%= bihin.getBihinName() %>
-		<td><%= bihin.getBihinKana() %>
-		<td><%= bihin.getStatus() %>
-		<td><%= bihin.getUserID() %>
-		<td><%= bihin.getReturnDay() %>
+		<td><%= bihin.getBihinID() %> </td>
+		<td><%= bihin.getBihinName() %> </td>
+		<td><%= bihin.getBihinKana() %> </td>
+		<td><%= bihin.getStatus() %> </td>
+		<td><%= bihin.getUserID() %> </td>
+		<td><%= bihin.getReturnDay() %> </td>
 		<td> <form method = "POST" action = "StatusChangeReturnServlet" accept-charset = "UTF-8">
 		<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinName() %>">
-		<input type = "submit" value = "返却" ></form>
+		<input type = "submit" value = "返却" > </form>
 <%
 	}
 %>
 
-</TABLE>
+</table>
 
 <a href="topPage.jsp">トップページに戻る</a>
 </body>
