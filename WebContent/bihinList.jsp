@@ -22,7 +22,6 @@ for (Bihin bihin : list) {
 %>
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
-<!-- <td> <%= bihin.getBihinName() %> </td> -->
 <td>
 <!-- 備品IDをPOSTで渡す -->
 <form name="form<%= bihin.getBihinID() %>" method="POST" action="RequestServlet" accept-charset="UTF-8">
