@@ -56,7 +56,6 @@ public class DBManager {
 		Statement smt = null;
 
 		try {
-			int cnt = 0;
 			con = DBManager.getConnection();
 			smt = con.createStatement();
 			ResultSet rs = smt.executeQuery(sql);
