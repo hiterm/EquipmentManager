@@ -5,13 +5,13 @@ import java.util.List;
 
 import ateam.model.Bihin;
 
-public class sample_DAO {
+public class DAO {
 	//全件操作
 	public List<Bihin> findAll() {
 		String sql = "SELECT * FROM BihinKanri ";
 
 		try {
-			return DBManager3.simpleFind(sql,new BihinBeansMapping());
+			return DBManager.simpleFind(sql,new BihinBeansMapping());
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
@@ -23,7 +23,7 @@ public class sample_DAO {
 		String sql = "SELECT * FROM BihinKanri WHERE userID = "+"'"+userID+"'";
 
 		try {
-			return DBManager3.simpleFind(sql,new BihinBeansMapping());
+			return DBManager.simpleFind(sql,new BihinBeansMapping());
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
@@ -34,7 +34,7 @@ public class sample_DAO {
 		String sql = "SELECT COUNT(*) AS CNT  FROM UserList WHERE userID = '" + userID +"' and password = '" + pass +"';";
 		int count;
 		try {
-			return DBManager3.simpleLogin(sql);
+			return DBManager.simpleLogin(sql);
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
@@ -45,7 +45,7 @@ public class sample_DAO {
 	public int update(String numb) {
 		String sql = "UPDATE BihinKanri SET status = 1 WHERE id = ";
 		try {
-			return DBManager3.simpleUpdate(sql+numb);
+			return DBManager.simpleUpdate(sql+numb);
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);

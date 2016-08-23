@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBManager3 {
+public class DBManager {
 	public static Connection getConnection() {
 		Connection con =null;
 		try {
@@ -28,7 +28,7 @@ public class DBManager3 {
 		Statement smt = null;
 
 		try {
-			con = DBManager3.getConnection();
+			con = DBManager.getConnection();
 			smt = con.createStatement();
 			return smt.executeUpdate(sql);
 		}
@@ -55,7 +55,7 @@ public class DBManager3 {
 
 		try {
 			int cnt = 0;
-			con = DBManager3.getConnection();
+			con = DBManager.getConnection();
 			smt = con.createStatement();
 			ResultSet rs = smt.executeQuery(sql);
 			while(rs.next()) {
@@ -84,7 +84,7 @@ public class DBManager3 {
 		Statement smt = null;
 
 		try {
-			con = DBManager3.getConnection();
+			con = DBManager.getConnection();
 			smt = con.createStatement();
 			ResultSet rs = smt.executeQuery(sql);
 
