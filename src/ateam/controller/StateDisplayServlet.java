@@ -37,7 +37,7 @@ public class StateDisplayServlet extends HttpServlet {
 		List<Bihin> list=StateDisplayLogic.getBorrowingBihin(new User());
 		//リストをjspに渡す
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("stateDisplay.jsp").forward(request, response);
+		request.getRequestDispatcher("/stateDisplay.jsp").forward(request, response);
 	}
 
 	/**

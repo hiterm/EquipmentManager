@@ -32,7 +32,7 @@ public class BihinListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setAttribute("bihinList", BihinListLogic.getAllBihinList());
-		request.getRequestDispatcher("bihinList.jsp").forward(request, response);
+		request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
 	}
 
 	/**
