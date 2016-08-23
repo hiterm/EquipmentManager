@@ -7,7 +7,8 @@
 <title>返却完了</title>
 </head>
 <body>
-
+<h3><I><U>備品管理</U></I></h3>
+<br>
 <form method="POST" accept-charset="UTF-8">
 <h1>返却しました</h1>
 <a href="MyPageServlet">・マイページ</a><br>

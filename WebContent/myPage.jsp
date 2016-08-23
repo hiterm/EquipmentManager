@@ -9,6 +9,8 @@
 <title>マイページ</title>
 </head>
 <body>
+<h3><I><U>備品管理</U></I></h3>
+<br>
 <h3><%= request.getAttribute("userName")%>さんのマイページ</h3>
 <table BORDER ="1">
 

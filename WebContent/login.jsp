@@ -9,7 +9,10 @@
     <title>ログイン</title>
   </head>
   <body>
-    <h1>ログイン</h1>
+<h3><I><U>備品管理</U></I></h3>
+<br>
+   <h2>ログイン</h2>
+
 
     <% if(errorMessage != null){ %>
     <% out.println(errorMessage);%>
