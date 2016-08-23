@@ -14,9 +14,6 @@
 <tr>
 <th>備品ID
 <th>備品名
-<th>備品名（フリガナ）
-<th>ステータス
-<th>貸出ユーザID
 <th>返却予定日
 <th>返却ボタン
 <%
@@ -26,11 +23,8 @@
 	<tr>
 		<td><%= bihin.getBihinID() %> </td>
 		<td><%= bihin.getBihinName() %> </td>
-		<td><%= bihin.getBihinKana() %> </td>
-		<td><%= bihin.getStatus() %> </td>
-		<td><%= bihin.getUserID() %> </td>
 		<td><%= bihin.getReturnDay() %> </td>
-		<td> <form method = "POST" action = "StatusChangeReturnServlet" accept-charset = "UTF-8">
+		<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
 		<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinName() %>">
 		<input type = "submit" value = "返却" > </form>
 <%

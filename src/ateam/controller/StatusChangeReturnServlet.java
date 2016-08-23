@@ -31,9 +31,9 @@ public class StatusChangeReturnServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 Bihin bihin = new Bihin();
+		Bihin bihin = new Bihin();
 		StatusChangeReturnLogic.ReturnBihin(bihin);
-		 request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
+		request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
 	}
 
 }

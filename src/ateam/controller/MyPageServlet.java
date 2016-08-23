@@ -37,7 +37,7 @@ public class MyPageServlet extends HttpServlet {
 		List<Bihin> list=MyPageLogic.getBorrowingBihin(new User());
 		//リストをjspに渡す
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/stateDisplay.jsp").forward(request, response);
+		request.getRequestDispatcher("/myPage.jsp").forward(request, response);
 	}
 
 	/**
