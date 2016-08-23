@@ -44,7 +44,10 @@ public class LoginServlet extends HttpServlet {
 		if(LoginLogic.login(userID, password)){
 			request.getRequestDispatcher("/MyPageServlet").forward(request, response);
 		}else{
-			request.getRequestDispatcher("/loginFailed.jsp").forward(request, response);
+
+			String errorMessage = "ログインに失敗しました";
+			request.setAttribute("errorMessage", errorMessage);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 
 	}
