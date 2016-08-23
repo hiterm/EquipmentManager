@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ateam.logic.StateDisplayLogic;
+import ateam.logic.MyPageLogic;
 import ateam.model.Bihin;
 
 /**
  * Servlet implementation class StateDisplayServlet
  */
-@WebServlet("/StateDisplayServlet")
-public class StateDisplayServlet extends HttpServlet {
+@WebServlet("/MyPageServlet")
+public class MyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StateDisplayServlet() {
+    public MyPageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,10 +35,10 @@ public class StateDisplayServlet extends HttpServlet {
 		String id = request.getParameter("userID");
 		//String id = "U001";
 		//備品モデルのリストにロジックで作成したリストを代入していく。
-		List<Bihin> list=StateDisplayLogic.myBihin(id);
+		List<Bihin> list=MyPageLogic.myBihin(id);
 		//リストをjspに渡す
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("stateDisplay.jsp").forward(request, response);
+		request.getRequestDispatcher("/myPage.jsp").forward(request, response);
 	}
 
 	/**

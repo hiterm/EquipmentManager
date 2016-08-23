@@ -3,15 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- リダイレクト -->
+<meta http-equiv="refresh" content="0; URL=LoginServlet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>返却完了</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-<form method="POST" accept-charset="UTF-8">
-<h1>返却しました</h1>
-<a href="MyPageServlet">・マイページ</a><br>
-</form>
-
+<%-- <% response.sendRedirect("/login.jsp"); %> --%>
 </body>
 </html>

@@ -4,8 +4,6 @@
 
 ## Requirement
 
+- JDK 8
 - MySQL 5.x
 - Tomcat 7.x
-	- Eclipseで実行するときには、
-	C:\Program Files\Apache Software Foundation\Tomcat 7.0\lib
-	に置くこと

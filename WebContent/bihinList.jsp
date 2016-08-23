@@ -9,11 +9,22 @@
 <title>備品一覧</title>
 </head>
 <body>
+<h1>備品一覧</h1>
+
+<form>
+     ステータス
+<select name="status">
+<option value="nothing">――――</option>
+<option value="all">全件表示</option>
+<option value="success">利用可能</option>
+<option value="fail">貸出中</option>
+</select>
+</form>
 
 <!-- border=1はとりあえず。cssで指定した方がよい -->
 <table border=1>
 <tr>
-<th>備品ID</th><th>備品名</th><th>備品名（フリガナ）</th><th>ステータス</th>
+<th>備品ID</th><th>備品名</th><th>ステータス</th>
 <th>貸出ユーザID</th><th>返却予定日</th>
 </tr>
 <%
@@ -22,15 +33,13 @@ for (Bihin bihin : list) {
 %>
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
-<!-- <td> <%= bihin.getBihinName() %> </td> -->
 <td>
 <!-- 備品IDをPOSTで渡す -->
-<form method="POST" action="RequestServlet" accept-charset="UTF-8">
+<form name="form<%= bihin.getBihinID() %>" method="GET" action="RequestServlet" accept-charset="UTF-8">
 <input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
-<a href="javascript:document.hogeForm.submit()"> <%= bihin.getBihinName() %> </a>
+<a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
 </form>
 </td>
-<td> <%= bihin.getBihinKana() %> </td>
 <td> <%= bihin.getStatus() %> </td>
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>
@@ -39,6 +48,8 @@ for (Bihin bihin : list) {
 }
 %>
 </table>
+
+<a href="topPage.jsp">トップページに戻る</a>
 
 </body>
 </html>

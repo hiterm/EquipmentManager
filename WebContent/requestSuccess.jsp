@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>申請完了</title>
 </head>
 <body>
 
-<FORM method="POST" accept-charset="UTF-8">
+<form method="POST" accept-charset="UTF-8">
 <h1>以下の内容で申請が完了しました</h1>
 備品ID:<%= request.getParameter("bihinID")%>><br>
 備品名:<%= request.getParameter("bihinName")%>><br>
 返却日:<%= request.getParameter("returnDay")%>><br>
-<a href="topPage.jsp">トップページに戻る</a>
-</FORM>
+<a href="myPage.jsp">マイページに戻る</a>
+</form>
 
 </body>
 </html>

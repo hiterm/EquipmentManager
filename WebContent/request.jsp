@@ -7,15 +7,45 @@
     <title>貸出申請</title>
   </head>
   <body>
-  <h1>選択した備品の確認</h1>
+  <h1>申請ページ</h1>
+  <%= request.getAttribute("userName") %>さん
   <br><br><br>
 <p></p>
-  選択した備品: <%= request.getParameter("bihinName") %>
+  利用者名:  <%= request.getAttribute ("userName") %><br><br>
+  利用者ID:  <%= request.getAttribute ("userID") %><br><br>
+    備品名:  <%= request.getAttribute ("bihinName") %><br><br>
+    備品ID:  <%= request.getAttribute ("bihinID") %><br><br>
+    返却日:
+<SELECT name="year">
+<option value="">----</option>
+<% for(int i=2016; i<2021; i++){%>
+<option value="<%= i %>>"><%= i %></option>
+<% } %>
+</select>
+年
 
-    <FORM method="POST" action="" accept-charset="UTF-8">
-      <BR><BR>
-      <INPUT TYPE="submit" value="申請">
-      <INPUT TYPE="submit" value="返却">
-    </FORM>
+<select name="month">
+<option value="">--</option>
+<% for(int j=1; j<13; j++){%>
+<option value="<%= j %>>"><%= j %></option>
+<% } %>
+</select>
+月
+
+<select name="day">
+<option value="">--</option>
+<% for(int k=1; k<32; k++){%>
+<option value="<%= k %>>"><%= k %></option>
+<% } %>
+</select>
+日 <br>
+<br>
+
+
+
+    <form method="POST" action="" accept-charset="UTF-8">
+      <br><br>
+      <input type="submit" value="申請">    <a href="BihinListServlet">備品一覧に戻る</a>
+    </form>
   </body>
 </html>

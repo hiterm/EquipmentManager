@@ -8,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ateam.logic.StatusChangeReturnLogic;
+import ateam.logic.ReturnBihinLogic;
 import ateam.model.Bihin;
 
 /**
- * Servlet implementation class StatusChangeReturnServlet
+ * Servlet implementation class ReturnBihinServlet
  */
-@WebServlet("/StatusChangeReturnServlet")
-public class StatusChangeReturnServlet extends HttpServlet {
+@WebServlet("/ReturnBihinServlet")
+public class ReturnBihinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StatusChangeReturnServlet() {
+    public ReturnBihinServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,9 +31,10 @@ public class StatusChangeReturnServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 Bihin bihin = new Bihin();
-		StatusChangeReturnLogic.ReturnBihin(bihin);
-		 request.getRequestDispatcher("returnSuccess.jsp").forward(request, response);
+		Bihin bihin = new Bihin();
+		ReturnBihinLogic.ReturnBihin(bihin);
+		request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
+
 	}
 
 }
