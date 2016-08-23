@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ateam.logic.MyPageLogic;
 import ateam.model.Bihin;
@@ -32,7 +33,8 @@ public class MyPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = request.getParameter("userID");
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("userID");
 		//String id = "U001";
 		//備品モデルのリストにロジックで作成したリストを代入していく。
 		List<Bihin> list=MyPageLogic.myBihin(id);
