@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>トップページ</h1>
-    <p><%= request.getParameter("userName") %> /> さんの備品管理</p>
+    <p><%= request.getAttribute("userName") %> /> さんの備品管理</p>
 
     <a href="BihinListServlet">・備品一覧</a><br>
     <a href="StateDisplayServlet">     ・マイページ</a><br>
