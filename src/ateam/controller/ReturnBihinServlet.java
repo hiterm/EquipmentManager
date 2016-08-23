@@ -12,9 +12,9 @@ import ateam.logic.ReturnBihinLogic;
 import ateam.model.Bihin;
 
 /**
- * Servlet implementation class StatusChangeReturnServlet
+ * Servlet implementation class ReturnBihinServlet
  */
-@WebServlet("/StatusChangeReturnServlet")
+@WebServlet("/ReturnBihinServlet")
 public class ReturnBihinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
