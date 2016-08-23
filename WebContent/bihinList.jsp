@@ -26,7 +26,7 @@
 <table border=1>
 <tr>
 <th>備品ID</th><th>備品名</th><th>ステータス</th>
-<th>貸出ユーザID</th><th>返却予定日</th>
+<th>貸出ユーザ名</th><th>返却予定日</th>
 </tr>
 <%
 List<Bihin> list = (List<Bihin>)request.getAttribute("bihinList");
