@@ -12,7 +12,6 @@
 
     <a href="BihinListServlet">・備品一覧</a><br>
     <a href="StateDisplayServlet">     ・マイページ</a><br>
-    <a href=".jsp">・</a><br>
 
   </body>
 </html>
