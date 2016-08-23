@@ -54,11 +54,6 @@ public class LoginServlet extends HttpServlet {
 		else{
 			request.getRequestDispatcher("/loginFailed.jsp").forward(request, response);
 		}
-		/*if(LoginLogic.login(request.getParameter("userID"), request.getParameter("password"))){
-			request.getRequestDispatcher("topPage.jsp").forward(request, response);
-		}else{
-			request.getRequestDispatcher("loginFailed.jsp").forward(request, response);
-		}*/
 
 	}
 
