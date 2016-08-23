@@ -55,7 +55,5 @@ for (Bihin bihin : list) {
 %>
 </table>
 
-<a href="topPage.jsp">トップページに戻る</a>
-
 </body>
 </html>
