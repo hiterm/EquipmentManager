@@ -30,7 +30,7 @@
 		<td><%= bihin.getStatus() %>
 		<td><%= bihin.getUserID() %>
 		<td><%= bihin.getReturnDay() %>
-		<td> <form method = "POST" action = "StatusChangeReturnServlet" accept-charser = "UTF-8">
+		<td> <form method = "POST" action = "StatusChangeReturnServlet" accept-charset = "UTF-8">
 		<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinName() %>">
 		<input type = "submit" value = "返却" ></form>
 <%

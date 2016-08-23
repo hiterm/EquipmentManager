@@ -10,6 +10,14 @@
 </head>
 <body>
 
+<FORM>
+<H5>ステータス</H5>
+<SELECT name="status">
+<OPTION value="success">利用可能</OPTION>
+<OPTION value="fail">貸出中</OPTION>
+</SELECT>
+</FORM>
+
 <!-- border=1はとりあえず。cssで指定した方がよい -->
 <table border=1>
 <tr>
@@ -24,7 +32,7 @@ for (Bihin bihin : list) {
 <td> <%= bihin.getBihinID() %> </td>
 <td>
 <!-- 備品IDをPOSTで渡す -->
-<form name="form<%= bihin.getBihinID() %>" method="GET" action="RequestServlet" accept-charset="UTF-8">
+<form name="form<%= bihin.getBihinID() %>" method="POST" action="RequestServlet" accept-charset="UTF-8">
 <input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
 <a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
 </form>
