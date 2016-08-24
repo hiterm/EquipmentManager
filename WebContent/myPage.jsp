@@ -12,7 +12,7 @@
 <% User user = (User) session.getAttribute("user"); %>
 <h3><%= user.getUserName() %>さんのマイページ</h3>
 <%
-	if(list.size() == 0) {
+	if(list.size() != 0) {
 		for(int i=0; i<list.size(); i++) {
 			Bihin bihin = list.get(i);
 %>
