@@ -18,7 +18,7 @@ public class BihinDAO {
 
     //全件操作
     public List<Bihin> getBihinList() {
-        String sql = "SELECT * FROM BihinKanri ORDER BY bihinID 'ASC' ";
+        String sql = "SELECT * FROM BihinKanri ORDER BY 'ASC' ";
 
         try {
             return DBManager.getList(sql, mapping);
