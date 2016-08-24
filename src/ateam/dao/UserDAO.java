@@ -6,7 +6,7 @@ import ateam.model.User;
 
 public class UserDAO {
 	//ログイン判定
-	public User getUser(String userID , String pass) {
+	public User getUser(String userID) {
 		String sql = "SELECT *  FROM UserKanri WHERE userID = '" + userID +"';";
 		try {
 			return DBManager.getObject(sql , new UserBeansMapping());
