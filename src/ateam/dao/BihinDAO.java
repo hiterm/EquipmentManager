@@ -18,7 +18,7 @@ public class BihinDAO {
 
     //全件操作
     public List<Bihin> getBihinList() {
-        String sql = "SELECT * FROM BihinKanri ";
+        String sql = "SELECT * FROM BihinKanri ORDER BY bihinID 'ASC' ";
 
         try {
             return DBManager.getList(sql, mapping);
@@ -29,7 +29,7 @@ public class BihinDAO {
 
     //自身の借りているものを表示
     public List<Bihin> getBihinList(String userID) {
-        String sql = "SELECT * FROM BihinKanri WHERE userID = " + "'" + userID + "'";
+        String sql = "SELECT * FROM BihinKanri WHERE userID = " + "'" + userID + "' ORDER BY 'ASC' ";
 
         try {
             return DBManager.getList(sql, mapping);
@@ -40,7 +40,7 @@ public class BihinDAO {
 
     //ステータス変更
     public int update(String num) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '"+num+"'; ";
+        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '"+ num +"'";
         try {
             return DBManager.doUpdate(sql);
         } catch (SQLException e) {
