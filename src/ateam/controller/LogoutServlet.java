@@ -7,28 +7,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import ateam.logic.ReturnBihinLogic;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ReturnBihinServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/ReturnBihinServlet")
-public class ReturnBihinServlet extends HttpServlet {
+@WebServlet("/LogoutServlet")
+public class LogoutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReturnBihinServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doPost(request, response);
+        // sessionが存在しないときは作成しない
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     /**
@@ -37,12 +43,7 @@ public class ReturnBihinServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-
-        String bihinID = request.getParameter("bihinID");
-        ReturnBihinLogic.returnBihin(bihinID);
-
-        request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
-
+        doGet(request, response);
     }
 
 }

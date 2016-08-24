@@ -1,30 +1,37 @@
 package ateam.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import ateam.logic.ReturnBihinLogic;
+import ateam.logic.MyPageLogic;
+import ateam.model.Bihin;
+import ateam.model.User;
 
 /**
- * Servlet implementation class ReturnBihinServlet
+ * Servlet implementation class BihinSearchServlet
  */
-@WebServlet("/ReturnBihinServlet")
-public class ReturnBihinServlet extends HttpServlet {
+@WebServlet("/BihinSearchServlet")
+public class BihinSearchServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReturnBihinServlet() {
+    public BihinSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
@@ -37,12 +44,11 @@ public class ReturnBihinServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-
-        String bihinID = request.getParameter("bihinID");
-        ReturnBihinLogic.returnBihin(bihinID);
-
-        request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
-
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
     }
 
 }
