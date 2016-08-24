@@ -9,6 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>備品一覧</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <style type="text/css">
 h4 {
    color: red;} /* 見出しの色 */
@@ -16,7 +17,7 @@ h4 {
 
 </head>
 <body>
-<h4><I><U>備品管理</U></I></h4>
+<%@ include file="menu.jsp" %>
 <br>
 <h2>備品一覧</h2>
 
@@ -33,18 +34,23 @@ h4 {
 <!-- 備品検索フォーム -->
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;備品検索
 <input type="search" name="search" maxlength="10">
-<input type = "submit" value = "検索" >
+<button type = "submit" class="pure-button" >
+検索
+</button>
 </form>
 
 
 
 
 <!-- border=1はとりあえず。cssで指定した方がよい -->
-<table border=1>
+<table class="pure-table pure-table-striped" border=1>
+<thead>
 <tr>
 <th>備品ID</th><th>備品名</th><th>ステータス</th>
 <th>貸出ユーザ名</th><th>返却予定日</th><th>申請</th>
 </tr>
+</thead>
+<tbody>
 <%
 for (Bihin bihin : list) {
 %>
@@ -61,7 +67,7 @@ for (Bihin bihin : list) {
 <!-- 申請ボタン -->
 <form method="GET" action="RequestServlet" accept-charset="UTF-8">
 <input type="hidden" name="bihinName" value="<%= bihin.getBihinName() %>">
-<button type="submit" <% if (bihin.getStatus() == 2) {%> disabled <% } %>>
+<button type="submit" class="pure-button" <% if (bihin.getStatus() == 2) {%> disabled <% } %>>
 申請
 </button>
 </form>
@@ -70,6 +76,7 @@ for (Bihin bihin : list) {
 <%
 }
 %>
+</tbody>
 </table>
 
 </body>
