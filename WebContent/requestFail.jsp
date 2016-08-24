@@ -6,11 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>申請失敗</title>
 <style type="text/css">
-<<<<<<< HEAD
 h4 {
    color: orange;} /* 見出しの色 */
-=======
->>>>>>> f91e29bafcd0e015e9a852b428d10862a8c4ef90
 h1 {
    color: red;} /* 見出しの色 */
 </style>
