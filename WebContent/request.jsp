@@ -7,7 +7,9 @@
     <title>貸出申請</title>
   </head>
   <body>
-  <h1>申請ページ</h1>
+  <h3><I><U>備品管理</U></I></h3>
+<br>
+  <h2>申請ページ</h2>
   <%= request.getAttribute("userName") %>さん
   <br><br><br>
 <p></p>

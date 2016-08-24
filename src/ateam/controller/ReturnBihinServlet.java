@@ -36,9 +36,10 @@ public class ReturnBihinServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//Bihin bihin = new Bihin();
-		String bihin = (String) request.getAttribute("bihinID");
-		ReturnBihinLogic.returnBihin(bihin);
+
+		String bihinID = request.getParameter("bihinID");
+		ReturnBihinLogic.returnBihin(bihinID);
+
 		request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
 
 	}
