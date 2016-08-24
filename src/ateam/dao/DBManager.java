@@ -59,8 +59,7 @@ public class DBManager {
 			smt = con.createStatement();
 			rs = smt.executeQuery(sql);
 			if (rs.next()) {
-//				cnt = rs.getInt("CNT");
-				return (T) new UserBeansMapping().createFromResultSet(rs);
+				return (T) mapping.createFromResultSet(rs);
 			} else {
 				return null;
 			}
