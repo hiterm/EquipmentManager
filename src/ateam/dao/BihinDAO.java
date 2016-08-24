@@ -6,15 +6,12 @@ import java.util.List;
 import ateam.model.Bihin;
 
 public class BihinDAO {
-	private static BihinDAO instance;
+	private static BihinDAO instance = new BihinDAO();
 	private static BihinBeansMapping mapping = new BihinBeansMapping();
 
 	private BihinDAO() {}
 
-	public static synchronized BihinDAO getInstance() {
-		if (instance == null) {
-			instance = new BihinDAO();
-		}
+	public static BihinDAO getInstance() {
 		return instance;
 	}
 
