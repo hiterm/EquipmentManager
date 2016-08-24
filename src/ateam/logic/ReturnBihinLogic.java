@@ -4,7 +4,7 @@ import ateam.dao.BihinDAO;
 
 public class ReturnBihinLogic {
 	public static void returnBihin(String bihin) {
-		BihinDAO dao = new BihinDAO();
+		BihinDAO dao = BihinDAO.getInstance();
 		dao.update(bihin);
 	}
 }

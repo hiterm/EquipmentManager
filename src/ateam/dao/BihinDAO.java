@@ -6,6 +6,17 @@ import java.util.List;
 import ateam.model.Bihin;
 
 public class BihinDAO {
+	private static BihinDAO instance;
+
+	private BihinDAO() {}
+
+	public static synchronized BihinDAO getInstance() {
+		if (instance == null) {
+			instance = new BihinDAO();
+		}
+		return instance;
+	}
+
 	//全件操作
 	public List<Bihin> getBihinList() {
 		String sql = "SELECT * FROM BihinKanri ";
