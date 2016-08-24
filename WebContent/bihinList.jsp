@@ -35,6 +35,7 @@ for (Bihin bihin : list) {
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
 <td><%= bihin.getBihinName()  %></td>
+<!-- ステータス 1:利用可能 2:貸出中 -->
 <td> <% if(bihin.getStatus() == 1) { %>
 <% out.println("利用可能");%>
 <% } else {%>
@@ -48,7 +49,7 @@ for (Bihin bihin : list) {
 <form method="GET" action="RequestServlet" accept-charset="UTF-8">
 <input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
 <button type="submit" <% if (bihin.getStatus() == 2) {%> disabled <% } %>>
-返却
+申請
 </button>
 </form>
 </td>
