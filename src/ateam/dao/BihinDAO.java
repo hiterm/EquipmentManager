@@ -11,7 +11,7 @@ public class BihinDAO {
 		String sql = "SELECT * FROM BihinKanri ";
 
 		try {
-			return DBManager.simpleFind(sql,new BihinBeansMapping());
+			return DBManager.getList(sql,new BihinBeansMapping());
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
@@ -23,7 +23,7 @@ public class BihinDAO {
 		String sql = "SELECT * FROM BihinKanri WHERE userID = "+"'"+userID+"'";
 
 		try {
-			return DBManager.simpleFind(sql,new BihinBeansMapping());
+			return DBManager.getList(sql,new BihinBeansMapping());
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
@@ -33,7 +33,7 @@ public class BihinDAO {
 	public int update(String numb) {
 		String sql = "UPDATE BihinKanri SET status = 1 WHERE id = ";
 		try {
-			return DBManager.simpleUpdate(sql+numb);
+			return DBManager.doUpdate(sql+numb);
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);

@@ -4,8 +4,8 @@ import ateam.model.User;
 
 public class LoginLogic {
 		public static User login(String id , String pass) {
-			ateam.dao.BihinDAO dao = new ateam.dao.BihinDAO();
-			return dao.canLogin(id , pass);
+			ateam.dao.UserDAO dao = new ateam.dao.UserDAO();
+			return dao.getUser(id , pass);
 		}
 
 }

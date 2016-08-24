@@ -37,7 +37,7 @@ public class MyPageServlet extends HttpServlet {
 		//String id = (String) session.getAttribute("userID");
 		String id = "U001";
 		//備品モデルのリストにロジックで作成したリストを代入していく。
-		List<Bihin> list=MyPageLogic.myBihin(id);
+		List<Bihin> list=MyPageLogic.getBihinList(id);
 		//リストをjspに渡す
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/myPage.jsp").forward(request, response);

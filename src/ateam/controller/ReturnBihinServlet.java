@@ -38,7 +38,7 @@ public class ReturnBihinServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//Bihin bihin = new Bihin();
 		String bihin = (String) request.getAttribute("bihinID");
-		ReturnBihinLogic.ReturnBihin(bihin);
+		ReturnBihinLogic.returnBihin(bihin);
 		request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
 
 	}
