@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import ateam.logic.MyPageLogic;
 import ateam.model.Bihin;
+import ateam.model.User;
 
 /**
  * Servlet implementation class StateDisplayServlet
@@ -34,10 +35,9 @@ public class MyPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		//String id = (String) session.getAttribute("userID");
-		String id = "U001";
+		User user = (User) session.getAttribute("user");
 		//備品モデルのリストにロジックで作成したリストを代入していく。
-		List<Bihin> list=MyPageLogic.getBihinList(id);
+		List<Bihin> list=MyPageLogic.getBihinList(user.getUserID());
 		//リストをjspに渡す
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/myPage.jsp").forward(request, response);
