@@ -8,14 +8,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>ログイン</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <style type="text/css">
-h4 {
-   color: orange;} /* 見出しの色 */
-</style>
 
   </head>
   <body>
-<h4><I><U>備品管理</U></I></h4>
+<h4><I><U>EquipmentManager</U></I></h4>
 <br>
    <h2>ログイン</h2>
 
