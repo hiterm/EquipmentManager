@@ -46,28 +46,33 @@
 				<th>備品名</th>
 				<th>返却予定日</th>
 				<th>返却ボタン</th>
+			</tr>
 		</thead>
 
 		<tbody>
 		<tr>
-			<td><%=bihin.getBihinID()%></td>
-			<td><%=bihin.getBihinName()%></td>
-			<td><%=bihin.getReturnDay()%></td>
-			<td>
-				<form method="POST" action="ReturnBihinServlet"
-					accept-charset="UTF-8">
-					<input type="hidden" name="bihinID"
-						value="<%=bihin.getBihinName()%>">
-						<button type="submit" class="pure-button">返却</button>
-				</form> <%
-     }
-     } else {
- %>
-				<table>現在借りてる備品はありません
-				</table> <%
-     }
- %>
+			<td><%= bihin.getBihinID() %> </td>
+			<td><%= bihin.getBihinName() %> </td>
+			<td><%= bihin.getReturnDay() %> </td>
+			<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
+			<input type = "hidden" name = "userID" value = "<%= bihin.getUserID() %>">
+			<button type = "submit" class="pure-button">返却</button> </form>
+			</td>
+		</tr>
+<%
+		}
+	}
+	else {
+		%>
+		<tr><td>現在借りている備品はありません</td></tr>
+		<%
+	}
+%>
+</tbody>
+</table>
 
-	</table>
+ <a href="LogoutServlet">ログアウト</a>
+ <br>
+ <a href = "BihinListServlet">備品一覧へ（貸出はこちらから）</a>
 </body>
 </html>
