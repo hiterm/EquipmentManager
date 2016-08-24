@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.menu {
+   float:left;
+   margin:0;
+   padding:0;
+   list-style-type:none;
+   border-left:1px solid #ddd;
+}
+
+.menu li {
+   float:left;
+   margin:0;
+   padding:0;
+   font-size:0.75em;
+   color:#333;
+   border-top:1px solid #ddd;
+   border-bottom:1px solid #ddd;
+}
+
+.menu li a {
+   display:block;
+   width:110px;
+   color:#7B2031;
+   padding:15px 10px;
+   text-align:center;
+   text-decoration:none;
+   border-right:1px solid #ddd;
+   background:#7B2031 url("../images/bg_list.gif") 0 50% repeat-x;
+}
+
+.menu li a.current {
+   background:#7B2031 url("../images/bg_list_on.gif") 0 50% repeat-x;
+}
+
+.menu li a:hover {
+   color:#4d000e;
+   background:#7B2031 url("../images/bg_list_on.gif") 0 50% repeat-x;
+}

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="ateam.model.Bihin" %>
 <%@ page import="java.util.List" %>
+<%@ page import="ateam.util.BihinUtil" %>
 <%List<Bihin> list = (List<Bihin>)request.getAttribute("bihinList");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,13 +46,9 @@ for (Bihin bihin : list) {
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
 <td><%= bihin.getBihinName()  %></td>
-<!-- ステータス 1:利用可能 2:貸出中 -->
 
-<td> <% if(bihin.getStatus() == 1) { %>
-             <% out.println("利用可能");%>
-      <% } else {%>
-             <% out.println("貸出中");%>
-      <% }%>
+<!-- ステータス 1:利用可能 2:貸出中 3:返却済み 4:貸出申請中-->
+<td> <% out.println(BihinUtil.getStatusStr(bihin.getStatus())); %>
 </td>
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>
