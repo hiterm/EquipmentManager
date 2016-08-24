@@ -26,7 +26,7 @@
 <table border=1>
 <tr>
 <th>備品ID</th><th>備品名</th><th>ステータス</th>
-<th>貸出ユーザ名</th><th>返却予定日</th>
+<th>貸出ユーザ名</th><th>返却予定日</th><th>返却</th>
 </tr>
 <%
 List<Bihin> list = (List<Bihin>)request.getAttribute("bihinList");
@@ -34,13 +34,14 @@ for (Bihin bihin : list) {
 %>
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
-<td>
+<%-- <td>
 <!-- 備品IDをPOSTで渡す -->
 <form name="form<%= bihin.getBihinID() %>" method="GET" action="RequestServlet" accept-charset="UTF-8">
 <input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
 <a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
 </form>
-</td>
+</td> --%>
+<td><%= bihin.getBihinName()  %></td>
 <td> <% if(bihin.getStatus() == 1) { %>
 <% out.println("利用可能");%>
 <% } else {%>
@@ -49,6 +50,15 @@ for (Bihin bihin : list) {
 </td>
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>
+<td>
+<!-- 返却ボタン -->
+<form method="GET" action="RequestServlet" accept-charset="UTF-8">
+<input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
+<button type="submit" <% if (bihin.getStatus() == 2) {%> disabled <% } %>>
+返却
+</button>
+</form>
+</td>
 </tr>
 <%
 }
