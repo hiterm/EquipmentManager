@@ -11,6 +11,11 @@
 <body>
 <% User user = (User) session.getAttribute("user"); %>
 <h3><%= user.getUserName() %>さんのマイページ</h3>
+<%
+	if(list.size() != 0) {
+		for(int i=0; i<list.size(); i++) {
+			Bihin bihin = list.get(i);
+%>
 <table BORDER ="1">
 
 <tr>
@@ -18,11 +23,7 @@
 <th>備品名
 <th>返却予定日
 <th>返却ボタン
-<%
-	if(list.size() != 0) {
-		for(int i=0; i<list.size(); i++) {
-			Bihin bihin = list.get(i);
-%>
+
 		<tr>
 			<td><%= bihin.getBihinID() %> </td>
 			<td><%= bihin.getBihinName() %> </td>
@@ -35,7 +36,9 @@
 	}
 	else {
 		%>
-		<td>借りてる備品はありません</td>
+		<table>
+		現在借りてる備品はありません
+		</table>
 		<%
 	}
 %>
