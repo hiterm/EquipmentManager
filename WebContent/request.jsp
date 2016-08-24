@@ -14,8 +14,6 @@
   <h2>申請ページ</h2>
   <%= user.getUserName() %>さん
   <br><br><br>
-<p></p>
-  <% request.setCharacterEncoding("UTF-8"); %>
   利用者名:  <%= user.getUserName() %><br><br>
   利用者ID:  <%= user.getUserID() %><br><br>
     備品名:  <%= request.getParameter("bihinName") %><br><br>
