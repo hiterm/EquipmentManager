@@ -50,17 +50,16 @@
 			<button type = "submit" class="pure-button">返却</button> </form>
 			</td>
 		</tr>
-<%
-		}
-	}
-	else {
-		%>
-		<tr><td>現在借りている備品はありません</td></tr>
-		<%
-	}
-%>
+<%		} %> <!-- forここまで -->
 </tbody>
 </table>
+<%
+	} else {
+%>
+		現在借りている備品はありません<br>
+<%
+	}
+%>
 
  <a href="LogoutServlet">ログアウト</a>
  <br>

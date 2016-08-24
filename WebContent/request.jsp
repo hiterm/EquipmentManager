@@ -1,5 +1,5 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import = "java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User" %>
 <html>
   <head>
@@ -20,7 +20,8 @@ h4 {
   <br><br><br>
   利用者名:  <%= user.getUserName() %><br><br>
   利用者ID:  <%= user.getUserID() %><br><br>
-    備品名:  <%= request.getParameter("bihinName") %><br><br>
+  <% request.setCharacterEncoding("UTF-8"); %>
+    備品名:  <%= request.getAttribute("bihinName") %><br><br>
     返却日:
 <SELECT name="year">
 <option value="">----</option>

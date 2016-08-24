@@ -13,7 +13,7 @@
   <body>
 <h4><I><U>EquipmentManager</U></I></h4>
 <br>
-   <h2>ログイン</h2>
+<h2>ログイン</h2>
 
 
     <% if(errorMessage != null){ %>
@@ -21,13 +21,23 @@
     <% }%>
     <br>
 
-      <form method="POST" action="LoginServlet" accept-charset="UTF-8" class="pure-form">
-      ユーザーID : <input type="text" name="userID"><br><br>
-      パスワード : <input type="password" name="password"><br><br>
-      <!-- <input type="submit" value="送信"> -->
-      <!-- <input type="reset" value="リセット"> -->
-      <button type="submit" class="pure-button pure-button-primary">送信</button>
-      <button type="reset" class="pure-button pure-button-primary">リセット</button>
-    </form>
+  <form method="POST" action="LoginServlet" accept-charset="UTF-8" class="pure-form pure-form-aligned">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="userID">ユーザーID</label>
+            <input name="userID" id="userID" type="text">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="password">パスワード</label>
+            <input name="password" id="password" type="password">
+        </div>
+
+        <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">送信</button>
+            <button type="reset" class="pure-button pure-button-primary">リセット</button>
+        </div>
+    </fieldset>
+</form>
   </body>
 </html>

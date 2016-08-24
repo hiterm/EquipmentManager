@@ -32,7 +32,9 @@ public class RequestServlet extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         request.setCharacterEncoding("UTF-8");
-        request.getParameter("bihinID");
+        String bihinName = request.getParameter("bihinName");
+        System.out.println(bihinName);
+        request.setAttribute("bihinName", bihinName);
         request.getRequestDispatcher("/request.jsp").forward(request, response);
     }
 
@@ -42,7 +44,7 @@ public class RequestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String bihinID = (String) request.getAttribute("bihinID");
+        String bihinID = (String) request.getAttribute("BihinID");
         if (RequestLogic.requestBihin(bihinID)) {
             request.getRequestDispatcher("/requestSuccess.jsp").forward(request, response);
         } else {
