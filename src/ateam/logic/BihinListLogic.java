@@ -29,6 +29,15 @@ public class BihinListLogic {
 		bihin2.setUserID("00002");
 		list.add(bihin2);
 
+		Bihin bihin3 = new Bihin();
+		bihin3.setBihinID("W002");
+		bihin3.setBihinKana("ホワイトボード");
+		bihin3.setBihinName("ホワイトボード");
+		bihin3.setReturnDay(Date.valueOf("2016-9-15"));
+		bihin3.setStatus(1);
+		bihin3.setUserID("00003");
+		list.add(bihin3);
+
 		return list;
 	}
 }
