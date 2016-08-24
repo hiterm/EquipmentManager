@@ -1,6 +1,6 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-
+<%@ page import = "java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User" %>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,15 +12,15 @@ h4 {
   </head>
   <body>
   <h4><I><U>備品管理</U></I></h4>
+  <% User user = (User) session.getAttribute("user"); %>
+
 <br>
   <h2>申請ページ</h2>
-  <%= request.getAttribute("userName") %>さん
+  <%= user.getUserName() %>さん
   <br><br><br>
-<p></p>
-  利用者名:  <%= request.getAttribute ("userName") %><br><br>
-  利用者ID:  <%= request.getAttribute ("userID") %><br><br>
-    備品名:  <%= request.getAttribute ("bihinName") %><br><br>
-    備品ID:  <%= request.getAttribute ("bihinID") %><br><br>
+  利用者名:  <%= user.getUserName() %><br><br>
+  利用者ID:  <%= user.getUserID() %><br><br>
+    備品名:  <%= request.getParameter("bihinName") %><br><br>
     返却日:
 <SELECT name="year">
 <option value="">----</option>

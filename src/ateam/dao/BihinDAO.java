@@ -1,5 +1,6 @@
 package ateam.dao;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -38,9 +39,18 @@ public class BihinDAO {
         }
     }
 
-    //ステータス変更
-    public int update(String num) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + num + "'";
+    //ステータス変更(返却)
+    public int update(String userID) {
+        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + userID + "'";
+        try {
+            return DBManager.doUpdate(sql);
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+    //ステータス変更(貸出)
+    public int update(String bihinID , String userID , Date returnDay) {
+        String sql = "UPDATE BihinKanri SET status = 2 ,userID = '" + userID + "' , returnDay =  '"+ returnDay + "' WHERE bihinID = '" + bihinID + "'";
         try {
             return DBManager.doUpdate(sql);
         } catch (SQLException e) {

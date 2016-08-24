@@ -43,7 +43,7 @@ h4 {
 <table border=1>
 <tr>
 <th>備品ID</th><th>備品名</th><th>ステータス</th>
-<th>貸出ユーザ名</th><th>返却予定日</th><th>返却</th>
+<th>貸出ユーザ名</th><th>返却予定日</th><th>申請</th>
 </tr>
 <%
 for (Bihin bihin : list) {
@@ -58,9 +58,9 @@ for (Bihin bihin : list) {
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>
 <td>
-<!-- 返却ボタン -->
+<!-- 申請ボタン -->
 <form method="GET" action="RequestServlet" accept-charset="UTF-8">
-<input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
+<input type="hidden" name="bihinName" value="<%= bihin.getBihinName() %>">
 <button type="submit" <% if (bihin.getStatus() == 2) {%> disabled <% } %>>
 申請
 </button>
