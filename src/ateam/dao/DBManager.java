@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import ateam.model.User;
-
 public class DBManager {
 	public static Connection getConnection() {
 		Connection con =null;
@@ -25,7 +23,7 @@ public class DBManager {
 	}
 
 	//更新SQLを発行
-	public static int simpleUpdate(String sql) throws SQLException {
+	public static int doUpdate(String sql) throws SQLException {
 		Connection con = null;
 		Statement smt = null;
 
@@ -51,17 +49,18 @@ public class DBManager {
 	}
 
 	//Login発行
-	public static User simpleLogin(String sql) throws SQLException {
+	public static <T> T getObject(String sql , ResultSetBeanMapping<T> mapping) throws SQLException {
 		Connection con = null;
 		Statement smt = null;
+		ResultSet rs =null;
 
 		try {
 			con = DBManager.getConnection();
 			smt = con.createStatement();
-			ResultSet rs = smt.executeQuery(sql);
+			rs = smt.executeQuery(sql);
 			if (rs.next()) {
 //				cnt = rs.getInt("CNT");
-				return new UserBeansMapping().createFromResultSet(rs);
+				return (T) new UserBeansMapping().createFromResultSet(rs);
 			} else {
 				return null;
 			}
@@ -79,17 +78,24 @@ public class DBManager {
 				}
 				catch (SQLException ignore) {}
 			}
+			if (rs != null) {
+				try {
+					rs.close();
+				}
+				catch (SQLException ignore) {}
+			}
 		}
 	}
 	//検索SQLを発行
-	public static <T> List<T> simpleFind(String sql , ResultSetBeanMapping<T> mapping) throws SQLException {
+	public static <T> List<T> getList(String sql , ResultSetBeanMapping<T> mapping) throws SQLException {
 		Connection con = null;
 		Statement smt = null;
+		ResultSet rs =null;
 
 		try {
 			con = DBManager.getConnection();
 			smt = con.createStatement();
-			ResultSet rs = smt.executeQuery(sql);
+			rs = smt.executeQuery(sql);
 
 			List<T> list = new ArrayList<T>();
 			while(rs.next()) {
@@ -109,6 +115,12 @@ public class DBManager {
 			if (con != null) {
 				try {
 					con.close();
+				}
+				catch (SQLException ignore) {}
+			}
+			if (rs != null) {
+				try {
+					rs.close();
 				}
 				catch (SQLException ignore) {}
 			}

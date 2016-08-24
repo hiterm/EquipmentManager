@@ -4,11 +4,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import ateam.model.Bihin;
-import ateam.model.User;
 
-public class DAO {
+public class BihinDAO {
 	//全件操作
-	public List<Bihin> findAll() {
+	public List<Bihin> getBihinList() {
 		String sql = "SELECT * FROM BihinKanri ";
 
 		try {
@@ -20,7 +19,7 @@ public class DAO {
 	}
 
 	//自身の借りているものを表示
-	public List<Bihin> myFindAll(String userID) {
+	public List<Bihin> getBihinList(String userID) {
 		String sql = "SELECT * FROM BihinKanri WHERE userID = "+"'"+userID+"'";
 
 		try {
@@ -30,17 +29,6 @@ public class DAO {
 			throw new IllegalStateException(e);
 		}
 	}
-	//ログイン判定
-	public User canLogin(String userID , String pass) {
-		String sql = "SELECT *  FROM UserKanri WHERE userID = '" + userID +"' and password = '" + pass +"';";
-		try {
-			return DBManager.simpleLogin(sql);
-		}
-		catch (SQLException e) {
-			throw new IllegalStateException(e);
-		}
-	}
-
 	//ステータス変更
 	public int update(String numb) {
 		String sql = "UPDATE BihinKanri SET status = 1 WHERE id = ";

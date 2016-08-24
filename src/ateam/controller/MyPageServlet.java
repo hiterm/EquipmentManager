@@ -34,8 +34,8 @@ public class MyPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("userID");
-		//String id = "U001";
+		//String id = (String) session.getAttribute("userID");
+		String id = "U001";
 		//備品モデルのリストにロジックで作成したリストを代入していく。
 		List<Bihin> list=MyPageLogic.myBihin(id);
 		//リストをjspに渡す

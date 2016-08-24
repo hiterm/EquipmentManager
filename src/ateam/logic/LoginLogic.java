@@ -4,7 +4,7 @@ import ateam.model.User;
 
 public class LoginLogic {
 		public static User login(String id , String pass) {
-			ateam.dao.DAO dao = new ateam.dao.DAO();
+			ateam.dao.BihinDAO dao = new ateam.dao.BihinDAO();
 			return dao.canLogin(id , pass);
 		}
 
