@@ -39,7 +39,7 @@ public class BihinDAO {
         }
     }
 
-    //ステータス変更
+    //ステータス変更(返却)
     public int update(String userID) {
         String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + userID + "'";
         try {
@@ -48,7 +48,7 @@ public class BihinDAO {
             throw new IllegalStateException(e);
         }
     }
-
+    //ステータス変更(貸出)
     public int update(String bihinID , String userID , Date returnDay) {
         String sql = "UPDATE BihinKanri SET status = 2 ,userID = '" + userID + "' , returnDay =  '"+ returnDay + "' WHERE bihinID = '" + bihinID + "'";
         try {
