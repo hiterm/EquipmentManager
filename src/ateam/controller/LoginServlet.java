@@ -17,7 +17,7 @@ import ateam.model.User;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,37 +27,39 @@ public class LoginServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String userID = request.getParameter("userID");
-		String password = request.getParameter("password");
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        request.setCharacterEncoding("UTF-8");
+        String userID = request.getParameter("userID");
+        String password = request.getParameter("password");
 
-		User user = LoginLogic.login(userID , password);
+        User user = LoginLogic.login(userID, password);
 
-		if(user != null) {
-			HttpSession session = request.getSession(true);
-			// パスワードを削除
-			user.setPassword("");
-			session.setAttribute("user", user);
-			request.getRequestDispatcher("/MyPageServlet").forward(request, response);
-		}else{
+        if (user != null) {
+            HttpSession session = request.getSession(true);
+            // パスワードを削除
+            user.setPassword("");
+            session.setAttribute("user", user);
+            request.getRequestDispatcher("/MyPageServlet").forward(request, response);
+        } else {
 
-			String errorMessage = "ログインに失敗しました";
-			request.setAttribute("errorMessage", errorMessage);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-		}
-	}
+            String errorMessage = "ログインに失敗しました";
+            request.setAttribute("errorMessage", errorMessage);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+    }
 
 }

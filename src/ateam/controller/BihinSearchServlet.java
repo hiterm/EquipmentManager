@@ -19,7 +19,7 @@ import ateam.model.User;
  */
 @WebServlet("/BihinSearchServlet")
 public class BihinSearchServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,24 +29,26 @@ public class BihinSearchServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doPost(request, response);
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-		List<Bihin> list=MyPageLogic.getBihinList(user.getUserID());
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
+    }
 
 }
