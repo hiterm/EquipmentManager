@@ -34,13 +34,6 @@ for (Bihin bihin : list) {
 %>
 <tr>
 <td> <%= bihin.getBihinID() %> </td>
-<%-- <td>
-<!-- 備品IDをPOSTで渡す -->
-<form name="form<%= bihin.getBihinID() %>" method="GET" action="RequestServlet" accept-charset="UTF-8">
-<input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
-<a href="javascript:document.form<%= bihin.getBihinID() %>.submit()"> <%= bihin.getBihinName() %> </a>
-</form>
-</td> --%>
 <td><%= bihin.getBihinName()  %></td>
 <td> <% if(bihin.getStatus() == 1) { %>
 <% out.println("利用可能");%>
