@@ -40,7 +40,7 @@ public class BihinDAO {
 
     //ステータス変更
     public int update(String num) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '"+ num +"'";
+        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + num + "'";
         try {
             return DBManager.doUpdate(sql);
         } catch (SQLException e) {
