@@ -6,6 +6,7 @@ import ateam.model.User;
 
 public class UserDAO {
     private static UserDAO instance = new UserDAO();
+    private static UserBeansMapping mapping = new UserBeansMapping();
 
     private UserDAO() {
     }
@@ -17,7 +18,7 @@ public class UserDAO {
     public User getUser(String userID) {
         String sql = "SELECT *  FROM UserKanri WHERE userID = '" + userID + "';";
         try {
-            return DBManager.getObject(sql, new UserBeansMapping());
+            return DBManager.getObject(sql, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
