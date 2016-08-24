@@ -48,7 +48,6 @@ public class DBManager {
 		}
 	}
 
-	//Login発行
 	public static <T> T getObject(String sql , ResultSetBeanMapping<T> mapping) throws SQLException {
 		Connection con = null;
 		Statement smt = null;
@@ -85,6 +84,7 @@ public class DBManager {
 			}
 		}
 	}
+
 	//検索SQLを発行
 	public static <T> List<T> getList(String sql , ResultSetBeanMapping<T> mapping) throws SQLException {
 		Connection con = null;
