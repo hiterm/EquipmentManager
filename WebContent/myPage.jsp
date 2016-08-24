@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.io.*,java.util.*,java.text.*, ateam.model.Bihin" %>
+<%@ page import = "java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User" %>
 <% List<Bihin> list = (List<Bihin>)request.getAttribute("list"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,7 +9,8 @@
 <title>マイページ</title>
 </head>
 <body>
-<h3><%= request.getAttribute("userName")%>さんのマイページ</h3>
+<% User user = (User) session.getAttribute("user"); %>
+<h3><%= user.getUserName() %>さんのマイページ</h3>
 <table BORDER ="1">
 
 <tr>
