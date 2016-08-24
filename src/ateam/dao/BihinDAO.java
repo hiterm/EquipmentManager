@@ -31,7 +31,7 @@ public class BihinDAO {
 	}
 	//ステータス変更
 	public int update(String numb) {
-		String sql = "UPDATE BihinKanri SET status = 1 WHERE id = ";
+		String sql = "UPDATE BihinKanri SET status = 1 userID = NULL returnDay = NULL WHERE id = ";
 		try {
 			return DBManager.doUpdate(sql+numb);
 		}
