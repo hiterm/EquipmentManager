@@ -1,6 +1,7 @@
 package ateam.logic;
 
 import ateam.model.User;
+import ateam.dao.UserDAO;
 
 public class LoginLogic {
 	public static User login(String id , String pass) {
