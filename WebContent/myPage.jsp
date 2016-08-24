@@ -44,6 +44,6 @@
 %>
 
 </table>
- <a href="LoginServlet">ログアウト</a>
+ <a href="LogoutServlet">ログアウト</a>
 </body>
 </html>
