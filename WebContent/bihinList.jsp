@@ -60,7 +60,7 @@ for (Bihin bihin : list) {
 <td>
 <!-- 申請ボタン -->
 <form method="GET" action="RequestServlet" accept-charset="UTF-8">
-<input type="hidden" name="bihinName" value="<%= bihin.getBihinName() %>">
+<input type="hidden" name="BihinName" value="<%= bihin.getBihinName() %>">
 <button type="submit" <% if (bihin.getStatus() == 2) {%> disabled <% } %>>
 申請
 </button>
