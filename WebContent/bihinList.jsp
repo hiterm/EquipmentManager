@@ -13,14 +13,24 @@
 <br>
 <h2>備品一覧</h2>
 
-<form>
+
+<!-- ステータスの絞り込み -->
+<form method = "POST" action = "BihinSearchServlet" accept-charset = "UTF-8">
      ステータス
 <select name="status">
 <option value="all">全件表示</option>
 <option value="success">利用可能</option>
 <option value="fail">貸出中</option>
 </select>
+
+<!-- 備品検索フォーム -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;備品検索
+<input type="search" name="search" maxlength="10">
+<input type = "submit" value = "検索" >
 </form>
+
+
+
 
 <!-- border=1はとりあえず。cssで指定した方がよい -->
 <table border=1>
@@ -36,11 +46,12 @@ for (Bihin bihin : list) {
 <td> <%= bihin.getBihinID() %> </td>
 <td><%= bihin.getBihinName()  %></td>
 <!-- ステータス 1:利用可能 2:貸出中 -->
+
 <td> <% if(bihin.getStatus() == 1) { %>
-<% out.println("利用可能");%>
-<% } else {%>
-<% out.println("貸出中");%>
-<% }%>
+             <% out.println("利用可能");%>
+      <% } else {%>
+             <% out.println("貸出中");%>
+      <% }%>
 </td>
 <td> <%= bihin.getUserID() %> </td>
 <td> <%= bihin.getReturnDay() %> </td>
