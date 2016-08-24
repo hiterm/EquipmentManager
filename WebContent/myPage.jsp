@@ -30,20 +30,18 @@
 			<td><%= bihin.getReturnDay() %> </td>
 			<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
 			<input type = "hidden" name = "userID" value = "<%= bihin.getUserID() %>">
-			<input type = "submit" value = "返却" > </form>
+			<button type = "submit">返却</button> </form>
 <%
 		}
 	}
 	else {
 		%>
-		<table>
 		<td>現在借りている備品はありません</td>
-		</table>
 		<%
 	}
 %>
-
 </table>
+
  <a href="LogoutServlet">ログアウト</a>
  <br>
  <a href = "BihinListServlet">備品一覧へ（貸出はこちらから）</a>
