@@ -11,7 +11,7 @@ public class UserDAO {
     private UserDAO() {
     }
 
-    public static synchronized UserDAO getInstance() {
+    public static UserDAO getInstance() {
         return instance;
     }
 
