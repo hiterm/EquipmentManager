@@ -7,6 +7,7 @@ import ateam.model.Bihin;
 
 public class BihinDAO {
 	private static BihinDAO instance;
+	private static BihinBeansMapping mapping = new BihinBeansMapping();
 
 	private BihinDAO() {}
 
@@ -22,7 +23,7 @@ public class BihinDAO {
 		String sql = "SELECT * FROM BihinKanri ";
 
 		try {
-			return DBManager.getList(sql,new BihinBeansMapping());
+			return DBManager.getList(sql, mapping);
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
@@ -34,7 +35,7 @@ public class BihinDAO {
 		String sql = "SELECT * FROM BihinKanri WHERE userID = "+"'"+userID+"'";
 
 		try {
-			return DBManager.getList(sql,new BihinBeansMapping());
+			return DBManager.getList(sql, mapping);
 		}
 		catch (SQLException e) {
 			throw new IllegalStateException(e);
