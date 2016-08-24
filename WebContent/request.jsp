@@ -12,11 +12,12 @@
   <h3><I><U>備品管理</U></I></h3>
 <br>
   <h2>申請ページ</h2>
-  <%= request.getAttribute("userName") %>さん
+  <%= user.getUserName() %>さん
   <br><br><br>
 <p></p>
-  利用者名:  <%= request.getAttribute (user.getUserName()) %><br><br>
-  利用者ID:  <%= request.getAttribute (user.getUserID()) %><br><br>
+  <% request.setCharacterEncoding("UTF-8"); %>
+  利用者名:  <%= user.getUserName() %><br><br>
+  利用者ID:  <%= user.getUserID() %><br><br>
     備品名:  <%= request.getParameter("bihinName") %><br><br>
     返却日:
 <SELECT name="year">
