@@ -57,4 +57,13 @@ public class BihinDAO {
             throw new IllegalStateException(e);
         }
     }
+    //一行の情報を取得
+    public Bihin getBihin(String bihinID) {
+        String sql = "SELECT *  FROM BihinKanri WHERE bihinID = '" + bihinID + "';";
+        try {
+            return DBManager.getObject(sql, mapping);
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
 }
