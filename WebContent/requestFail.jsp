@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>申請失敗</title>
+<style type="text/css">
+h1 {
+   color: red;} /* 見出しの色 */
+</style>
 </head>
 <body>
 
