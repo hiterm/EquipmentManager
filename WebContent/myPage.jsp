@@ -7,8 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>マイページ</title>
+<style type="text/css">
+h4 {
+   color: red;} /* 見出しの色 */
+</style>
 </head>
 <body>
+<h4><I><U>備品管理</U></I></h4>
+<br>
 <% User user = (User) session.getAttribute("user"); %>
 <h3><%= user.getUserName() %>さんのマイページ</h3>
 <%

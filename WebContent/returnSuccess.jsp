@@ -5,9 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>返却完了</title>
+<style type="text/css">
+h4 {
+   color: green;} /* 見出しの色 */
+</style>
+
 </head>
 <body>
-<h3><I><U>備品管理</U></I></h3>
+<h4><I><U>備品管理</U></I></h4>
 <br>
 <form method="POST" accept-charset="UTF-8">
 <h1>返却しました</h1>
