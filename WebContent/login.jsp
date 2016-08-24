@@ -12,6 +12,12 @@
 h4 {
    color: orange;} /* 見出しの色 */
 </style>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style type="text/css">
+h4 {
+   color: red;} /* 見出しの色 */
+</style>
+
   </head>
   <body>
 <h4><I><U>備品管理</U></I></h4>
@@ -20,7 +26,7 @@ h4 {
 
 
     <% if(errorMessage != null){ %>
-   <font color="red"> <% out.println(errorMessage);%></font>
+    <font color="red"><% out.println(errorMessage);%></font>
     <% }%>
     <br>
     <br>
