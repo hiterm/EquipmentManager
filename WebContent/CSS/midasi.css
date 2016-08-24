@@ -1,0 +1,18 @@
+/* --- 見出しエリア --- */
+div.heading {
+width: 584px; /* 見出しエリアの幅 */
+margin-bottom: 1em;
+padding: 6px 7px; /* 見出しエリアのパディング（上下、左右） */
+/*background: #f9f9f9 url(heading_back1.gif) repeat-x; *//* 見出しエリアの背景 */
+border: 1px #c0c0c0 solid; /* 見出しエリアの境界線 */
+}
+
+/* --- 見出し --- */
+div.heading h3 {
+margin: 0;
+padding: 3px 0 0 5px; /* 見出しのパディング（上右下左） */
+border-left: 5px #ff8000 solid; /* 見出しの左境界線 */
+font-size: 100%; /* 見出しの文字サイズ */
+line-height: 100%;
+}
+

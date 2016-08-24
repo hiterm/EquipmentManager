@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/MyPageServlet").forward(request, response);
         } else {
 
-            String errorMessage = "ログインに失敗しました";
+            String errorMessage = "ログインに失敗しました。";
             request.setAttribute("errorMessage", errorMessage);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
