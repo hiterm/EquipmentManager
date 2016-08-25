@@ -212,8 +212,8 @@ public class DBManager {
         try {
             con = DBManager.getConnection();
             smt = con.prepareStatement(sql);
-            smt.setString(1, pmt1);
-            smt.setInt(2, pmt2);
+            smt.setString(2, pmt1);
+            smt.setInt(1, pmt2);
             rs = smt.executeQuery();
 
             List<T> list = new ArrayList<T>();
