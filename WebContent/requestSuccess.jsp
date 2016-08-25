@@ -18,7 +18,7 @@
 備品ID:<%= request.getParameter("bihinID")%>><br>
 備品名:<%= request.getAttribute("bihinName")%>><br>
 返却日:<%= request.getAttribute("returnDay")%>><br>
-<a href="MyPageServlet">マイページに戻る</a>
+
 </form>
 
 </body>
