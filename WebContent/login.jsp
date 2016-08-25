@@ -13,8 +13,9 @@
   <body>
 <h4><I><U>EquipmentManager</U></I></h4>
 <br>
+    <center>
 <h2>ログイン</h2>
-
+    </center>
 
     <% if(errorMessage != null){ %>
     <font color="red"><% out.println(errorMessage);%></font>
@@ -23,21 +24,24 @@
 
   <form method="POST" action="LoginServlet" accept-charset="UTF-8" class="pure-form pure-form-aligned">
     <fieldset>
-        <div class="pure-control-group">
-            <label for="userID">ユーザーID</label>
-            <input name="userID" id="userID" type="text">
-        </div>
-
-        <div class="pure-control-group">
+    <div class="pure-control-group">
+        <label for="userID">ユーザーID</label>
+        <input name="userID" id="userID" type="text">
+    </div>
+<br><br>
+    <div class="pure-control-group">
             <label for="password">パスワード</label>
             <input name="password" id="password" type="password">
-        </div>
+    </div>
 
-        <div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary">送信</button>
-            <button type="reset" class="pure-button pure-button-primary">リセット</button>
-        </div>
+    <div class="pure-controls">
+        <button type="submit" class="pure-button pure-button-primary">送信</button>
+        <button type="reset" class="pure-button pure-button-primary">リセット</button>
+    </div>
     </fieldset>
 </form>
+    <style scoped>
+    div { text-align : center ;}
+    </style>
   </body>
 </html>
