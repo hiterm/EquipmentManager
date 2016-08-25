@@ -72,7 +72,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 			<div class="pure-u-1-3 pure-u-md-1-3">
 				<!-- 備品検索フォーム -->
 				<!-- 前に入力された文字を保持する -->
-				備品名() <input type="search" class="pure-u-23-24" name="search"
+				備品名(カナ) <input type="search" class="pure-u-23-24" name="search"
 					maxlength="10" <% if (prevBihinKana != null) { %>
 					value="<%= prevBihinKana %>" <% } %>>
 				<!--inputここまで -->
