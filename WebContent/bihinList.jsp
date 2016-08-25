@@ -34,18 +34,22 @@ h4 {
 			<option value="success">利用可能</option>
 			<option value="fail">貸出中</option>
 		</select>
+    <br>
+    <div>
+    <style scoped>
+    .pure-button {
+            font-size: 120%;
+        }
 
-		<!-- 備品検索フォーム -->
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;備品検索 <input type="search"
-			name="search" maxlength="10">
+    </style>
+	<!-- 備品検索フォーム -->
+		備品検索 <input type="search" name="search" maxlength="10">
 		<button type="submit" class="pure-button">検索</button>
+	</div>
 	</form>
 
-
-
-
 	<!-- border=1はとりあえず。cssで指定した方がよい -->
-	<table class="pure-table pure-table-striped" border=1>
+	<table class="pure-table pure-table-striped" border=1 align="center">
 		<thead>
 			<tr>
 				<th>備品ID</th>

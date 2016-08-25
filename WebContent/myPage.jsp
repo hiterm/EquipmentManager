@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
 <%@ include file="menu.jsp" %>
 	<%
 	    User user = (User) session.getAttribute("user");
@@ -66,7 +67,6 @@
 <!--  <a href="LogoutServlet">ログアウト</a>
  <br>
  <a href = "BihinListServlet">備品一覧へ（貸出はこちらから）</a>  -->
-
 
 
 </body>
