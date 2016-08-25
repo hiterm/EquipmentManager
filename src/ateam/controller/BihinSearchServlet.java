@@ -43,13 +43,15 @@ public class BihinSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
+        request.setCharacterEncoding("UTF-8");
         List<Bihin> list;
         String bihinKana = request.getParameter("search");
         String statusName = request.getParameter("status");
         int status = BihinSearchLogic.getStatusSearch(statusName);
 
-        if (bihinKana == null) {
+        if (bihinKana.isEmpty()) {
             /*ステータスの更新*/
+            System.out.println("ステータス:" + status + "カナ:" + bihinKana);
 
             if (status == 0) {
                 list = BihinListLogic.getAllBihinList();
