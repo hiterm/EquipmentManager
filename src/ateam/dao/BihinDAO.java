@@ -39,6 +39,27 @@ public class BihinDAO {
         }
     }
 
+    //サーチ（ステータスのみ）
+    public List<Bihin> searchBihin(int status) {
+        String sql = "SELECT * FROM BihinKanri WHERE status = "+status+" ORDER BY 'ASC' ";
+
+        try {
+            return DBManager.getList(sql, mapping);
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    //サーチ（ステータス＋名前)
+    public List<Bihin> searchBihin(String bihinName , int status) {
+        String sql = "SELECT * FROM bihinkanri where status = "+status+" and bihinName LIKE '"+bihinName+"%' ORDER BY 'ASC' ";
+
+        try {
+            return DBManager.getList(sql, mapping);
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
     //ステータス変更(返却)
     public int update(String userID , String bihinID) {
         String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + userID + "' and bihinID = '"+bihinID+"'";
