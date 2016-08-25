@@ -52,7 +52,7 @@ public class BihinSearchServlet extends HttpServlet {
 
         if (bihinKana.isEmpty()) {
             /*ステータスの更新*/
-            System.out.println("ステータス:" + status + "カナ:" + bihinKana);
+            //System.out.println("ステータス:" + status + "カナ:" + bihinKana);
 
             if (status == 0) {
                 list = BihinListLogic.getAllBihinList();
