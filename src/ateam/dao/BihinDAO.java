@@ -54,7 +54,7 @@ public class BihinDAO {
         String sql = "SELECT * FROM BihinKanri WHERE bihinKana LIKE ? ORDER BY bihinID ASC ";
 
         try {
-            return DBManager.getList(sql, bihinKana , mapping);
+            return DBManager.getSearchList(sql, bihinKana , mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
