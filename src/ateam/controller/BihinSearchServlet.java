@@ -44,9 +44,10 @@ public class BihinSearchServlet extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         request.setCharacterEncoding("UTF-8");
-        List<Bihin> list;
+        List<Bihin> list = null;
         String bihinKana = request.getParameter("search");
         String statusName = request.getParameter("status");
+
         int status = BihinSearchLogic.getStatusSearch(statusName);
 
         if (bihinKana.isEmpty()) {
@@ -60,11 +61,16 @@ public class BihinSearchServlet extends HttpServlet {
             }
         } else {
             /*備品名の検索*/
+            if(status == 0){
 
-            list = BihinSearchLogic.getBihinSearchList(bihinKana, status);
+            }else{
+                list = BihinSearchLogic.getBihinSearchList(bihinKana, status);
+            }
         }
 
         request.setAttribute("bihinList", list);
+        request.setAttribute("bihinKana", bihinKana);
+        request.setAttribute("statusName", statusName);
         request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
     }
 
