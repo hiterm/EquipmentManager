@@ -18,8 +18,8 @@ h4 {
 <form method="POST" accept-charset="UTF-8">
 <h1>以下の内容で申請が完了しました</h1>
 備品ID:<%= request.getParameter("bihinID")%>><br>
-備品名:<%= request.getParameter("bihinName")%>><br>
-返却日:<%= request.getParameter("returnDay")%>><br>
+備品名:<%= request.getAttribute("bihinName")%>><br>
+返却日:<%= request.getAttribute("returnDay")%>><br>
 <a href="MyPageServlet">マイページに戻る</a>
 </form>
 

@@ -41,15 +41,19 @@ public class RequestChoiceServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	    request.setCharacterEncoding("UTF-8");
 	    HttpSession session = request.getSession();
 	    User user = (User) session.getAttribute("user");
 	    String bihinID = request.getParameter("bihinID");
+	    String bihinName = request.getParameter("bihinName");
 	    String userID = user.getUserID();
 	    String year = request.getParameter("year");
 	    String month = request.getParameter("month");
 	    String day = request.getParameter("day");
 	    String kigen = year+"-"+month+"-"+day;
 	    Date returnDay = Date.valueOf(kigen);
+	    request.setAttribute("returnDay", kigen);
+	    request.setAttribute("bihinName", bihinName);
         if (RequestLogic.requestBihin(bihinID, userID, returnDay)) {
             request.getRequestDispatcher("/requestSuccess.jsp").forward(request, response);
         } else {

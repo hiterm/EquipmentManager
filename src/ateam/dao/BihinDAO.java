@@ -19,7 +19,7 @@ public class BihinDAO {
 
     //全件操作
     public List<Bihin> getBihinList() {
-        String sql = "SELECT * FROM BihinKanri ORDER BY 'ASC' ";
+        String sql = "SELECT * FROM BihinKanri ORDER BY bihinID ASC ";
 
         try {
             return DBManager.getList(sql, mapping);
@@ -30,7 +30,7 @@ public class BihinDAO {
 
     //自身の借りているものを表示
     public List<Bihin> getBihinList(String userID) {
-        String sql = "SELECT * FROM BihinKanri WHERE userID = " + "'" + userID + "' ORDER BY 'ASC' ";
+        String sql = "SELECT * FROM BihinKanri WHERE userID = " + "'" + userID + "' ORDER BY bihinID ASC ";
 
         try {
             return DBManager.getList(sql, mapping);
@@ -41,7 +41,7 @@ public class BihinDAO {
 
     //サーチ（ステータスのみ）
     public List<Bihin> searchBihin(int status) {
-        String sql = "SELECT * FROM BihinKanri WHERE status = "+status+" ORDER BY 'ASC' ";
+        String sql = "SELECT * FROM BihinKanri WHERE status = "+status+" ORDER BY bihinID ASC ";
 
         try {
             return DBManager.getList(sql, mapping);
@@ -52,7 +52,7 @@ public class BihinDAO {
 
     //サーチ（ステータス＋名前)
     public List<Bihin> searchBihin(String bihinName , int status) {
-        String sql = "SELECT * FROM bihinkanri where status = "+status+" and bihinName LIKE '"+bihinName+"%' ORDER BY 'ASC' ";
+        String sql = "SELECT * FROM bihinkanri where status = "+status+" and bihinName LIKE '"+bihinName+"%' ORDER BY bihinID ASC ";
 
         try {
             return DBManager.getList(sql, mapping);
