@@ -22,6 +22,7 @@ h4 {
   利用者ID:  <%= user.getUserID() %><br><br>
   <% request.setCharacterEncoding("UTF-8"); %>
     備品名:  <%= request.getAttribute("bihinName") %><br><br>
+<form method="POST" action="requestChoiceServlet" accept-charset="UTF-8">
     返却日:
 <SELECT name="year">
 <option value="">----</option>
@@ -45,14 +46,12 @@ h4 {
 <option value="<%= k %>>"><%= k %></option>
 <% } %>
 </select>
-日 <br>
+日
 <br>
-
-
-
-    <form method="POST" action="" accept-charset="UTF-8">
+<br>
       <br><br>
-      <input type="submit" value="申請">    <a href="BihinListServlet">備品一覧に戻る</a>
-    </form>
+      <input type="submit" value="申請">
+</form>
+    <a href="BihinListServlet">備品一覧に戻る</a>
   </body>
 </html>
