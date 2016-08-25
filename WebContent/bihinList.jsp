@@ -62,8 +62,9 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 .pure-button {
 	font-size: 100%;
 }
-.margin1 {
-    border:solid 1px ;margin:10px;
+
+.margin {
+    border:solid 1px #FFFFFF;margin:10px;
 }
 
 </style>
@@ -81,7 +82,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 	</fieldset>
 	</form>
 
-	<div>
+	<div class="margin">
 	<table class="pure-table pure-table-striped" align="center">
 	<%
 	    if (list.size() != 0) {
