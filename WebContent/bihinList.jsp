@@ -148,7 +148,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 	} else {
 %>
 		<center>
-		<font size="5">現在借りている備品はありません</font>
+		<font size="5">検索結果はありません</font>
 		</center>
 <%
 	}
