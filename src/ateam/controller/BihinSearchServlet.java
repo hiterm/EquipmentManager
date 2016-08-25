@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ateam.logic.BihinListLogic;
 import ateam.logic.BihinSearchLogic;
 import ateam.model.Bihin;
 
@@ -42,9 +43,14 @@ public class BihinSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
+        List<Bihin> list;
         String statusName = request.getParameter("status");
         int status = BihinSearchLogic.getStatusSearch(statusName);
-        List<Bihin> list = BihinSearchLogic.getBihinSearchList(status);
+        if (status == 0) {
+            list = BihinListLogic.getAllBihinList();
+        } else {
+            list = BihinSearchLogic.getBihinSearchList(status);
+        }
         request.setAttribute("bihinList", list);
         request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
     }
