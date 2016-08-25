@@ -8,9 +8,9 @@ import ateam.model.Bihin;
 public class RequestLogic {
     public static boolean requestBihin(String bihinID , String userID , Date returnDay) {
         BihinDAO dao = BihinDAO.getInstance();
-        dao.update(bihinID , userID , returnDay);
         Bihin bihin = dao.getBihin(bihinID);
-        	if(bihin.getStatus() == 2) {
+        	if(bihin.getStatus() == 1) {
+        	    dao.update(bihinID , userID , returnDay);
         		//ステータスが貸出可の場合にのみtureを返す
         		return true;
         	}
