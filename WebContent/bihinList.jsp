@@ -21,37 +21,37 @@
 	<br>
 	<h2>備品一覧</h2>
 
-    <fieldset>
-        <legend>絞りますか？</legend>
-	<!-- ステータスの絞り込み -->
-	<form method="POST" action="BihinSearchServlet" accept-charset="UTF-8" class="pure-form pure-form-stacked">
-	<div class="pure-u-1-3 pure-u-md-1-3">
-        <label for="status">ステータス</label>
-    <select name="status" class="pure-input-1-2">
-			<option value="all">全件表示</option>
-			<option value="success">利用可能</option>
-			<option value="fail">貸出中</option>
-		</select>
-		</div>
-    <br>
-    <style scoped>
-    .pure-button {
-            font-size: 100%;
-        }
+	<fieldset>
+		<legend>絞りますか？</legend>
+		<!-- ステータスの絞り込み -->
+		<form method="POST" action="BihinSearchServlet" accept-charset="UTF-8"
+			class="pure-form pure-form-stacked">
+			<div class="pure-u-1-3 pure-u-md-1-3">
+				<label for="status">ステータス</label> <select name="status"
+					class="pure-input-1-2">
+					<option value="all">全件表示</option>
+					<option value="success">利用可能</option>
+					<option value="fail">貸出中</option>
+				</select>
+			</div>
+			<br>
+			<style scoped>
+.pure-button {
+	font-size: 100%;
+}
+</style>
 
-    </style>
-
-    <div class="pure-u-1-3 pure-u-md-1-3">
-	<!-- 備品検索フォーム -->
-		備品名() <input type="search" class="pure-u-23-24" name="search" maxlength="10">
-		</div>
-		<br>
-		<button type="submit" class="pure-button">検索</button>
-		</fieldset>
+			<div class="pure-u-1-3 pure-u-md-1-3">
+				<!-- 備品検索フォーム -->
+				備品名() <input type="search" class="pure-u-23-24" name="search"
+					maxlength="10">
+			</div>
+			<br>
+			<button type="submit" class="pure-button">検索</button>
+	</fieldset>
 	</form>
 
-	<!-- border=1はとりあえず。cssで指定した方がよい -->
-	<table class="pure-table pure-table-striped" border=1 align="center">
+	<table class="pure-table pure-table-striped" align="center">
 		<thead>
 			<tr>
 				<th>備品ID</th>
@@ -90,10 +90,9 @@
 					    if (bihin.getReturnDay() != null) {
 					%> <%
      out.println(bihin.getReturnDay());
- %>
-					<%
-					    } else {
-					%> <%
+ %> <%
+     } else {
+ %> <%
      out.println("---");
  %> <%
      }
@@ -103,17 +102,16 @@
 					<!-- 申請ボタン -->
 					<form method="POST" action="RequestServlet" accept-charset="UTF-8">
 						<input type="hidden" name="bihinName"
-							value="<%=bihin.getBihinName()%>">
-						<input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
+							value="<%=bihin.getBihinName()%>"> <input type="hidden"
+							name="bihinID" value="<%=bihin.getBihinID()%>">
 						<button type="submit" class="pure-button"
-							<% if (bihin.getStatus() == 2) {%> disabled <% } %>>申請
-						</button>
+							<%if (bihin.getStatus() == 2) {%> disabled <%}%>>申請</button>
 					</form>
 				</td>
 			</tr>
 			<%
-}
-%>
+			    }
+			%>
 		</tbody>
 	</table>
 
