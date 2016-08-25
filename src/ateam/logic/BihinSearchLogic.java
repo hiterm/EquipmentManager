@@ -9,7 +9,12 @@ public class BihinSearchLogic {
     public static List<Bihin> getBihinSearchList(int status) {
         ateam.dao.BihinDAO dao = BihinDAO.getInstance();
         List<Bihin> list = dao.searchBihin(status);
-
+        return list;
+    }
+    
+    public static List<Bihin> getBihinSearchList(String bihinKana , int status){
+        ateam.dao.BihinDAO dao = BihinDAO.getInstance();
+        List<Bihin> list = dao.searchBihin(bihinKana ,status);
         return list;
     }
 
