@@ -13,7 +13,7 @@
         }
 
     </style>
-	<a href="#" class="pure-menu-heading pure-menu-link">Equipment Manager</a>
+	<a href="#" class="pure-menu-heading pure-menu-link"><I><U>EquipmentManager</U></I></a>
 	<ul class="pure-menu-list">
 		<li class="pure-menu-item"><a href="MyPageServlet"
 			class="pure-menu-link">マイページ</a></li>

@@ -14,9 +14,8 @@ h4 {
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-	<h4>
-		<I><U>備品管理</U></I>
-	</h4>
+	<%@ include file="menu.jsp" %>
+
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>

@@ -30,10 +30,10 @@ public class BihinDAO {
 
     //自身の借りているものを表示
     public List<Bihin> getBihinList(String userID) {
-        String sql = "SELECT * FROM BihinKanri WHERE userID = " + "'" + userID + "' ORDER BY bihinID ASC ";
+        String sql = "SELECT * FROM BihinKanri WHERE userID = ? ORDER BY bihinID ASC ";
 
         try {
-            return DBManager.getList(sql, mapping);
+            return DBManager.getList(sql,userID, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
@@ -41,7 +41,17 @@ public class BihinDAO {
 
     //サーチ（ステータスのみ）
     public List<Bihin> searchBihin(int status) {
-        String sql = "SELECT * FROM BihinKanri WHERE status = "+status+" ORDER BY bihinID ASC ";
+        String sql = "SELECT * FROM BihinKanri WHERE status = ? ORDER BY bihinID ASC ";
+
+        try {
+            return DBManager.getList(sql,status, mapping);
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+    //サーチ(全件表示)
+    public List<Bihin> searchBihin(String bihinKana) {
+        String sql = "SELECT * FROM BihinKanri WHERE bihinKana LIKE '?%' ORDER BY bihinID ASC ";
 
         try {
             return DBManager.getList(sql, mapping);
@@ -49,19 +59,18 @@ public class BihinDAO {
             throw new IllegalStateException(e);
         }
     }
-
     //サーチ（ステータス＋名前)
     public List<Bihin> searchBihin(String bihinKana , int status) {
-        String sql = "SELECT * FROM bihinkanri where status = "+status+" and bihinKana LIKE '"+bihinKana+"%' ORDER BY bihinID ASC ";
+        String sql = "SELECT * FROM bihinkanri where status = ? and bihinKana LIKE '?%' ORDER BY bihinID ASC ";
         try {
-            return DBManager.getList(sql, mapping);
+            return DBManager.getList(sql,bihinKana,status,mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
     }
     //ステータス変更(返却)
     public int update(String userID , String bihinID) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + userID + "' and bihinID = '"+bihinID+"'";
+        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '"+userID+"' and bihinID = '"+bihinID+"'";
         try {
             return DBManager.doUpdate(sql);
         } catch (SQLException e) {
@@ -70,7 +79,7 @@ public class BihinDAO {
     }
     //ステータス変更(貸出)
     public int update(String bihinID , String userID , Date returnDay) {
-        String sql = "UPDATE BihinKanri SET status = 2 ,userID = '" + userID + "' , returnDay =  '"+ returnDay + "' WHERE bihinID = '" + bihinID + "'";
+        String sql = "UPDATE BihinKanri SET status = 2 ,userID = '"+userID+"' , returnDay = '"+returnDay+"' WHERE bihinID = '"+bihinID+"'";
         try {
             return DBManager.doUpdate(sql);
         } catch (SQLException e) {
@@ -79,9 +88,9 @@ public class BihinDAO {
     }
     //一行の情報を取得
     public Bihin getBihin(String bihinID) {
-        String sql = "SELECT *  FROM BihinKanri WHERE bihinID = '" + bihinID + "';";
+        String sql = "SELECT *  FROM BihinKanri WHERE bihinID = ?";
         try {
-            return DBManager.getObject(sql, mapping);
+            return DBManager.getObject(sql,bihinID, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
