@@ -13,8 +13,8 @@
 <%@ include file="menu.jsp" %>
 <br>
 <form method="POST" accept-charset="UTF-8">
-<h1>返却しました</h1>
-<a href="MyPageServlet">・マイページ</a><br>
+<h1>返却しました。</h1>
+<br>
 </form>
 
 </body>
