@@ -22,7 +22,7 @@ h4 {
   利用者ID:  <%= user.getUserID() %><br><br>
   <% request.setCharacterEncoding("UTF-8"); %>
     備品名:  <%= request.getAttribute("bihinName") %><br><br>
-<form method="POST" action="requestChoiceServlet" accept-charset="UTF-8">
+<form method="POST" action="RequestChoiceServlet" accept-charset="UTF-8">
     返却日:
 <SELECT name="year">
 <option value="">----</option>
