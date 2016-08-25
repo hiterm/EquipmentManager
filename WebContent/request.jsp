@@ -66,6 +66,7 @@ h4 {
 			    }
 			%>
 		</select> 日 <br> <br> <br>
+		<input type="hidden" name="bihinID" value="<%= request.getAttribute("bihinID") %>">
 		<br> <input type="submit" value="申請">
 	</form>
 	<a href="BihinListServlet">備品一覧に戻る</a>
