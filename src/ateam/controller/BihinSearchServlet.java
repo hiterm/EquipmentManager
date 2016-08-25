@@ -44,13 +44,24 @@ public class BihinSearchServlet extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         List<Bihin> list;
+        String bihinKana = request.getParameter("search");
         String statusName = request.getParameter("status");
         int status = BihinSearchLogic.getStatusSearch(statusName);
-        if (status == 0) {
-            list = BihinListLogic.getAllBihinList();
+
+        if (bihinKana == null) {
+            /*ステータスの更新*/
+
+            if (status == 0) {
+                list = BihinListLogic.getAllBihinList();
+            } else {
+                list = BihinSearchLogic.getBihinSearchList(status);
+            }
         } else {
-            list = BihinSearchLogic.getBihinSearchList(status);
+            /*備品名の検索*/
+
+            list = BihinSearchLogic.getBihinSearchList(bihinKana, status);
         }
+
         request.setAttribute("bihinList", list);
         request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
     }
