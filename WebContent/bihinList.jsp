@@ -127,7 +127,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 				<td>
 					<!-- 申請ボタン -->
 					<form method="POST" action="RequestServlet" accept-charset="UTF-8">
-						<input type="hidden" name="search"
+						<input type="hidden" name="bihinName"
 							value="<%=bihin.getBihinName()%>"> <input type="hidden"
 							name="bihinID" value="<%=bihin.getBihinID()%>">
 						<button type="submit" class="pure-button"
