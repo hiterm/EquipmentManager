@@ -6,11 +6,28 @@ import ateam.dao.BihinDAO;
 import ateam.model.Bihin;
 
 public class BihinSearchLogic {
-    public static List<Bihin> getBihinSearchList(String id) {
+    public static List<Bihin> getBihinSearchList(int status) {
         ateam.dao.BihinDAO dao = BihinDAO.getInstance();
-        List<Bihin> list = dao.getBihinList(id);
+        List<Bihin> list = dao.searchBihin(status);
 
         return list;
     }
+
+    public static int getStatusSearch(String statusName){
+        int status;
+        switch (statusName) {
+        case "success":
+            status = 1;
+            break;
+        case "fail":
+            status = 2;
+            break;
+        default:
+            status = 0;
+            break;
+        }
+        return status;
+    }
+
 
 }

@@ -8,11 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import ateam.logic.MyPageLogic;
+import ateam.logic.BihinListLogic;
+import ateam.logic.BihinSearchLogic;
 import ateam.model.Bihin;
-import ateam.model.User;
 
 /**
  * Servlet implementation class BihinSearchServlet
@@ -44,10 +43,15 @@ public class BihinSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
-        request.setAttribute("list", list);
+        List<Bihin> list;
+        String statusName = request.getParameter("status");
+        int status = BihinSearchLogic.getStatusSearch(statusName);
+        if (status == 0) {
+            list = BihinListLogic.getAllBihinList();
+        } else {
+            list = BihinSearchLogic.getBihinSearchList(status);
+        }
+        request.setAttribute("bihinList", list);
         request.getRequestDispatcher("/bihinList.jsp").forward(request, response);
     }
 

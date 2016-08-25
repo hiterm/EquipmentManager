@@ -14,11 +14,6 @@
 <title>備品一覧</title>
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-<style type="text/css">
-h4 {
-	color: red;
-} /* 見出しの色 */
-</style>
 
 </head>
 <body>
@@ -26,26 +21,33 @@ h4 {
 	<br>
 	<h2>備品一覧</h2>
 
-
+    <fieldset>
+        <legend>絞りますか？</legend>
 	<!-- ステータスの絞り込み -->
-	<form method="POST" action="BihinSearchServlet" accept-charset="UTF-8">
-		ステータス <select name="status">
+	<form method="POST" action="BihinSearchServlet" accept-charset="UTF-8" class="pure-form pure-form-stacked">
+	<div class="pure-u-1-3 pure-u-md-1-3">
+        <label for="status">ステータス</label>
+    <select name="status" class="pure-input-1-2">
 			<option value="all">全件表示</option>
 			<option value="success">利用可能</option>
 			<option value="fail">貸出中</option>
 		</select>
+		</div>
     <br>
-    <div>
     <style scoped>
     .pure-button {
-            font-size: 120%;
+            font-size: 100%;
         }
 
     </style>
+
+    <div class="pure-u-1-3 pure-u-md-1-3">
 	<!-- 備品検索フォーム -->
-		備品検索 <input type="search" name="search" maxlength="10">
+		備品名() <input type="search" class="pure-u-23-24" name="search" maxlength="10">
+		</div>
+		<br>
 		<button type="submit" class="pure-button">検索</button>
-	</div>
+		</fieldset>
 	</form>
 
 	<!-- border=1はとりあえず。cssで指定した方がよい -->
