@@ -41,8 +41,9 @@ public class ReturnBihinServlet extends HttpServlet {
         // TODO Auto-generated method stub
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+        String bihinID = request.getParameter("bihinID");
         //String bihinID = request.getParameter("userID");
-        ReturnBihinLogic.returnBihin(user.getUserID());
+        ReturnBihinLogic.returnBihin(user.getUserID() , bihinID);
 
         request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
 

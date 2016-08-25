@@ -47,6 +47,7 @@
 			<td><%= bihin.getReturnDay() %> </td>
 			<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
 			<input type = "hidden" name = "userID" value = "<%= bihin.getUserID() %>">
+			<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinID() %>">
 			<button type = "submit" class="pure-button">返却</button> </form>
 			</td>
 		</tr>

@@ -40,8 +40,8 @@ public class BihinDAO {
     }
 
     //ステータス変更(返却)
-    public int update(String userID) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + userID + "'";
+    public int update(String userID , String bihinID) {
+        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '" + userID + "' and bihinID = '"+bihinID+"'";
         try {
             return DBManager.doUpdate(sql);
         } catch (SQLException e) {
