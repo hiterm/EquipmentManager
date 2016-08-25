@@ -8,11 +8,7 @@
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <title>貸出申請</title>
-<style type="text/css">
-h4 {
-	color: red;
-} /* 見出しの色 */
-</style>
+
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
