@@ -78,6 +78,9 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 	</form>
 
 	<table class="pure-table pure-table-striped" align="center">
+	<%
+	    if (list.size() != 0) {
+	%>
 		<thead>
 			<tr>
 				<th>備品ID</th>
@@ -140,6 +143,16 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 			%>
 		</tbody>
 	</table>
+
+	<%
+	} else {
+%>
+		<center>
+		<font size="5">現在借りている備品はありません</font>
+		</center>
+<%
+	}
+%>
 
 </body>
 </html>
