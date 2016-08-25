@@ -13,9 +13,8 @@
   <body>
 <h4><I><U>EquipmentManager</U></I></h4>
 <br>
-    <center>
+
 <h2>ログイン</h2>
-    </center>
 
     <% if(errorMessage != null){ %>
     <font color="red"><% out.println(errorMessage);%></font>
