@@ -44,7 +44,7 @@ public class BihinDAO {
         String sql = "SELECT * FROM BihinKanri WHERE status = ? ORDER BY bihinID ASC ";
 
         try {
-            return DBManager.getList(sql, mapping);
+            return DBManager.getList(sql,status, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
