@@ -40,10 +40,7 @@ h4 {
 </form>
 
 
-
-
-<!-- border=1はとりあえず。cssで指定した方がよい -->
-<table class="pure-table pure-table-striped" border=1>
+<table class="pure-table pure-table-striped">
 <thead>
 <tr>
 <th>備品ID</th><th>備品名</th><th>ステータス</th>
