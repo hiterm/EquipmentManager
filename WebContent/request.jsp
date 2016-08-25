@@ -11,6 +11,7 @@ h4 {
 	color: red;
 } /* 見出しの色 */
 </style>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
 	<h4>
@@ -43,7 +44,7 @@ h4 {
 			<%
 			    for (int i = 2016; i < 2021; i++) {
 			%>
-			<option value="<%=i%>>"><%=i%></option>
+			<option value="<%=i%>"><%=i%></option>
 			<%
 			    }
 			%>
@@ -52,7 +53,7 @@ h4 {
 			<%
 			    for (int j = 1; j < 13; j++) {
 			%>
-			<option value="<%=j%>>"><%=j%></option>
+			<option value="<%=j%>"><%=j%></option>
 			<%
 			    }
 			%>
@@ -61,13 +62,13 @@ h4 {
 			<%
 			    for (int k = 1; k < 32; k++) {
 			%>
-			<option value="<%=k%>>"><%=k%></option>
+			<option value="<%=k%>"><%=k%></option>
 			<%
 			    }
 			%>
 		</select> 日 <br> <br> <br>
 		<input type="hidden" name="bihinID" value="<%= request.getAttribute("bihinID") %>">
-		<br> <input type="submit" value="申請">
+		<br> <button type="submit">申請</button>
 	</form>
 	<a href="BihinListServlet">備品一覧に戻る</a>
 </body>
