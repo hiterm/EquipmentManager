@@ -1,6 +1,7 @@
 package ateam.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,15 +23,17 @@ public class DBManager {
         }
     }
 
-    //更新SQLを発行(パラメータ２つ)
-    public static int doUpdate(String sql) throws SQLException {
+    //更新SQLを発行(パラメータ文字列２つ)
+    public static int doUpdate(String sql,String pmt1,String pmt2) throws SQLException {
         Connection con = null;
-        Statement smt = null;
+        PreparedStatement smt = null;
 
         try {
             con = DBManager.getConnection();
-            smt = con.createStatement();
-            return smt.executeUpdate(sql);
+            smt = con.prepareStatement(sql);
+            smt.setString(1, pmt1);
+            smt.setString(2, pmt2);
+            return smt.executeUpdate();
         } finally {
             if (smt != null) {
                 try {
@@ -47,6 +50,33 @@ public class DBManager {
         }
     }
 
+  //更新SQLを発行(パラメータ文字列2つデータ1つ)
+    public static int doUpdate(String sql,String pmt1,Date pmt2,String pmt3) throws SQLException {
+        Connection con = null;
+        PreparedStatement smt = null;
+
+        try {
+            con = DBManager.getConnection();
+            smt = con.prepareStatement(sql);
+            smt.setString(1, pmt1);
+            smt.setDate(2, pmt2);
+            smt.setString(3, pmt3);
+            return smt.executeUpdate();
+        } finally {
+            if (smt != null) {
+                try {
+                    smt.close();
+                } catch (SQLException ignore) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ignore) {
+                }
+            }
+        }
+    }
     public static <T> T getObject(String sql,String pmt,ResultSetBeanMapping<T> mapping) throws SQLException {
         Connection con = null;
         ResultSet rs = null;

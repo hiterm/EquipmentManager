@@ -70,18 +70,18 @@ public class BihinDAO {
     }
     //ステータス変更(返却)
     public int update(String userID , String bihinID) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = '"+userID+"' and bihinID = '"+bihinID+"'";
+        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = ? and bihinID = ?";
         try {
-            return DBManager.doUpdate(sql);
+            return DBManager.doUpdate(sql,userID,bihinID);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
     }
     //ステータス変更(貸出)
     public int update(String bihinID , String userID , Date returnDay) {
-        String sql = "UPDATE BihinKanri SET status = 2 ,userID = '"+userID+"' , returnDay = '"+returnDay+"' WHERE bihinID = '"+bihinID+"'";
+        String sql = "UPDATE BihinKanri SET status = 2 ,userID = ? , returnDay = ? WHERE bihinID = ?";
         try {
-            return DBManager.doUpdate(sql);
+            return DBManager.doUpdate(sql,userID,returnDay,bihinID);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
