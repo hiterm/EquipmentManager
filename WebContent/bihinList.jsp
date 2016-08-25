@@ -48,9 +48,6 @@ h4 {
 	</div>
 	</form>
 
-
-
-
 	<!-- border=1はとりあえず。cssで指定した方がよい -->
 	<table class="pure-table pure-table-striped" border=1 align="center">
 		<thead>
