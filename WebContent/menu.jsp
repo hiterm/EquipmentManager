@@ -1,5 +1,18 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="pure-menu pure-menu-horizontal">
+    <style scoped>
+
+        .pure-menu-item {
+            color: white;
+            border-radius: 10px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .pure-menu-item {
+            background: rgb(180,180,180); /* この背景色を紺色に。 */
+        }
+
+    </style>
 	<a href="#" class="pure-menu-heading pure-menu-link">Equipment Manager</a>
 	<ul class="pure-menu-list">
 		<li class="pure-menu-item"><a href="MyPageServlet"
