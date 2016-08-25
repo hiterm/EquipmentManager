@@ -40,8 +40,5 @@
     </div>
     </fieldset>
 </form>
-    <style scoped>
-    div { text-align : center ;}
-    </style>
   </body>
 </html>

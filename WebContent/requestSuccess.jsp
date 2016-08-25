@@ -12,7 +12,7 @@ h4 {
 
 </head>
 <body>
-<h4><I><U>備品管理</U></I></h4>
+<%@ include file="menu.jsp" %>
 <br>
 
 <form method="POST" accept-charset="UTF-8">

@@ -16,8 +16,8 @@
 </head>
 
 <body>
-
 <%@ include file="menu.jsp" %>
+
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
@@ -30,8 +30,6 @@
 
 	<%
 	    if (list.size() != 0) {
-	        for (int i = 0; i < list.size(); i++) {
-	            Bihin bihin = list.get(i);
 	%>
 
 		<thead>
@@ -44,6 +42,10 @@
 		</thead>
 		<tbody>
 
+    <%
+    for (int i = 0; i < list.size(); i++) {
+        Bihin bihin = list.get(i);
+    %>
 		<tr>
 			<td><%= bihin.getBihinID() %> </td>
 			<td><%= bihin.getBihinName() %> </td>
