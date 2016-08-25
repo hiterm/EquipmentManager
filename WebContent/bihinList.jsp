@@ -3,6 +3,7 @@
 <%@ page import="ateam.model.Bihin" %>
 <%@ page import="java.util.List" %>
 <%@ page import="ateam.util.BihinUtil" %>
+<%@ page import="ateam.util.UserUtil" %>
 <%List<Bihin> list = (List<Bihin>)request.getAttribute("bihinList");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,7 +41,10 @@ h4 {
 </form>
 
 
-<table class="pure-table pure-table-striped">
+
+
+<!-- border=1はとりあえず。cssで指定した方がよい -->
+<table class="pure-table pure-table-striped" border=1>
 <thead>
 <tr>
 <th>備品ID</th><th>備品名</th><th>ステータス</th>
@@ -58,8 +62,16 @@ for (Bihin bihin : list) {
 <!-- ステータス 1:利用可能 2:貸出中 3:返却済み 4:貸出申請中-->
 <td> <% out.println(BihinUtil.getStatusStr(bihin.getStatus())); %>
 </td>
-<td> <%= bihin.getUserID() %> </td>
-<td> <%= bihin.getReturnDay() %> </td>
+
+<!-- ユーザー名がなかったら---を表示 -->
+<td> <% out.println(UserUtil.getUserName(bihin.getUserID())); %> </td>
+
+<!-- 返却日がなかったら---を表示 -->
+<td> <% if(bihin.getReturnDay() != null) {%>
+<% out.println(bihin.getReturnDay()); %>
+<%} else {%>
+<% out.println("---");%>
+<% }%></td>
 <td>
 <!-- 申請ボタン -->
 <form method="POST" action="RequestServlet" accept-charset="UTF-8">
