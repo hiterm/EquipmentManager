@@ -101,7 +101,7 @@
 				<td>
 					<!-- 申請ボタン -->
 					<form method="POST" action="RequestServlet" accept-charset="UTF-8">
-						<input type="hidden" name="bihinName"
+						<input type="hidden" name="search"
 							value="<%=bihin.getBihinName()%>"> <input type="hidden"
 							name="bihinID" value="<%=bihin.getBihinID()%>">
 						<button type="submit" class="pure-button"
