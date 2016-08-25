@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ateam.logic.RequestLogic;
+import ateam.model.User;
 
 /**
  * Servlet implementation class RequestChoiceServlet
@@ -39,9 +41,15 @@ public class RequestChoiceServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	    HttpSession session = request.getSession();
+	    User user = (User) session.getAttribute("user");
 	    String bihinID = request.getParameter("bihinID");
-	    String userID = request.getParameter("userID");
-	    Date returnDay = (Date) request.getAttribute("returnDay");
+	    String userID = user.getUserID();
+	    String year = request.getParameter("year");
+	    String month = request.getParameter("month");
+	    String day = request.getParameter("day");
+	    String kigen = year+"-"+month+"-"+day;
+	    Date returnDay = Date.valueOf(kigen);
         if (RequestLogic.requestBihin(bihinID, userID, returnDay)) {
             request.getRequestDispatcher("/requestSuccess.jsp").forward(request, response);
         } else {

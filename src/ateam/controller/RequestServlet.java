@@ -41,8 +41,9 @@ public class RequestServlet extends HttpServlet {
         // TODO Auto-generated method stub
         request.setCharacterEncoding("UTF-8");
         String bihinName = request.getParameter("bihinName");
-        //System.out.println(bihinName);
+        String bihinID = request.getParameter("bihinID");
         request.setAttribute("bihinName", bihinName);
+        request.setAttribute("bihinID", bihinID);
         request.getRequestDispatcher("/request.jsp").forward(request, response);
 
     }
