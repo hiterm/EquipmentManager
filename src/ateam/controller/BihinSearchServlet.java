@@ -62,6 +62,7 @@ public class BihinSearchServlet extends HttpServlet {
         } else {
             /*備品名の検索*/
             if(status == 0){
+                list = BihinSearchLogic.getBihinSeachList(bihinKana);
 
             }else{
                 list = BihinSearchLogic.getBihinSearchList(bihinKana, status);
