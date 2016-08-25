@@ -28,6 +28,12 @@
 
 	<table class="pure-table pure-table-striped">
 
+	<%
+	    if (list.size() != 0) {
+	        for (int i = 0; i < list.size(); i++) {
+	            Bihin bihin = list.get(i);
+	%>
+
 		<thead>
 			<tr>
 				<th>備品ID</th>
@@ -37,11 +43,6 @@
 			</tr>
 		</thead>
 		<tbody>
-	<%
-	    if (list.size() != 0) {
-	        for (int i = 0; i < list.size(); i++) {
-	            Bihin bihin = list.get(i);
-	%>
 
 		<tr>
 			<td><%= bihin.getBihinID() %> </td>
@@ -59,7 +60,9 @@
 <%
 	} else {
 %>
-		現在借りている備品はありません<br>
+		<center>
+		<font size="5">現在借りている備品はありません</font>
+		</center>
 <%
 	}
 %>
