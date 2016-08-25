@@ -72,7 +72,7 @@ h4 {
 		<br> <button type="submit">申請</button>
 	</form>
 
-	<form class="pure-form pure-form-aligned">
+<%-- <form class="pure-form pure-form-aligned">
     <fieldset>
         <div class="pure-control-group">
             <label for="userName">利用者名</label>
@@ -130,7 +130,7 @@ h4 {
             <button type="submit" class="pure-button pure-button-primary">申請</button>
         </div>
     </fieldset>
-</form>
+</form> --%>
 
 	<a href="BihinListServlet">備品一覧に戻る</a>
 </body>
