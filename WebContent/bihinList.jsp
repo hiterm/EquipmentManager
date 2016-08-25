@@ -22,7 +22,7 @@
 	<h2>備品一覧</h2>
 
 	<fieldset>
-		<legend>絞りますか？</legend>
+		<legend>詳細検索</legend>
 		<!-- ステータスの絞り込み -->
 		<form method="POST" action="BihinSearchServlet" accept-charset="UTF-8"
 			class="pure-form pure-form-stacked">
