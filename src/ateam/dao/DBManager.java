@@ -131,7 +131,7 @@ public class DBManager {
         try {
             con = DBManager.getConnection();
             smt = con.prepareStatement(sql);
-            smt.setString(1, pmt);
+            smt.setString(1, pmt+"%");
             rs = smt.executeQuery();
 
             List<T> list = new ArrayList<T>();
@@ -173,47 +173,6 @@ public class DBManager {
             con = DBManager.getConnection();
             smt = con.prepareStatement(sql);
             smt.setInt(1, pmt);
-            rs = smt.executeQuery();
-
-            List<T> list = new ArrayList<T>();
-            while (rs.next()) {
-                T bean = mapping.createFromResultSet(rs);
-                list.add(bean);
-            }
-
-            return list;
-        } finally {
-            if (smt != null) {
-                try {
-                    smt.close();
-                } catch (SQLException ignore) {
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException ignore) {
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException ignore) {
-                }
-            }
-        }
-    }
-  //検索発行（パラメータ2つ）
-    public static <T> List<T> getList(String sql,String pmt1,int pmt2, ResultSetBeanMapping<T> mapping) throws SQLException {
-        Connection con = null;
-        PreparedStatement smt = null;
-        ResultSet rs = null;
-
-        try {
-            con = DBManager.getConnection();
-            smt = con.prepareStatement(sql);
-            smt.setString(2, pmt1);
-            smt.setInt(1, pmt2);
             rs = smt.executeQuery();
 
             List<T> list = new ArrayList<T>();

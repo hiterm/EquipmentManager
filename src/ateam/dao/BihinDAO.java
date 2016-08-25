@@ -51,19 +51,19 @@ public class BihinDAO {
     }
     //サーチ(全件表示)
     public List<Bihin> searchBihin(String bihinKana) {
-        String sql = "SELECT * FROM BihinKanri WHERE bihinKana LIKE '?%' ORDER BY bihinID ASC ";
+        String sql = "SELECT * FROM BihinKanri WHERE bihinKana LIKE ? ORDER BY bihinID ASC ";
 
         try {
-            return DBManager.getList(sql, mapping);
+            return DBManager.getList(sql, bihinKana , mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
     }
     //サーチ（ステータス＋名前)
     public List<Bihin> searchBihin(String bihinKana , int status) {
-        String sql = "SELECT * FROM bihinkanri where status = ? and bihinKana LIKE '?%' ORDER BY bihinID ASC ";
+        String sql = "SELECT * FROM BihinKanri where status = "+status+" and bihinKana LIKE ? ORDER BY bihinID ASC ";
         try {
-            return DBManager.getList(sql,bihinKana,status,mapping);
+            return DBManager.getList(sql,bihinKana,mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
