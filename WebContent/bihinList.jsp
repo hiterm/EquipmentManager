@@ -21,6 +21,10 @@
 	<br>
 	<h2>備品一覧</h2>
 
+	<% // 前の入力状況を取得しておく
+String prevBihinKana = (String) request.getAttribute("bihinKana");
+String prevStatusName = (String) request.getAttribute("statusName"); %>
+
 	<fieldset>
 		<legend>絞りますか？</legend>
 		<!-- ステータスの絞り込み -->
@@ -29,9 +33,28 @@
 			<div class="pure-u-1-3 pure-u-md-1-3">
 				<label for="status">ステータス</label> <select name="status"
 					class="pure-input-1-2">
-					<option value="all">全件表示</option>
-					<option value="success">利用可能</option>
-					<option value="fail">貸出中</option>
+					<% // 前に選択されたところを選択する
+					if (prevStatusName == null) { %>
+						<option value="all">全件表示</option>
+						<option value="success">利用可能</option>
+						<option value="fail">貸出中</option>
+					<% } else if ("all".equals(prevStatusName)) { %>
+							<option value="all" selected>全件表示</option>
+							<option value="success">利用可能</option>
+							<option value="fail">貸出中</option>
+					<% } else if ("success".equals(prevStatusName)) {%>
+							<option value="all">全件表示</option>
+							<option value="success" selected>利用可能</option>
+							<option value="fail">貸出中</option>
+					<% } else if ("fail".equals(prevStatusName)) {%>
+							<option value="all">全件表示</option>
+							<option value="success">利用可能</option>
+							<option value="fail" selected>貸出中</option>
+					<% } else {%>
+							<option value="all">全件表示</option>
+							<option value="success">利用可能</option>
+							<option value="fail">貸出中</option>
+					<% } %>
 				</select>
 			</div>
 			<br>
@@ -43,8 +66,11 @@
 
 			<div class="pure-u-1-3 pure-u-md-1-3">
 				<!-- 備品検索フォーム -->
+				<!-- 前に入力された文字を保持する -->
 				備品名() <input type="search" class="pure-u-23-24" name="search"
-					maxlength="10">
+					maxlength="10" <% if (prevBihinKana != null) { %>
+					value="<%= prevBihinKana %>" <% } %>>
+				<!--inputここまで -->
 			</div>
 			<br>
 			<button type="submit" class="pure-button">検索</button>
