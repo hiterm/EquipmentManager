@@ -44,7 +44,7 @@ public class BihinDAO {
         String sql = "SELECT * FROM BihinKanri WHERE status = ? ORDER BY bihinID ASC ";
 
         try {
-            return DBManager.getList(sql,status, mapping);
+            return DBManager.getSearchList(sql,status, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
@@ -63,7 +63,7 @@ public class BihinDAO {
     public List<Bihin> searchBihin(String bihinKana , int status) {
         String sql = "SELECT * FROM BihinKanri where status = "+status+" and bihinKana LIKE ? ORDER BY bihinID ASC ";
         try {
-            return DBManager.getList(sql,bihinKana,mapping);
+            return DBManager.getSearchList(sql,bihinKana,mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }

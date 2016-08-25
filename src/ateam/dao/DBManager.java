@@ -203,7 +203,7 @@ public class DBManager {
         }
     }
     //検索発行（パラメータ１つ）
-    public static <T> List<T> getList(String sql,int pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
+    public static <T> List<T> getSearchList(String sql,int pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
         ResultSet rs = null;
