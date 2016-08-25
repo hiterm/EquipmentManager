@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <title>貸出申請</title>
 <style type="text/css">
 h4 {
@@ -15,7 +17,6 @@ h4 {
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
-
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
