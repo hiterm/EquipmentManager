@@ -102,8 +102,10 @@ h4 {
 					<form method="POST" action="RequestServlet" accept-charset="UTF-8">
 						<input type="hidden" name="bihinName"
 							value="<%=bihin.getBihinName()%>">
+						<input type="hidden" name="bihinID" value="<%= bihin.getBihinID() %>">
 						<button type="submit" class="pure-button"
-							<% if (bihin.getStatus() == 2) {%> disabled <% } %>>申請</button>
+							<% if (bihin.getStatus() == 2) {%> disabled <% } %>>申請
+						</button>
 					</form>
 				</td>
 			</tr>
