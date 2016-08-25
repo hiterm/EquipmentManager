@@ -10,10 +10,10 @@ public class RequestLogic {
         BihinDAO dao = BihinDAO.getInstance();
         dao.update(bihinID , userID , returnDay);
         Bihin bihin = dao.getBihin(bihinID);
-        	if(bihin.getStatus() == 1) {
+        	if(bihin.getStatus() == 2) {
         		//ステータスが貸出可の場合にのみtureを返す
         		return true;
         	}
-        return true;
+        return false;
     }
 }
