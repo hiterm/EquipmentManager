@@ -29,11 +29,11 @@
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
-	<h2>
-		<%
+	<h4>
+		所属:<%
 		    out.println(DepartmentUtil.getDeptName(user.getDeptID()));
 		%>
-	</h2>
+	</h4>
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 
