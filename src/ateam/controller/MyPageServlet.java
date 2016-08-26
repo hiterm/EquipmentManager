@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import ateam.logic.MyPageLogic;
 import ateam.model.Bihin;
+import ateam.model.Department;
 import ateam.model.User;
 
 /**
@@ -39,8 +40,10 @@ public class MyPageServlet extends HttpServlet {
         User user = (User) session.getAttribute("user");
         //備品モデルのリストにロジックで作成したリストを代入していく。
         List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
+        List<Department> deptlist = MyPageLogic.getDepartmentList(user.getDeptID());
         //リストをjspに渡す
         request.setAttribute("list", list);
+        request.setAttribute("deptlist", deptlist);
         request.getRequestDispatcher("/myPage.jsp").forward(request, response);
     }
 

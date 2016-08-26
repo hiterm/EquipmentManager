@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page
-	import="java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User"%>
+	import="java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User,ateam.model.Department"%>
 <%
     List<Bihin> list = (List<Bihin>) request.getAttribute("list");
+	List<Department> deptlist = (List<Department>) request.getAttribute("deptlist");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,8 +20,11 @@
 <%@ include file="menu.jsp" %>
 
 	<%
-	    User user = (User) session.getAttribute("user");
+	for (Department dept : deptlist) {
 	%>
+		<h2><%=dept.getDeptName()%></h2>
+	<% } %>
+	<% User user = (User) session.getAttribute("user");%>
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 
