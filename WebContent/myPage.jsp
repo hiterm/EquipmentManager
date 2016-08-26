@@ -21,8 +21,8 @@
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
-	<h1><%=user.getUserName()%>さんのマイページ
-	</h1>
+	<h2><%=user.getUserName()%>さんのマイページ
+	</h2>
 
 	<h3>借りている備品一覧</h3>
 
