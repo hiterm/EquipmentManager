@@ -121,17 +121,9 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 
 				<!-- 返却日がなかったら---を表示 -->
 				<td>
-					<%
-					    if (bihin.getReturnDay() != null) {
-					%> <%
-     out.println(bihin.getReturnDay());
- %> <%
-     } else {
- %> <%
-     out.println("---");
- %> <%
-     }
- %>
+				<%
+					    out.println(BihinUtil.getReturnDayStr(bihin.getReturnDay()));
+					%>
 				</td>
 				<td>
 					<!-- 申請ボタン -->
