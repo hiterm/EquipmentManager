@@ -61,7 +61,7 @@ public class BihinDAO {
     }
     //サーチ（ステータス＋名前)
     public List<Bihin> searchBihin(String bihinKana ,String bihinName, int status) {
-        String sql = "SELECT * FROM BihinKanri where status = "+status+" and bihinKana LIKE ? and bihinName LIKE ? ORDER BY bihinID ASC ";
+        String sql = "SELECT * FROM BihinKanri where status = "+status+" and (bihinKana LIKE ? OR bihinName LIKE ?) ORDER BY bihinID ASC ";
         try {
             return DBManager.getSearchList(sql,bihinKana,bihinName,mapping);
         } catch (SQLException e) {
