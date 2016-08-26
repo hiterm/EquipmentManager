@@ -57,10 +57,9 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 					<% } %>
 				</select>
 			</div>
-			<br>
 			<style scoped>
 .pure-button {
-	font-size: 100%;
+	font-size: 90%;
 }
 
 .margin {
@@ -68,8 +67,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 }
 
 </style>
-
-			<div class="pure-u-1-3 pure-u-md-1-3">
+            <div class="pure-u-1-3 pure-u-md-1-3">
 				<!-- 備品検索フォーム -->
 				<!-- 前に入力された文字を保持する -->
 				備品名(カナ) <input type="search" class="pure-u-23-24" name="search"
@@ -77,7 +75,6 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 					value="<%= prevBihinKana %>" <% } %>>
 				<!--inputここまで -->
 			</div>
-			<br>
 			<button type="submit" class="pure-button">検索</button>
 	</fieldset>
 	</form>
