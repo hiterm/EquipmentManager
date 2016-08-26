@@ -29,13 +29,14 @@
 	<%
 	    for (Department dept : deptlist) {
 	%>
-	<h2><%=dept.getDeptName()%></h2>
+	<h4>所属:<%=dept.getDeptName()%></h4>
 	<%
 	    }
 	%>
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
+
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 
