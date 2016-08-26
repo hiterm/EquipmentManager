@@ -13,7 +13,7 @@
 
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="menu.jsp"%>
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
@@ -35,7 +35,7 @@
 	<%=request.getAttribute("bihinName")%><br>
 	<br>
 	<form method="POST" action="RequestChoiceServlet"
-		accept-charset="UTF-8">
+		onsubmit="return submitChk()" accept-charset="UTF-8">
 		返却日: <SELECT name="year">
 			<option value="">----</option>
 			<%
@@ -63,13 +63,26 @@
 			<%
 			    }
 			%>
-		</select> 日 <br> <br> <br>
-		<input type="hidden" name="bihinID" value="<%= request.getAttribute("bihinID") %>">
-		<input type="hidden" name="bihinName" value="<%= request.getAttribute("bihinName") %>">
-		<br> <button type="submit">申請</button>
+		</select> 日 <br> <br> <br> <input type="hidden" name="bihinID"
+			value="<%=request.getAttribute("bihinID")%>"> <input
+			type="hidden" name="bihinName"
+			value="<%=request.getAttribute("bihinName")%>">
+		<script>
+			/**
+			 * 確認ダイアログの返り値によりフォーム送信
+			 */
+			function submitChk() {
+				/* 確認ダイアログ表示 */
+				var flag = confirm("申請してもよろしいですか？\n\n申請したくない場合は[キャンセル]ボタンを押して下さい");
+				/* send_flg が TRUEなら送信、FALSEなら送信しない */
+				return flag;
+			}
+		</script>
+		<br>
+		<button type="submit" class="pure-button">申請</button>
 	</form>
 
-<%-- <form class="pure-form pure-form-aligned">
+	<%-- <form class="pure-form pure-form-aligned">
     <fieldset>
         <div class="pure-control-group">
             <label for="userName">利用者名</label>

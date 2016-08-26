@@ -4,7 +4,7 @@
 	import="java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User,ateam.model.Department"%>
 <%
     List<Bihin> list = (List<Bihin>) request.getAttribute("list");
-	List<Department> deptlist = (List<Department>) request.getAttribute("deptlist");
+			List<Department> deptlist = (List<Department>) request.getAttribute("deptlist");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,14 +17,18 @@
 </head>
 
 <body>
-<%@ include file="menu.jsp" %>
+	<%@ include file="menu.jsp"%>
 
 	<%
-	for (Department dept : deptlist) {
+	    for (Department dept : deptlist) {
 	%>
-		<h2><%=dept.getDeptName()%></h2>
-	<% } %>
-	<% User user = (User) session.getAttribute("user");%>
+	<h2><%=dept.getDeptName()%></h2>
+	<%
+	    }
+	%>
+	<%
+	    User user = (User) session.getAttribute("user");
+	%>
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 
@@ -32,9 +36,9 @@
 
 	<table class="pure-table pure-table-striped">
 
-	<%
-	    if (list.size() != 0) {
-	%>
+		<%
+		    if (list.size() != 0) {
+		%>
 
 		<thead>
 			<tr>
@@ -46,34 +50,56 @@
 		</thead>
 		<tbody>
 
-    <%
-    for (int i = 0; i < list.size(); i++) {
-        Bihin bihin = list.get(i);
-    %>
-		<tr>
-			<td><%= bihin.getBihinID() %> </td>
-			<td><%= bihin.getBihinName() %> </td>
-			<td><%= bihin.getReturnDay() %> </td>
-			<td> <form method = "POST" action = "ReturnBihinServlet" accept-charset = "UTF-8">
-			<input type = "hidden" name = "userID" value = "<%= bihin.getUserID() %>">
-			<input type = "hidden" name = "bihinID" value = "<%= bihin.getBihinID() %>">
-			<button type = "submit" class="pure-button">返却</button> </form>
-			</td>
-		</tr>
-<%		} %> <!-- forここまで -->
-</tbody>
-</table>
-<%
-	} else {
-%>
-		<center>
-		<font size="5">現在借りている備品はありません</font>
-		</center>
-<%
-	}
-%>
+			<%
+			    for (int i = 0; i < list.size(); i++) {
+								Bihin bihin = list.get(i);
+			%>
+			<tr>
+				<td><%=bihin.getBihinID()%></td>
+				<td><%=bihin.getBihinName()%></td>
+				<td><%=bihin.getReturnDay()%></td>
+				<td>
+					<form method="POST" action="ReturnBihinServlet"
+						onsubmit="return submitChk()" accept-charset="UTF-8">
+						<input type="hidden" name="userID"
+							value="<%=bihin.getUserID()%>"> <input type="hidden"
+							name="bihinID" value="<%=bihin.getBihinID()%>">
 
-<!--  <a href="LogoutServlet">ログアウト</a>
+						<script>
+							/**
+							 * 確認ダイアログの返り値によりフォーム送信
+							 */
+							function submitChk() {
+								/* 確認ダイアログ表示 */
+								var flag = confirm("返却してもよろしいですか？\n\n返却したくない場合は[キャンセル]ボタンを押して下さい");
+								/* send_flg が TRUEなら送信、FALSEなら送信しない */
+								return flag;
+							}
+						</script>
+						<button type="submit" class="pure-button">返却</button>
+
+
+
+					</form>
+				</td>
+			</tr>
+			<%
+			    }
+			%>
+			<!-- forここまで -->
+		</tbody>
+	</table>
+	<%
+	    } else {
+	%>
+	<center>
+		<font size="5">現在借りている備品はありません</font>
+	</center>
+	<%
+	    }
+	%>
+
+	<!--  <a href="LogoutServlet">ログアウト</a>
  <br>
  <a href = "BihinListServlet">備品一覧へ（貸出はこちらから）</a>  -->
 
