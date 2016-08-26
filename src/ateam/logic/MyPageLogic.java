@@ -15,11 +15,11 @@ public class MyPageLogic {
         return list;
     }
 
-    public static List<Department> getDepartmentList(String id) {
+    public static Department getDepartment(String id) {
         DepartmentDAO dao = DepartmentDAO.getInstance();
-        List<Department> list  = dao.getDepartmentList(id);
+        Department dept  = dao.getDepartment(id);
 
-        return list;
+        return dept;
 
     }
 }

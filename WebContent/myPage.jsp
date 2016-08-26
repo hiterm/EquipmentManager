@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ page
 	import="java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User,ateam.model.Department"%>
+<%@ page import="ateam.util.DepartmentUtil"%>
 <%
     List<Bihin> list = (List<Bihin>) request.getAttribute("list");
-			List<Department> deptlist = (List<Department>) request.getAttribute("deptlist");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -27,6 +27,7 @@
     <!--背景色の変更-->
 
 	<%
+<<<<<<< Updated upstream
 	    for (Department dept : deptlist) {
 	%>
 	<h4>所属:<%=dept.getDeptName()%></h4>
@@ -36,6 +37,13 @@
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
+=======
+	    User user = (User) session.getAttribute("user");
+	%>
+	<h2>	<%
+			out.println(DepartmentUtil.getDeptName(user.getDeptID()));
+			%></h2>
+>>>>>>> Stashed changes
 
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>

@@ -41,15 +41,16 @@ public class MyPageServlet extends HttpServlet {
         if (!LoginUtil.isLogined(session)) {
             request.setAttribute("errorMessage", "ログインしてください");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
-        } else {
+        }
+        else {
         User user = (User) session.getAttribute("user");
 
         //備品モデルのリストにロジックで作成したリストを代入していく。
         List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
-        List<Department> deptlist = MyPageLogic.getDepartmentList(user.getDeptID());
+        Department dept = MyPageLogic.getDepartment(user.getDeptID());
         //リストをjspに渡す
         request.setAttribute("list", list);
-        request.setAttribute("deptlist", deptlist);
+        request.setAttribute("dept", dept);
         request.getRequestDispatcher("/myPage.jsp").forward(request, response);
         }
     }

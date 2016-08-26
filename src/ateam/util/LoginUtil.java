@@ -8,12 +8,7 @@ public class LoginUtil {
         return session != null && session.getAttribute("user") != null;
     }
 
- /*   public static boolean searchUser(User user){
-        if (user != null) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }*/
+    public static boolean searchUser(HttpSession session){
+        return session.getAttribute("user") != null;
+    }
 }
