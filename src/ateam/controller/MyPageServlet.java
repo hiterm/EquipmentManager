@@ -36,8 +36,9 @@ public class MyPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         User user = (User) session.getAttribute("user");
+
         //備品モデルのリストにロジックで作成したリストを代入していく。
         List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
         List<Department> deptlist = MyPageLogic.getDepartmentList(user.getDeptID());
