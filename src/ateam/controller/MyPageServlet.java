@@ -14,6 +14,7 @@ import ateam.logic.MyPageLogic;
 import ateam.model.Bihin;
 import ateam.model.Department;
 import ateam.model.User;
+import ateam.util.LoginUtil;
 
 /**
  * Servlet implementation class StateDisplayServlet
@@ -37,6 +38,9 @@ public class MyPageServlet extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         HttpSession session = request.getSession(false);
+        if (!LoginUtil.isLogined(session)) {
+            response.sendRedirect("LoginServlet");
+        } else {
         User user = (User) session.getAttribute("user");
 
         //備品モデルのリストにロジックで作成したリストを代入していく。
@@ -46,6 +50,7 @@ public class MyPageServlet extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("deptlist", deptlist);
         request.getRequestDispatcher("/myPage.jsp").forward(request, response);
+        }
     }
 
     /**
