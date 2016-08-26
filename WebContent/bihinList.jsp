@@ -83,8 +83,9 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 	</form>
 
 	<div class="margin">
-		<table class="pure-table pure-table-striped" align="center">
-			<%
+
+	<table class="pure-table pure-table-striped">
+	<%
 	    if (list.size() != 0) {
 	%>
 			<thead>
