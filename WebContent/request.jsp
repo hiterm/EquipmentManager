@@ -59,7 +59,7 @@
 	備品名:
 	<%=request.getAttribute("bihinName")%><br>
 	<br>
-	<form method="POST" action="RequestChoiceServlet"
+	<form method="POST" name="requestForm" action="RequestChoiceServlet"
 		onsubmit="return submitChk()" accept-charset="UTF-8">
 		返却日：<input type="text" name="returnDate" id="datepicker"> <input
 			type="hidden" name="bihinID"
@@ -72,6 +72,10 @@
 			 * 確認ダイアログの返り値によりフォーム送信
 			 */
 			function submitChk() {
+				if (document.requestForm.returnDate.value == "") {
+					window.alert("返却日を入力してください");
+					return false;
+				}
 				/* 確認ダイアログ表示 */
 				var flag = confirm("申請してもよろしいですか？\n\n申請したくない場合は[キャンセル]ボタンを押して下さい");
 				/* send_flg が TRUEなら送信、FALSEなら送信しない */
