@@ -1,5 +1,8 @@
 package ateam.util;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class BihinUtil {
     public static String getStatusStr(int status) {
         String statusName = null;
@@ -22,5 +25,16 @@ public class BihinUtil {
         }
         return statusName;
     }
+
+    public static String getReturnDayStr(Date date) {
+        final String DATE_PATTERN ="yyyy-MM-dd";
+        if (date != null) {
+            return (new SimpleDateFormat(DATE_PATTERN)).format(date);
+        } else {
+            return "---";
+        }
+    }
+
+
 
 }
