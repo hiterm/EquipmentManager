@@ -34,10 +34,17 @@
     </div>
 
     <div class="pure-controls">
+    &nbsp;
         <button type="submit" class="pure-button pure-button-primary">送信</button>
+    &nbsp;&nbsp;
         <button type="reset" class="pure-button pure-button-primary">リセット</button>
     </div>
     </fieldset>
-</form>
+        <style scoped>
+.pure-button-primary {
+	background: #A9A9A9;
+}
+        </style>
+ </form>
   </body>
 </html>
