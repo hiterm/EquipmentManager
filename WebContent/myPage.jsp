@@ -97,9 +97,7 @@
 	<%
 	    } else {
 	%>
-	<center>
 		<font size="5">現在借りている備品はありません</font>
-	</center>
 	<%
 	    }
 	%>
