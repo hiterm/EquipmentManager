@@ -64,10 +64,10 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 .margin {
     border:solid 1px #FFFFFF;margin:10px;
 }
-
-    body{
-    background-color: #FFF0F5;
+   /* body{
+    background-color: #FFF5EE;
     }
+    */ /*背景色の変更*/
 
 </style>
 

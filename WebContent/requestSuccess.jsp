@@ -12,11 +12,14 @@
 <body>
 <%@ include file="menu.jsp" %>
 <br>
+<!--
 <style scoped>
     body{
     background-color: #FFF0F5;
     }
     </style>
+    <!--背景色の変更-->
+    -->
 
 <form method="POST" accept-charset="UTF-8">
 <h1>以下の内容で申請が完了しました</h1>

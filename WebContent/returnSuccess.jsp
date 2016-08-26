@@ -17,11 +17,14 @@
 <br>
 </form>
 
+<!--
     <style scoped>
     body{
     background-color: #FFF0F5;
     }
     </style>
+    <!--背景色の変更-->
+    -->
 
 </body>
 </html>

@@ -19,11 +19,13 @@
 <body>
 
 <%@ include file="menu.jsp" %>
-<style scoped>
+<!--<style scoped>
     body{
-    background-color: #FFF0F5;
+    background-color: #FFF5EE;
     }
     </style>
+    <!--背景色の変更-->
+    -->
 
 	<%
 	    for (Department dept : deptlist) {

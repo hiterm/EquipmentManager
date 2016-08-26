@@ -28,11 +28,13 @@
 </head>
 <body>
 	<%@ include file="menu.jsp"%>
-	<style scoped>
+	<!-- <style scoped>
     body{
     background-color: #FFF0F5;
     }
     </style>
+    <!--背景色の変更-->
+    -->
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
