@@ -39,7 +39,8 @@ public class MyPageServlet extends HttpServlet {
         // TODO Auto-generated method stub
         HttpSession session = request.getSession(false);
         if (!LoginUtil.isLogined(session)) {
-            response.sendRedirect("LoginServlet");
+            request.setAttribute("errorMessage", "ログインしてください");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
         User user = (User) session.getAttribute("user");
 
