@@ -65,6 +65,10 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
     border:solid 1px #FFFFFF;margin:10px;
 }
 
+    body{
+    background-color: #F0F8FF;
+    }
+
 </style>
 
 				<!-- 備品検索フォーム -->

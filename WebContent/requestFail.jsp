@@ -15,7 +15,11 @@ h1 {
 <body>
 <%@ include file="menu.jsp" %>
 <br>
-
+<style scoped>
+    body{
+    background-color: #F0F8FF;
+    }
+    </style>
  <form method="POST" action="LoginServlet" accept-charset="UTF-8">
  	<h1>申請が失敗しました。</h1><br><br>
 

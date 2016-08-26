@@ -13,9 +13,15 @@
 <%@ include file="menu.jsp" %>
 <br>
 <form method="POST" accept-charset="UTF-8">
-<h1>返却しました。</h1>
+<h1><font color="#808080">返却しました。</font></h1>
 <br>
 </form>
+
+    <style scoped>
+    body{
+    background-color: #F0F8FF;
+    }
+    </style>
 
 </body>
 </html>

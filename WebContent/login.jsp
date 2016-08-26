@@ -21,6 +21,12 @@
     <% }%>
     <br>
 
+    <style scoped>
+    body{
+    background-color: #F0F8FF;
+    }
+    </style>
+
   <form method="POST" action="LoginServlet" accept-charset="UTF-8" class="pure-form pure-form-aligned">
     <fieldset>
     <div class="pure-control-group">
