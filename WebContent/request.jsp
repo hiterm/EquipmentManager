@@ -10,17 +10,21 @@
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
 <!-- jquery -->
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.min.css" >
+<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.min.css">
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jquery.ui.datepicker-ja.min.js"></script>
 
 
 <script>
-  $(function() {
-    var dateFormat = 'yy-mm-dd';
-    $("#datepicker").datepicker({ dateFormat: dateFormat, minDate: 0});
-  });
+	$(function() {
+		var dateFormat = 'yy-mm-dd';
+		$("#datepicker").datepicker({
+			dateFormat : dateFormat,
+			minDate : 0
+		});
+	});
 </script>
 
 <title>貸出申請</title>
@@ -34,7 +38,7 @@
     }
     </style>
     <!--背景色の変更-->
-    -->
+	-->
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
@@ -57,10 +61,26 @@
 	<br>
 	<form method="POST" action="RequestChoiceServlet"
 		onsubmit="return submitChk()" accept-charset="UTF-8">
-		返却日：<input type="text" name="returnDate" id="datepicker">
-		<input type="hidden" name="bihinID" value="<%= request.getAttribute("bihinID") %>">
-		<input type="hidden" name="bihinName" value="<%= request.getAttribute("bihinName") %>">
-		<br> <button type="submit">申請</button>
+		返却日：<input type="text" name="returnDate" id="datepicker"> <input
+			type="hidden" name="bihinID"
+			value="<%=request.getAttribute("bihinID")%>"> <input
+			type="hidden" name="bihinName"
+			value="<%=request.getAttribute("bihinName")%>">
+
+		<script>
+			/**
+			 * 確認ダイアログの返り値によりフォーム送信
+			 */
+			function submitChk() {
+				/* 確認ダイアログ表示 */
+				var flag = confirm("申請してもよろしいですか？\n\n申請したくない場合は[キャンセル]ボタンを押して下さい");
+				/* send_flg が TRUEなら送信、FALSEなら送信しない */
+				return flag;
+			}
+		</script>
+		<br>
+		<button type="submit" class="pure-button">申請</button>
+
 	</form>
 
 	<%-- <form class="pure-form pure-form-aligned">
