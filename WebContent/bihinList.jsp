@@ -31,30 +31,30 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 		<form method="POST" action="BihinSearchServlet" accept-charset="UTF-8"
 			class="pure-form">
 
-				<label for="status">ステータス</label> <select name="status">
-					<% // 前に選択されたところを選択する
+			<label for="status">ステータス</label> <select name="status">
+				<% // 前に選択されたところを選択する
 					if (prevStatusName == null) { %>
-						<option value="all">全件表示</option>
-						<option value="success">利用可能</option>
-						<option value="fail">貸出中</option>
-					<% } else if ("all".equals(prevStatusName)) { %>
-							<option value="all" selected>全件表示</option>
-							<option value="success">利用可能</option>
-							<option value="fail">貸出中</option>
-					<% } else if ("success".equals(prevStatusName)) {%>
-							<option value="all">全件表示</option>
-							<option value="success" selected>利用可能</option>
-							<option value="fail">貸出中</option>
-					<% } else if ("fail".equals(prevStatusName)) {%>
-							<option value="all">全件表示</option>
-							<option value="success">利用可能</option>
-							<option value="fail" selected>貸出中</option>
-					<% } else {%>
-							<option value="all">全件表示</option>
-							<option value="success">利用可能</option>
-							<option value="fail">貸出中</option>
-					<% } %>
-				</select>
+				<option value="all">全件表示</option>
+				<option value="success">利用可能</option>
+				<option value="fail">貸出中</option>
+				<% } else if ("all".equals(prevStatusName)) { %>
+				<option value="all" selected>全件表示</option>
+				<option value="success">利用可能</option>
+				<option value="fail">貸出中</option>
+				<% } else if ("success".equals(prevStatusName)) {%>
+				<option value="all">全件表示</option>
+				<option value="success" selected>利用可能</option>
+				<option value="fail">貸出中</option>
+				<% } else if ("fail".equals(prevStatusName)) {%>
+				<option value="all">全件表示</option>
+				<option value="success">利用可能</option>
+				<option value="fail" selected>貸出中</option>
+				<% } else {%>
+				<option value="all">全件表示</option>
+				<option value="success">利用可能</option>
+				<option value="fail">貸出中</option>
+				<% } %>
+			</select>
 
 			<style scoped>
 .pure-button {
@@ -62,94 +62,94 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 }
 
 .margin {
-    border:solid 1px #FFFFFF;margin:10px;
+	border: solid 1px #FFFFFF;
+	margin: 10px;
 }
-   /* body{
+/* body{
     background-color: #FFF5EE;
     }
     */ /*背景色の変更*/
-
 </style>
 
-				<!-- 備品検索フォーム -->
-				<!-- 前に入力された文字を保持する -->
-				備品名 <input type="search" name="search"
-					maxlength="10" <% if (prevBihinKana != null) { %>
-					value="<%= prevBihinKana %>" <% } %>>
-				<!--inputここまで -->
+			<!-- 備品検索フォーム -->
+			<!-- 前に入力された文字を保持する -->
+			備品名 <input type="search" name="search" maxlength="10"
+				<% if (prevBihinKana != null) { %> value="<%= prevBihinKana %>"
+				<% } %>>
+			<!--inputここまで -->
 
 			<button type="submit" class="pure-button">検索</button>
 	</fieldset>
 	</form>
 
 	<div class="margin">
-	<table class="pure-table pure-table-striped" align="center">
-	<%
+		<table class="pure-table pure-table-striped" align="center">
+			<%
 	    if (list.size() != 0) {
 	%>
-		<thead>
-			<tr>
-				<th>備品ID</th>
-				<th>備品名</th>
-				<th>ステータス</th>
-				<th>貸出ユーザ名</th>
-				<th>返却予定日</th>
-				<th>操作</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
+			<thead>
+				<tr>
+					<th>備品ID</th>
+					<th>備品名</th>
+					<th>ステータス</th>
+					<th>貸出ユーザ名</th>
+					<th>返却予定日</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
 			    for (Bihin bihin : list) {
 			%>
-			<tr>
-				<td><%=bihin.getBihinID()%></td>
-				<td><%=bihin.getBihinName()%></td>
+				<tr>
+					<td><%=bihin.getBihinID()%></td>
+					<td><%=bihin.getBihinName()%></td>
 
-				<!-- ステータス 1:利用可能 2:貸出中 3:返却済み 4:貸出申請中-->
-				<td>
-					<%
+					<!-- ステータス 1:利用可能 2:貸出中 3:返却済み 4:貸出申請中-->
+					<td>
+						<%
 					    out.println(BihinUtil.getStatusStr(bihin.getStatus()));
 					%>
-				</td>
+					</td>
 
-				<!-- ユーザー名がなかったら---を表示 -->
-				<td>
-					<%
+					<!-- ユーザー名がなかったら---を表示 -->
+					<td>
+						<%
 					    out.println(UserUtil.getUserName(bihin.getUserID()));
 					%>
-				</td>
+					</td>
 
-				<!-- 返却日がなかったら---を表示 -->
-				<td>
-				<%
+					<!-- 返却日がなかったら---を表示 -->
+					<td>
+						<%
 					    out.println(BihinUtil.getReturnDayStr(bihin.getReturnDay()));
 					%>
-				</td>
-				<td>
-					<!-- 申請ボタン -->
-					<form method="POST" action="RequestServlet" accept-charset="UTF-8">
-						<input type="hidden" name="bihinName"
-							value="<%=bihin.getBihinName()%>"> <input type="hidden"
-							name="bihinID" value="<%=bihin.getBihinID()%>">
-						<button type="submit" class="pure-button"
-							<%if (bihin.getStatus() == 2) {%> disabled <%}%>>申請</button>
-					</form>
-				</td>
-			</tr>
-			<%
+					</td>
+					<td>
+						<!-- 申請ボタン -->
+						<form method="POST" action="RequestServlet" accept-charset="UTF-8">
+							<input type="hidden" name="bihinName"
+								value="<%=bihin.getBihinName()%>"> <input type="hidden"
+								name="bihinID" value="<%=bihin.getBihinID()%>">
+							<button type="submit" class="pure-button"
+								<%if (bihin.getStatus() == 2) {%> disabled <%}%>>申請</button>
+						</form>
+					</td>
+				</tr>
+				<%
 			    }
 			%>
-		</tbody>
-	</table>
+			</tbody>
+		</table>
 	</div>
 
 	<%
 	} else {
 %>
-		<center>
+	<center>
 		<font size="5">検索結果はありません</font>
-		</center>
-<%
+	</center>
+	<%
 	}
 %>
 

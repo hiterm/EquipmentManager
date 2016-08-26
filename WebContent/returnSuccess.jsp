@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,14 +10,16 @@
 
 </head>
 <body>
-<%@ include file="menu.jsp" %>
-<br>
-<form method="POST" accept-charset="UTF-8">
-<h1><font color="#808080">返却しました。</font></h1>
-<br>
-</form>
+	<%@ include file="menu.jsp"%>
+	<br>
+	<form method="POST" accept-charset="UTF-8">
+		<h1>
+			<font color="#808080">返却しました。</font>
+		</h1>
+		<br>
+	</form>
 
-<!--
+	<!--
     <style scoped>
     body{
     background-color: #FFF0F5;

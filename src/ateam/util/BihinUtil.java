@@ -27,14 +27,12 @@ public class BihinUtil {
     }
 
     public static String getReturnDayStr(Date date) {
-        final String DATE_PATTERN ="yyyy-MM-dd";
+        final String DATE_PATTERN = "yyyy-MM-dd";
         if (date != null) {
             return (new SimpleDateFormat(DATE_PATTERN)).format(date);
         } else {
             return "---";
         }
     }
-
-
 
 }

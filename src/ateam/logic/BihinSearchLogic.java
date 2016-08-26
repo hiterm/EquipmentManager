@@ -13,23 +13,21 @@ public class BihinSearchLogic {
         return list;
     }
 
-    public static List<Bihin> getBihinSearchList(String bihinKana ,String bihinName, int status){
+    public static List<Bihin> getBihinSearchList(String bihinKana, String bihinName, int status) {
         BihinDAO dao = BihinDAO.getInstance();
         String katakanaBihinKana = StringUtil.convertHiraganaToKatakana(bihinKana);
-        List<Bihin> list = dao.searchBihin(katakanaBihinKana ,bihinName,status);
+        List<Bihin> list = dao.searchBihin(katakanaBihinKana, bihinName, status);
         return list;
     }
 
-    public static List<Bihin> getBihinSeachList(String bihinKana,String bihinName){
+    public static List<Bihin> getBihinSeachList(String bihinKana, String bihinName) {
         BihinDAO dao = BihinDAO.getInstance();
         String katakanaBihinKana = StringUtil.convertHiraganaToKatakana(bihinKana);
-        List<Bihin> list = dao.searchBihin(katakanaBihinKana ,bihinName);
+        List<Bihin> list = dao.searchBihin(katakanaBihinKana, bihinName);
         return list;
     }
 
-
-
-    public static int getStatusSearch(String statusName){
+    public static int getStatusSearch(String statusName) {
         int status;
         switch (statusName) {
         case "success":
@@ -44,6 +42,5 @@ public class BihinSearchLogic {
         }
         return status;
     }
-
 
 }

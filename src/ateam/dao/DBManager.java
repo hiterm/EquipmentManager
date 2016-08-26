@@ -24,7 +24,7 @@ public class DBManager {
     }
 
     //更新SQLを発行(パラメータ文字列２つ)
-    public static int doUpdate(String sql,String pmt1,String pmt2) throws SQLException {
+    public static int doUpdate(String sql, String pmt1, String pmt2) throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
 
@@ -50,8 +50,8 @@ public class DBManager {
         }
     }
 
-  //更新SQLを発行(パラメータ文字列2つデータ1つ)
-    public static int doUpdate(String sql,String pmt1,Date pmt2,String pmt3) throws SQLException {
+    //更新SQLを発行(パラメータ文字列2つデータ1つ)
+    public static int doUpdate(String sql, String pmt1, Date pmt2, String pmt3) throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
 
@@ -77,7 +77,8 @@ public class DBManager {
             }
         }
     }
-    public static <T> T getObject(String sql,String pmt,ResultSetBeanMapping<T> mapping) throws SQLException {
+
+    public static <T> T getObject(String sql, String pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
         Connection con = null;
         ResultSet rs = null;
         PreparedStatement smt = null;
@@ -152,8 +153,10 @@ public class DBManager {
             }
         }
     }
+
     //検索発行（パラメータ2つ）
-    public static <T> List<T> getSearchList(String sql,String pmt1,String pmt2 ,ResultSetBeanMapping<T> mapping) throws SQLException {
+    public static <T> List<T> getSearchList(String sql, String pmt1, String pmt2, ResultSetBeanMapping<T> mapping)
+            throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
         ResultSet rs = null;
@@ -161,8 +164,8 @@ public class DBManager {
         try {
             con = DBManager.getConnection();
             smt = con.prepareStatement(sql);
-            smt.setString(1, "%"+pmt1+"%");
-            smt.setString(2, "%"+pmt2+"%");
+            smt.setString(1, "%" + pmt1 + "%");
+            smt.setString(2, "%" + pmt2 + "%");
             rs = smt.executeQuery();
 
             List<T> list = new ArrayList<T>();
@@ -193,8 +196,9 @@ public class DBManager {
             }
         }
     }
+
     //検索発行（マイページ）
-    public static <T> List<T> getList(String sql,String pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
+    public static <T> List<T> getList(String sql, String pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
         ResultSet rs = null;
@@ -233,8 +237,9 @@ public class DBManager {
             }
         }
     }
+
     //検索発行（パラメータ１つ）
-    public static <T> List<T> getSearchList(String sql,int pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
+    public static <T> List<T> getSearchList(String sql, int pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
         ResultSet rs = null;

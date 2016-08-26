@@ -18,8 +18,8 @@
 
 <body>
 
-<%@ include file="menu.jsp" %>
-<!--<style scoped>
+	<%@ include file="menu.jsp"%>
+	<!--<style scoped>
     body{
     background-color: #FFF5EE;
     }
@@ -29,9 +29,11 @@
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
-	<h2>	<%
-			out.println(DepartmentUtil.getDeptName(user.getDeptID()));
-			%></h2>
+	<h2>
+		<%
+		    out.println(DepartmentUtil.getDeptName(user.getDeptID()));
+		%>
+	</h2>
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 
@@ -64,9 +66,9 @@
 				<td>
 					<form method="POST" action="ReturnBihinServlet"
 						onsubmit="return submitChk()" accept-charset="UTF-8">
-						<input type="hidden" name="userID"
-							value="<%=bihin.getUserID()%>"> <input type="hidden"
-							name="bihinID" value="<%=bihin.getBihinID()%>">
+						<input type="hidden" name="userID" value="<%=bihin.getUserID()%>">
+						<input type="hidden" name="bihinID"
+							value="<%=bihin.getBihinID()%>">
 
 						<script>
 							/**

@@ -18,7 +18,7 @@ public class UserDAO {
     public User getUser(String userID) {
         String sql = "SELECT *  FROM UserKanri WHERE userID = ?";
         try {
-            return DBManager.getObject(sql,userID,mapping);
+            return DBManager.getObject(sql, userID, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
