@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import ateam.logic.MyPageLogic;
 import ateam.model.Bihin;
-import ateam.model.Department;
 import ateam.model.User;
 import ateam.util.LoginUtil;
 
@@ -47,10 +46,8 @@ public class MyPageServlet extends HttpServlet {
 
         //備品モデルのリストにロジックで作成したリストを代入していく。
         List<Bihin> list = MyPageLogic.getBihinList(user.getUserID());
-        Department dept = MyPageLogic.getDepartment(user.getDeptID());
         //リストをjspに渡す
         request.setAttribute("list", list);
-        request.setAttribute("dept", dept);
         request.getRequestDispatcher("/myPage.jsp").forward(request, response);
         }
     }
