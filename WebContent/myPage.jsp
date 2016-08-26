@@ -25,7 +25,6 @@
     }
     </style>
     <!--背景色の変更-->
-    -->
 
 	<%
 	    for (Department dept : deptlist) {

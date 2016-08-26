@@ -19,10 +19,9 @@
     }
     </style>
     <!--背景色の変更-->
-    -->
 
 <form method="POST" accept-charset="UTF-8">
-<h1>以下の内容で申請が完了しました</h1>
+<h1><font color="#808080">以下の内容で申請が完了しました。</font></h1>
 備品ID:<%= request.getParameter("bihinID")%><br>
 備品名:<%= request.getAttribute("bihinName")%><br>
 返却日:<%= request.getAttribute("returnDay")%><br>

@@ -38,7 +38,7 @@
     }
     </style>
     <!--背景色の変更-->
-	-->
+
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
