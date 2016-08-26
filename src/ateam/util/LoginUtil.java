@@ -3,14 +3,6 @@ package ateam.util;
 import javax.servlet.http.HttpSession;
 
 public class LoginUtil {
-    public static boolean searchSession(HttpSession session) {
-        if ( session != null) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
     public static boolean isLogined(HttpSession session){
         return session != null && session.getAttribute("user") != null;
