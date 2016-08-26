@@ -28,6 +28,11 @@
 </head>
 <body>
 	<%@ include file="menu.jsp"%>
+	<style scoped>
+    body{
+    background-color: #FFF0F5;
+    }
+    </style>
 	<%
 	    User user = (User) session.getAttribute("user");
 	%>
@@ -116,6 +121,5 @@
     </fieldset>
 </form> --%>
 
-	<a href="BihinListServlet">備品一覧に戻る</a>
 </body>
 </html>

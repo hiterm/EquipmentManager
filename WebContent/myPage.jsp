@@ -17,16 +17,13 @@
 </head>
 
 <body>
-<<<<<<< Updated upstream
-	<%@ include file="menu.jsp"%>
-=======
+
 <%@ include file="menu.jsp" %>
 <style scoped>
     body{
-    background-color: #F0F8FF;
+    background-color: #FFF0F5;
     }
     </style>
->>>>>>> Stashed changes
 
 	<%
 	    for (Department dept : deptlist) {

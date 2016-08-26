@@ -17,7 +17,7 @@ h1 {
 <br>
 <style scoped>
     body{
-    background-color: #F0F8FF;
+    background-color: #FFF0F5;
     }
     </style>
  <form method="POST" action="LoginServlet" accept-charset="UTF-8">
