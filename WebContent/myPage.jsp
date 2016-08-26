@@ -27,24 +27,11 @@
     <!--背景色の変更-->
 
 	<%
-<<<<<<< Updated upstream
-	    for (Department dept : deptlist) {
-	%>
-	<h4>所属:<%=dept.getDeptName()%></h4>
-	<%
-	    }
-	%>
-	<%
-	    User user = (User) session.getAttribute("user");
-	%>
-=======
 	    User user = (User) session.getAttribute("user");
 	%>
 	<h2>	<%
 			out.println(DepartmentUtil.getDeptName(user.getDeptID()));
 			%></h2>
->>>>>>> Stashed changes
-
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 

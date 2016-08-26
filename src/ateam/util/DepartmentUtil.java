@@ -20,7 +20,7 @@ public class DepartmentUtil {
             deptName = "インターンAチーム";
             break;
         default:
-            deptName = "???";
+            deptName = "未所属";
             break;
         }
         return deptName;
