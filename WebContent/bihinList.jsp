@@ -90,7 +90,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 				<th>ステータス</th>
 				<th>貸出ユーザ名</th>
 				<th>返却予定日</th>
-				<th>申請</th>
+				<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>

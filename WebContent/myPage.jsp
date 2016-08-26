@@ -45,7 +45,7 @@
 				<th>備品ID</th>
 				<th>備品名</th>
 				<th>返却予定日</th>
-				<th>返却ボタン</th>
+				<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
