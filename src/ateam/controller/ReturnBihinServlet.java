@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import ateam.logic.ReturnBihinLogic;
 import ateam.model.User;
+import ateam.util.LoginUtil;
 
 /**
  * Servlet implementation class ReturnBihinServlet
@@ -38,15 +39,18 @@ public class ReturnBihinServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        String bihinID = request.getParameter("bihinID");
-        //String bihinID = request.getParameter("userID");
-        ReturnBihinLogic.returnBihin(user.getUserID() , bihinID);
+        HttpSession session = request.getSession(false);
+        if (!LoginUtil.isLogined(session)) {
+            request.setAttribute("errorMessage", "ログインしてください");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        } else {
+            User user = (User) session.getAttribute("user");
+            String bihinID = request.getParameter("bihinID");
+            //String bihinID = request.getParameter("userID");
+            ReturnBihinLogic.returnBihin(user.getUserID(), bihinID);
 
-        request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
-
+            request.getRequestDispatcher("/returnSuccess.jsp").forward(request, response);
+        }
     }
 
 }

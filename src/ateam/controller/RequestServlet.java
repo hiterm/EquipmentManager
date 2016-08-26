@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import ateam.util.LoginUtil;
 
 /**
  * Servlet implementation class RequestServlet
@@ -38,14 +41,18 @@ public class RequestServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        request.setCharacterEncoding("UTF-8");
-        String bihinName = request.getParameter("bihinName");
-        String bihinID = request.getParameter("bihinID");
-        request.setAttribute("bihinName", bihinName);
-        request.setAttribute("bihinID", bihinID);
-        request.getRequestDispatcher("/request.jsp").forward(request, response);
-
+        HttpSession session = request.getSession(false);
+        if (!LoginUtil.isLogined(session)) {
+            request.setAttribute("errorMessage", "ログインしてください");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        } else {
+            request.setCharacterEncoding("UTF-8");
+            String bihinName = request.getParameter("bihinName");
+            String bihinID = request.getParameter("bihinID");
+            request.setAttribute("bihinName", bihinName);
+            request.setAttribute("bihinID", bihinID);
+            request.getRequestDispatcher("/request.jsp").forward(request, response);
+        }
     }
 
 }

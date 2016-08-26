@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import ateam.logic.RequestLogic;
 import ateam.model.User;
+import ateam.util.LoginUtil;
 
 /**
  * Servlet implementation class RequestChoiceServlet
@@ -42,25 +43,29 @@ public class RequestChoiceServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        String bihinID = request.getParameter("bihinID");
-        String bihinName = request.getParameter("bihinName");
-        String userID = user.getUserID();
-        String returnDayStr = request.getParameter("returnDate");
-        // 空文字判定
-        if (returnDayStr.isEmpty()) {
-            response.sendRedirect("BihinListServlet");
+        HttpSession session = request.getSession(false);
+        if (!LoginUtil.isLogined(session)) {
+            request.setAttribute("errorMessage", "ログインしてください");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
-            Date returnDay = Date.valueOf(returnDayStr);
-            request.setAttribute("returnDay", returnDayStr);
-            request.setAttribute("bihinName", bihinName);
-            if (RequestLogic.requestBihin(bihinID, userID, returnDay)) {
-                request.getRequestDispatcher("/requestSuccess.jsp").forward(request, response);
+            request.setCharacterEncoding("UTF-8");
+            User user = (User) session.getAttribute("user");
+            String bihinID = request.getParameter("bihinID");
+            String bihinName = request.getParameter("bihinName");
+            String userID = user.getUserID();
+            String returnDayStr = request.getParameter("returnDate");
+            // 空文字判定
+            if (returnDayStr.isEmpty()) {
+                response.sendRedirect("BihinListServlet");
             } else {
-                request.getRequestDispatcher("/requestFail.jsp").forward(request, response);
+                Date returnDay = Date.valueOf(returnDayStr);
+                request.setAttribute("returnDay", returnDayStr);
+                request.setAttribute("bihinName", bihinName);
+                if (RequestLogic.requestBihin(bihinID, userID, returnDay)) {
+                    request.getRequestDispatcher("/requestSuccess.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("/requestFail.jsp").forward(request, response);
+                }
             }
         }
     }
