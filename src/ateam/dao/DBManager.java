@@ -152,8 +152,8 @@ public class DBManager {
             }
         }
     }
-    //検索発行（パラメータ１つ）
-    public static <T> List<T> getSearchList(String sql,String pmt, ResultSetBeanMapping<T> mapping) throws SQLException {
+    //検索発行（パラメータ2つ）
+    public static <T> List<T> getSearchList(String sql,String pmt1,String pmt2 ,ResultSetBeanMapping<T> mapping) throws SQLException {
         Connection con = null;
         PreparedStatement smt = null;
         ResultSet rs = null;
@@ -161,7 +161,8 @@ public class DBManager {
         try {
             con = DBManager.getConnection();
             smt = con.prepareStatement(sql);
-            smt.setString(1, pmt+"%");
+            smt.setString(1, pmt1+"%");
+            smt.setString(2, pmt2+"%");
             rs = smt.executeQuery();
 
             List<T> list = new ArrayList<T>();

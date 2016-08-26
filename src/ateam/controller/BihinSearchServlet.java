@@ -46,6 +46,7 @@ public class BihinSearchServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         List<Bihin> list = null;
         String bihinKana = request.getParameter("search");
+        String bihinName = bihinKana;
         String statusName = request.getParameter("status");
 
         int status = BihinSearchLogic.getStatusSearch(statusName);
@@ -62,10 +63,10 @@ public class BihinSearchServlet extends HttpServlet {
         } else {
             /*備品名の検索*/
             if(status == 0){
-                list = BihinSearchLogic.getBihinSeachList(bihinKana);
+                list = BihinSearchLogic.getBihinSeachList(bihinKana,bihinName);
 
             }else{
-                list = BihinSearchLogic.getBihinSearchList(bihinKana, status);
+                list = BihinSearchLogic.getBihinSearchList(bihinKana,bihinName, status);
             }
         }
 

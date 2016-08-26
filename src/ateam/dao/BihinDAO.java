@@ -50,20 +50,20 @@ public class BihinDAO {
         }
     }
     //サーチ(全件表示)
-    public List<Bihin> searchBihin(String bihinKana) {
-        String sql = "SELECT * FROM BihinKanri WHERE bihinKana LIKE ? ORDER BY bihinID ASC ";
+    public List<Bihin> searchBihin(String bihinKana,String bihinName) {
+        String sql = "SELECT * FROM BihinKanri WHERE bihinKana LIKE ? OR bihinName LIKE ? ORDER BY bihinID ASC ";
 
         try {
-            return DBManager.getSearchList(sql, bihinKana , mapping);
+            return DBManager.getSearchList(sql, bihinKana ,bihinName, mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
     }
     //サーチ（ステータス＋名前)
-    public List<Bihin> searchBihin(String bihinKana , int status) {
-        String sql = "SELECT * FROM BihinKanri where status = "+status+" and bihinKana LIKE ? ORDER BY bihinID ASC ";
+    public List<Bihin> searchBihin(String bihinKana ,String bihinName, int status) {
+        String sql = "SELECT * FROM BihinKanri where status = "+status+" and bihinKana LIKE ? OR bihinName LIKE ? ORDER BY bihinID ASC ";
         try {
-            return DBManager.getSearchList(sql,bihinKana,mapping);
+            return DBManager.getSearchList(sql,bihinKana,bihinName,mapping);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
