@@ -125,9 +125,8 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 					</td>
 
 					<!-- 返却日がなかったら---を表示 -->
-					<% Date today = new Date(System.currentTimeMillis());
-					Date returnDay = bihin.getReturnDay(); %>
- 					<td <% if (returnDay != null && today.compareTo(returnDay) > 0) { %>
+					<!-- 返却日を過ぎていたら赤くする -->
+ 					<td <% if (BihinUtil.isOverdue(bihin)) { %>
 					class="text_overdue"
 					<% } %>>
 						<%
