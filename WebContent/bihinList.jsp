@@ -16,6 +16,8 @@
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.floatThead.min.js"></script>
 
 </head>
 <body>
@@ -86,7 +88,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 
 	<div class="margin">
 
-	<table class="pure-table pure-table-striped">
+	<table class="pure-table pure-table-striped bihinList">
 	<%
 	    if (list.size() != 0) {
 	%>
@@ -159,6 +161,11 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 	<%
 	}
 %>
+
+<script type="text/javascript">
+var $table = $('table.bihinList');
+$table.floatThead();
+</script>
 
 </body>
 </html>
