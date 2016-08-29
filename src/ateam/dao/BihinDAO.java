@@ -74,7 +74,7 @@ public class BihinDAO {
 
     //ステータス変更(返却)
     public int update(String userID, String bihinID) {
-        String sql = "UPDATE BihinKanri SET status = 1 ,userID = NULL , returnDay =  NULL WHERE userID = ? and bihinID = ?";
+        String sql = "UPDATE BihinKanri SET status = "+Bihin.AVAILABLE+" ,userID = NULL , returnDay =  NULL WHERE userID = ? and bihinID = ?";
         try {
             return DBManager.doUpdate(sql, userID, bihinID);
         } catch (SQLException e) {
@@ -84,7 +84,7 @@ public class BihinDAO {
 
     //ステータス変更(貸出)
     public int update(String bihinID, String userID, Date returnDay) {
-        String sql = "UPDATE BihinKanri SET status = 2 ,userID = ? , returnDay = ? WHERE bihinID = ?";
+        String sql = "UPDATE BihinKanri SET status = "+Bihin.USED+" ,userID = ? , returnDay = ? WHERE bihinID = ?";
         try {
             return DBManager.doUpdate(sql, userID, returnDay, bihinID);
         } catch (SQLException e) {
