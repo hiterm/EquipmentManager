@@ -51,7 +51,12 @@ public class RequestServlet extends HttpServlet {
             String bihinID = request.getParameter("bihinID");
             request.setAttribute("bihinName", bihinName);
             request.setAttribute("bihinID", bihinID);
-            request.getRequestDispatcher("/request.jsp").forward(request, response);
+            if(bihinName != null) {
+                request.getRequestDispatcher("/request.jsp").forward(request, response);
+            }
+            else {
+                request.getRequestDispatcher("/MyPageServlet").forward(request, response);
+            }
         }
     }
 
