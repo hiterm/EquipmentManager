@@ -78,7 +78,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 				<% } %>>
 			<!--inputここまで -->
 
-			<button type="submit" class="pure-button">検索</button>
+			<button type="submit" class="pure-button" style="border:2px solid #FA5858;">検索</button>
 	</fieldset>
 	</form>
 
@@ -132,7 +132,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 							<input type="hidden" name="bihinName"
 								value="<%=bihin.getBihinName()%>"> <input type="hidden"
 								name="bihinID" value="<%=bihin.getBihinID()%>">
-							<button type="submit" class="pure-button"
+							<button type="submit" class="pure-button"  style="border:2px solid #0000FF;"
 								<%if (bihin.getStatus() == 2) {%> disabled <%}%>>申請</button>
 						</form>
 					</td>
