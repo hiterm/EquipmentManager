@@ -16,7 +16,7 @@ public class LogUtil {
         try {
             File file = new File("C:\\pleiades\\pleiades\\workspace\\EquipmentManager\\WebContent\\WEB-INF\\log\\log.txt");
             Date date = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
             UserDAO userdao = UserDAO.getInstance();
             User user = userdao.getUser(userID);
             BihinDAO bihindao = BihinDAO.getInstance();
