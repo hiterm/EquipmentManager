@@ -1,3 +1,7 @@
 .text_overdue {
 	color: #ff0000;
 }
+
+.pure-table {
+  border-collapse:  separate;
+}
