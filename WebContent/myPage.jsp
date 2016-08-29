@@ -14,6 +14,8 @@
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.floatThead.min.js"></script>
 
 <title>マイページ</title>
 
@@ -34,15 +36,15 @@
 	%>
 	<h4>
 		所属:<%
-		    out.println(DepartmentUtil.getDeptName(user.getDeptID()));
-		%>
+	    out.println(DepartmentUtil.getDeptName(user.getDeptID()));
+	%>
 	</h4>
 	<h2><%=user.getUserName()%>さんのマイページ
 	</h2>
 
 	<h3>借りている備品一覧</h3>
 
-	<table class="pure-table pure-table-striped">
+	<table class="pure-table pure-table-striped bihinList">
 
 		<%
 		    if (list.size() != 0) {
@@ -58,7 +60,9 @@
 		</thead>
 		<tbody>
 
-		<% Date today = new Date(System.currentTimeMillis()); %>
+			<%
+			    Date today = new Date(System.currentTimeMillis());
+			%>
 
 			<%
 			    for (int i = 0; i < list.size(); i++) {
@@ -67,11 +71,8 @@
 			<tr>
 				<td><%=bihin.getBihinID()%></td>
 				<td><%=bihin.getBihinName()%></td>
-				<td <% if (today.compareTo(bihin.getReturnDay()) > 0) { %>
-				class="text_overdue"
-				<% } %>>
-				<%=bihin.getReturnDay()%>
-				</td>
+				<td <%if (today.compareTo(bihin.getReturnDay()) > 0) {%>
+					class="text_overdue" <%}%>><%=bihin.getReturnDay()%></td>
 				<td>
 					<form method="POST" action="ReturnBihinServlet"
 						onsubmit="return submitChk()" accept-charset="UTF-8">
@@ -90,7 +91,8 @@
 								return flag;
 							}
 						</script>
-						<button type="submit" class="pure-button" style="border:2px solid #04B431;">返却</button>
+						<button type="submit" class="pure-button"
+							style="border: 2px solid #04B431;">返却</button>
 
 
 
@@ -106,10 +108,15 @@
 	<%
 	    } else {
 	%>
-		<font size="5">現在借りている備品はありません</font>
+	<font size="5">現在借りている備品はありません</font>
 	<%
 	    }
 	%>
+
+	<script type="text/javascript">
+		var $table = $('table.bihinList');
+		$table.floatThead();
+	</script>
 
 	<!--  <a href="LogoutServlet">ログアウト</a>
  <br>
