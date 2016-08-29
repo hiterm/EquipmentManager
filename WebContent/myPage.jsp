@@ -90,7 +90,7 @@
 								return flag;
 							}
 						</script>
-						<button type="submit" class="pure-button">返却</button>
+						<button type="submit" class="pure-button" style="border:2px solid #04B431;">返却</button>
 
 
 

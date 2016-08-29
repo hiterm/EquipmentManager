@@ -91,7 +91,9 @@
 			}
 		</script>
 		<br>
-		<button type="submit" class="pure-button">申請</button>
+		<br>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button type="submit" class="pure-button" style="border:2px solid #0000FF;">申請</button>
 
 	</form>
 
