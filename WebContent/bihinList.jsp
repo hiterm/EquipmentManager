@@ -4,6 +4,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="ateam.util.BihinUtil"%>
 <%@ page import="ateam.util.UserUtil"%>
+<%@ page import="java.sql.Date"%>
 <%
     List<Bihin> list = (List<Bihin>) request.getAttribute("bihinList");
 %>
@@ -14,6 +15,7 @@
 <title>備品一覧</title>
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" type="text/css" href="CSS/style.css">
 
 </head>
 <body>
@@ -121,7 +123,11 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 					</td>
 
 					<!-- 返却日がなかったら---を表示 -->
-					<td>
+					<% Date today = new Date(System.currentTimeMillis());
+					Date returnDay = bihin.getReturnDay(); %>
+ 					<td <% if (returnDay != null && today.compareTo(returnDay) > 0) { %>
+					class="text_overdue"
+					<% } %>>
 						<%
 					    out.println(BihinUtil.getReturnDayStr(bihin.getReturnDay()));
 					%>
