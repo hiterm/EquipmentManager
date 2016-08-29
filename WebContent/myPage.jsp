@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page
@@ -12,6 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" type="text/css" href="CSS/style.css">
+
 <title>マイページ</title>
 
 </head>
@@ -55,6 +58,8 @@
 		</thead>
 		<tbody>
 
+		<% Date today = new Date(System.currentTimeMillis()); %>
+
 			<%
 			    for (int i = 0; i < list.size(); i++) {
 								Bihin bihin = list.get(i);
@@ -62,7 +67,11 @@
 			<tr>
 				<td><%=bihin.getBihinID()%></td>
 				<td><%=bihin.getBihinName()%></td>
-				<td><%=bihin.getReturnDay()%></td>
+				<td <% if (today.compareTo(bihin.getReturnDay()) > 0) { %>
+				class="text_overdue"
+				<% } %>>
+				<%=bihin.getReturnDay()%>
+				</td>
 				<td>
 					<form method="POST" action="ReturnBihinServlet"
 						onsubmit="return submitChk()" accept-charset="UTF-8">
