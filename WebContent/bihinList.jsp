@@ -141,7 +141,7 @@ String prevStatusName = (String) request.getAttribute("statusName"); %>
 								value="<%=bihin.getBihinName()%>"> <input type="hidden"
 								name="bihinID" value="<%=bihin.getBihinID()%>">
 							<button type="submit" class="pure-button"  style="border:2px solid #0000FF;"
-								<%if (bihin.getStatus() == 2) {%> disabled <%}%>>申請</button>
+								<%if (bihin.getStatus() != Bihin.AVAILABLE) {%> disabled <%}%>>申請</button>
 						</form>
 					</td>
 				</tr>
