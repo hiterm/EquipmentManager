@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page
 	import="java.io.*,java.util.*,java.text.*, ateam.model.Bihin, ateam.model.User"%>
+
+<% String errorMessage = (String) request.getAttribute("errorMessage");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,9 +61,15 @@
 	備品名:
 	<%=request.getAttribute("bihinName")%><br>
 	<br>
+	<% if(errorMessage != null){ %>
+	<font color="red">
+		<% out.println(errorMessage);%>
+	</font>
+	<% }%>
+	<br>
 	<form method="POST" name="requestForm" action="RequestChoiceServlet"
 		onsubmit="return submitChk()" accept-charset="UTF-8">
-		返却日：<input type="text" name="returnDate" id="datepicker"> <input
+		返却日：<input type="text" name="returnDate" id="datepicker" readonly="readonly"> <input
 			type="hidden" name="bihinID"
 			value="<%=request.getAttribute("bihinID")%>"> <input
 			type="hidden" name="bihinName"
