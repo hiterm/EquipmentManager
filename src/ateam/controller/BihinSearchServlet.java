@@ -61,14 +61,14 @@ public class BihinSearchServlet extends HttpServlet {
                 /*ステータスの更新*/
                 //System.out.println("ステータス:" + status + "カナ:" + bihinKana);
 
-                if (status == 0) {
+                if (status == Bihin.OTHER) {
                     list = BihinListLogic.getAllBihinList();
                 } else {
                     list = BihinSearchLogic.getBihinSearchList(status);
                 }
             } else {
                 /*備品名の検索*/
-                if (status == 0) {
+                if (status == Bihin.OTHER) {
                     list = BihinSearchLogic.getBihinSeachList(bihinKana, bihinName);
 
                 } else {

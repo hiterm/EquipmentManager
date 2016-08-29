@@ -8,7 +8,7 @@ public class ReturnBihinLogic {
    synchronized public static boolean returnBihin(String userID, String bihinID) {
         BihinDAO dao = BihinDAO.getInstance();
         Bihin bihin = dao.getBihin(bihinID);
-        if(bihin.getStatus() == 2) {
+        if(bihin.getStatus() == Bihin.USED) {
             dao.update(userID, bihinID);
             LogUtil.createLogDate(userID, bihinID);
             return true;

@@ -10,6 +10,13 @@ public class Bihin {
     private String userID;
     private Date returnDay;
 
+    //ステータス定数
+    public static final int AVAILABLE = 1;
+    public static final int USED = 2;
+    public static final int RETURNED = 3;
+    public static final int PENDING = 4;
+    public static final int OTHER = 0;
+
     public String getBihinID() {
         return bihinID;
     }

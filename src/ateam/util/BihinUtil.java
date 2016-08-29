@@ -10,16 +10,16 @@ public class BihinUtil {
     public static String getStatusStr(int status) {
         String statusName = null;
         switch (status) {
-        case 1:
+        case Bihin.AVAILABLE:
             statusName = "利用可能";
             break;
-        case 2:
+        case Bihin.USED:
             statusName = "貸出中";
             break;
-        case 3:
+        case Bihin.RETURNED:
             statusName = "返却済み";
             break;
-        case 4:
+        case Bihin.PENDING:
             statusName = "貸出申請中";
             break;
         default:

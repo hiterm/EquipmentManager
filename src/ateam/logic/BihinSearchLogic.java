@@ -31,13 +31,13 @@ public class BihinSearchLogic {
         int status;
         switch (statusName) {
         case "success":
-            status = 1;
+            status = Bihin.AVAILABLE;
             break;
         case "fail":
-            status = 2;
+            status = Bihin.USED;
             break;
         default:
-            status = 0;
+            status = Bihin.OTHER;
             break;
         }
         return status;
