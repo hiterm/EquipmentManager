@@ -25,12 +25,11 @@
 <body>
 
 	<%@ include file="menu.jsp"%>
-	<!--<style scoped>
-    body{
-    background-color: #FFF5EE;
-    }
+	<style scoped>
+    .margin {
+	border: solid 1px #FFFFFF;
+	margin: 10px;
     </style>
-    <!--背景色の変更-->
 
 	<%
 	    User user = (User) session.getAttribute("user");
@@ -45,7 +44,8 @@
 
 	<h3>借りている備品一覧</h3>
 
-	<table class="pure-table pure-table-striped bihinList">
+    <div class="margin">
+	    <table class="pure-table pure-table-striped bihinList">
 
 		<%
 		    if (list.size() != 0) {
@@ -101,7 +101,8 @@
 			%>
 			<!-- forここまで -->
 		</tbody>
-	</table>
+	    </table>
+	</div>
 	<%
 	    } else {
 	%>
