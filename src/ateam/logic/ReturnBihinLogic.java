@@ -1,10 +1,18 @@
 package ateam.logic;
 
 import ateam.dao.BihinDAO;
+import ateam.model.Bihin;
+import ateam.util.LogUtil;
 
 public class ReturnBihinLogic {
-    public static void returnBihin(String userID, String bihinID) {
+   synchronized public static boolean returnBihin(String userID, String bihinID) {
         BihinDAO dao = BihinDAO.getInstance();
-        dao.update(userID, bihinID);
+        Bihin bihin = dao.getBihin(bihinID);
+        if(bihin.getStatus() == 2) {
+            dao.update(userID, bihinID);
+            LogUtil.createLogDate(userID, bihinID);
+            return true;
+        }
+        return false;
     }
 }
