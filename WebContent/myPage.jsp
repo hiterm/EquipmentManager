@@ -1,3 +1,4 @@
+<%@page import="ateam.util.BihinUtil"%>
 <%@page import="java.sql.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -61,17 +62,13 @@
 		<tbody>
 
 			<%
-			    Date today = new Date(System.currentTimeMillis());
-			%>
-
-			<%
 			    for (int i = 0; i < list.size(); i++) {
 								Bihin bihin = list.get(i);
 			%>
 			<tr>
 				<td><%=bihin.getBihinID()%></td>
 				<td><%=bihin.getBihinName()%></td>
-				<td <%if (today.compareTo(bihin.getReturnDay()) > 0) {%>
+				<td <%if (BihinUtil.isOverdue(bihin)) {%>
 					class="text_overdue" <%}%>><%=bihin.getReturnDay()%></td>
 				<td>
 					<form method="POST" action="ReturnBihinServlet"
