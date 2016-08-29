@@ -38,7 +38,7 @@ create table departmentKanri (
 );
 
 /*データ追加*/
-insert into departmentKanri values('D001','会計','カイケイ');
+insert into departmentKanri values('D001','経理部','ケイリブ');
 insert into departmentKanri values('D002','総務部','ソウムブ');
 insert into departmentKanri values('D003','営業部','エイギョウブ');
 insert into departmentKanri values('D004','人事部','ジンジブ');
