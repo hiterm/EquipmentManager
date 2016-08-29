@@ -4,8 +4,14 @@ create database bihin;
 use bihin;
 
 /*テーブル作成(備品管理)*/
-create table bihinKanri(bihinID varchar(20) not null primary key, bihinName varchar(50) not null,
-bihinKana varchar(100) not null, status int not null, userID varchar(20), returnDay date);
+create table bihinKanri (
+    bihinID varchar(20) not null primary key,
+    bihinName varchar(50) not null,
+    bihinKana varchar(100) not null,
+    status int not null,
+    userID varchar(20),
+    returnDay date
+);
 
 /*データ追加*/
 insert into bihinKanri values('B001','ホワイトボード','ホワイトボード',1,null,null);
@@ -25,8 +31,11 @@ insert into bihinKanri values('B014','封筒小','フウトウショウ',1,null,
 insert into bihinKanri values('B015','扇風機','センプウキ',1,null,null);
 
 /*テーブル作成(部署管理)*/
-create table departmentKanri(deptID varchar(20) not null primary key, deptName varchar(50) not null,
-deptKana varchar(100) not null);
+create table departmentKanri (
+    deptID varchar(20) not null primary key,
+    deptName varchar(50) not null,
+    deptKana varchar(100) not null
+);
 
 /*データ追加*/
 insert into departmentKanri values('D001','会計','カイケイ');
@@ -35,13 +44,13 @@ insert into departmentKanri values('D003','営業部','エイギョウブ');
 insert into departmentKanri values('D004','人事部','ジンジブ');
 insert into departmentKanri values('D005','企画部','キカクブ');
 
-CREATE TABLE userKanri (
-    userID VARCHAR(20) NOT NULL DEFAULT '0' PRIMARY KEY,
-    password VARCHAR(50) NOT NULL,
-    userName VARCHAR(50) NOT NULL,
-    userKana VARCHAR(100) NOT NULL,
-    deptID VARCHAR(20) NOT NULL,
-    authority INT NOT NULL
+create table userKanri (
+    userID varchar(20) not null default '0' primary key,
+    password varchar(50) not null,
+    userName varchar(50) not null,
+    userKana varchar(100) not null,
+    deptID varchar(20) not null,
+    authority int not null
 );
 
 insert into userKanri values('U001','A0000001','田中','タナカ','D001',1),
