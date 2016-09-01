@@ -36,8 +36,8 @@ public class UserTest extends TestCase {
 
     public void testGetAuthority(){
         User user = new User();
-        user.setAuthority(111);
-        assertEquals(111,user.getAuthority());
+        user.setAuthority(1);
+        assertEquals(1,user.getAuthority());
     }
 
 }
