@@ -2,16 +2,17 @@ package ateam.test.logic;
 
 import java.util.List;
 
-import ateam.dao.BihinDAO;
 import ateam.logic.BihinSearchLogic;
 import ateam.model.Bihin;
 import junit.framework.TestCase;;
 
 public class BihinSearchLogicTest extends TestCase{
     public void testGetBihinSearchList(){
-        BihinDAO dao = BihinDAO.getInstance();
-        List<Bihin> list = dao.searchBihin(1);
-        assertEquals(list.size() ,  BihinSearchLogic.getBihinSearchList(1).size());
+        List<Bihin> list = BihinSearchLogic.getBihinSearchList(1);
+        assertEquals(14 , list.size());
+        assertEquals("B001", list.get(0).getBihinID());
+        assertEquals("B002", list.get(1).getBihinID());
+        assertEquals("B003", list.get(2).getBihinID());
 
     }
 
