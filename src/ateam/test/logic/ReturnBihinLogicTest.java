@@ -1,5 +1,7 @@
 package ateam.test.logic;
 
-public class ReturnBihinLogicTest {
+import junit.framework.TestCase;
+
+public class ReturnBihinLogicTest extends TestCase{
 
 }

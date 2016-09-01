@@ -1,5 +1,7 @@
 package ateam.test.controller;
 
-public class RequestServletTest {
+import junit.framework.TestCase;
+
+public class RequestServletTest extends TestCase{
 
 }

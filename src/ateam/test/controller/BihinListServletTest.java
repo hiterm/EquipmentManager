@@ -1,5 +1,7 @@
 package ateam.test.controller;
 
-public class BihinListServletTest {
+import junit.framework.TestCase;
+
+public class BihinListServletTest extends TestCase{
 
 }

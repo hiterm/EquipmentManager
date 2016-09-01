@@ -1,5 +1,7 @@
 package ateam.test.controller;
 
-public class LogoutServletTest {
+import junit.framework.TestCase;
+
+public class LogoutServletTest extends TestCase{
 
 }

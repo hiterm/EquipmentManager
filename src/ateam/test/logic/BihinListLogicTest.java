@@ -1,5 +1,7 @@
 package ateam.test.logic;
 
-public class BihinListLogicTest {
+import junit.framework.TestCase;
+
+public class BihinListLogicTest extends TestCase{
 
 }

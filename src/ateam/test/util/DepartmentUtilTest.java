@@ -1,5 +1,7 @@
 package ateam.test.util;
 
-public class DepartmentUtilTest {
+import junit.framework.TestCase;
+
+public class DepartmentUtilTest extends TestCase{
 
 }

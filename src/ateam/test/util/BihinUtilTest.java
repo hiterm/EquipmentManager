@@ -1,5 +1,7 @@
 package ateam.test.util;
 
-public class BihinUtilTest {
+import junit.framework.TestCase;
+
+public class BihinUtilTest extends TestCase{
 
 }

@@ -1,5 +1,7 @@
 package ateam.test.logic;
 
-public class MyPageLogicTest {
+import junit.framework.TestCase;
+
+public class MyPageLogicTest extends TestCase{
 
 }

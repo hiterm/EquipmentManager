@@ -1,5 +1,7 @@
 package ateam.test.util;
 
-public class LogUtilTest {
+import junit.framework.TestCase;
+
+public class LogUtilTest extends TestCase{
 
 }

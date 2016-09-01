@@ -1,5 +1,7 @@
 package ateam.test.logic;
 
-public class LoginLogicTest {
+import junit.framework.TestCase;
+
+public class LoginLogicTest extends TestCase{
 
 }
