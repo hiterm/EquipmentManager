@@ -1,10 +1,13 @@
 package ateam.test.model;
 
-public class userTest {
-    void test Get Name(){
+import ateam.model.User;
+import junit.framework.TestCase;
+
+public class userTest extends TestCase {
+    void testGetName(){
         User user = new User();
-        user setName("XXX");
-        assertEqwolk("XXX",user.getName());
+        user.setUserName("XXX");
+        assertEquals("XXX",user.getUserName());
     }
 
 }
