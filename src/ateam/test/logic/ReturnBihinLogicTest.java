@@ -13,6 +13,8 @@ public class ReturnBihinLogicTest extends TestCase{
         RequestLogic.requestBihin("B002", "U002",date );
         boolean bool = ReturnBihinLogic.returnBihin("U002", "B002");
         assertTrue(bool);
+        boolean secondBool = ReturnBihinLogic.returnBihin("U001", "B005");
+        assertFalse(secondBool);
 
     }
 
